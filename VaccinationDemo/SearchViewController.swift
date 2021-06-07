@@ -90,10 +90,10 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
     let cellReuseIdentifier = "qrRecordCell"
     
     // Chan Tai Man
-//    let testingRootHash = "cae205b9e2e59603f8a47681bab22f77689dddcaa1ff3be62fb040a056555c5c"
+    let testingRootHash = "cae205b9e2e59603f8a47681bab22f77689dddcaa1ff3be62fb040a056555c5c"
     
     // Chan Siu Man
-    let testingRootHash = "151dc20e365a1c90ae004172f528f7d140931ce73815995b4d46983f4d098e13"
+//    let testingRootHash = "151dc20e365a1c90ae004172f528f7d140931ce73815995b4d46983f4d098e13"
     
     
     override func viewDidLoad() {
@@ -233,6 +233,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
     
     public func verifyData(qrData:QRJson) -> Bool{
         // if changed to dynamic array, just check if the 'id_n' is not nil or 'leaf_id_n' is not nil
+        // add a while loop and while the id is true contiune
         var qrhash = ""
         var qrhashPI = ""
         var qrhashVR = ""

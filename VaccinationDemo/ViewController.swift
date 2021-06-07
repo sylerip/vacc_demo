@@ -738,8 +738,8 @@ class MainViewController: UIViewController {
         if let fvp = root.child(withType: .FVP) {
             fvp.needsHashFlags = true
         }
-        if let fvn = root.child(withType: .SVN) {
-            fvn.needsHashFlags = true
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = true
         }
         if let svln = root.child(withType: .SVLN) {
             svln.needsHashFlags = true
@@ -771,29 +771,37 @@ class MainViewController: UIViewController {
         }
         if let dn = root.child(withType: .DN) {
             
-            dn.needsHashFlags = false
+            dn.needsHashFlags = true
+        }
+        if let dnf = root.child(withType: .DNF) {
+            
+            dnf.needsHashFlags = false
+        }
+        if let dnl = root.child(withType: .DNL) {
+            
+            dnl.needsHashFlags = true
         }
         
         if let fvn = root.child(withType: .FVN) {
-            fvn.needsHashFlags = false
+            fvn.needsHashFlags = true
         }
         if let fvln = root.child(withType: .FVLN) {
-            fvln.needsHashFlags = false
+            fvln.needsHashFlags = true
         }
         if let fvd = root.child(withType: .FVD) {
-            fvd.needsHashFlags = false
+            fvd.needsHashFlags = true
         }
         if let fvp = root.child(withType: .FVP) {
-            fvp.needsHashFlags = false
+            fvp.needsHashFlags = true
         }
-        if let fvn = root.child(withType: .SVN) {
-            fvn.needsHashFlags = true
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = true
         }
         if let svln = root.child(withType: .SVLN) {
             svln.needsHashFlags = true
         }
         if let svd = root.child(withType: .SVD) {
-            svd.needsHashFlags = true
+            svd.needsHashFlags = false
         }
         if let svp = root.child(withType: .SVP) {
             svp.needsHashFlags = true
@@ -834,8 +842,8 @@ class MainViewController: UIViewController {
         if let fvp = root.child(withType: .FVP) {
             fvp.needsHashFlags = false
         }
-        if let fvn = root.child(withType: .SVN) {
-            fvn.needsHashFlags = false
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = false
         }
         if let svln = root.child(withType: .SVLN) {
             svln.needsHashFlags = false
