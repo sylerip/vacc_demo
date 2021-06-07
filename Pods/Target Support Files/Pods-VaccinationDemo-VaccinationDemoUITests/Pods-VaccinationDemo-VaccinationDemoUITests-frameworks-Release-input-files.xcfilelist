@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework
+${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework
