@@ -426,7 +426,13 @@ class MainViewController: UIViewController {
         guard let `root` = root else { return }
         
         if qrCodeView.superview == nil {
-            
+            //  v date always show
+//            if let fvd = root.child(withType: .FVD) {
+//                fvd.needsHashFlags = false
+//            }
+//            if let svd = root.child(withType: .SVD) {
+//                svd.needsHashFlags = false
+//            }
             
             root.calcHashValue()
             

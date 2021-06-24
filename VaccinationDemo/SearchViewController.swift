@@ -12,7 +12,7 @@ import UIKit
 import QRCodeReader
 import SwiftyRSA
 
-struct QRJson: Decodable {
+struct QRJson: Codable {
 //    enum Category: String, Decodable {
 //        case swift, combine, debugging, xcode
 //    }
@@ -36,7 +36,7 @@ struct QRJson: Decodable {
 //    let Test_1_2:String?
 //    let CFN:String?
 //    let CGN:String?
-    var ScanTime:Date?
+    var ScanTime:String?
     var validFlag: Bool?
     
     
@@ -111,21 +111,6 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
 //        verifyDataTest()
     }
     
-//    private func getRootHash () ->String{
-//        var string = ""
-//        do{
-//            let key = try PrivateKey(data:"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLlmmVLUmtUn5PQAXribP4MT2IImkYZNCd+k0mxFcnaBcf3NXYbYrbxl4Zws+qpPmU+9PndtuRtoee8tthwlG2D/w2JMDmn7A6kPc4iZVK91wf49lTRZYESM889JNK8KAvT2ZMkSD845N5p3MWIPe8MiWyT44M3z/0w3MxaPYVxqvN0AytEr6QTdgZhCtkxzrkIHPY97fR5QlGGlkAx389JjX2/SfhHv7K8mEQxM/M6U2kAZA0aUWSJbBs1sDdmlVSwKVuEQEY8dnys79aCgX/1nvAtVYNHnPdkSo3nQphdNw7mVqXQM75piTnouyf/mn7RtCR+GxpE63rWO/n2UEDAgMBAAECggEAGNuatK486r7B0Wdd0a6UnN9WRgL9lg7pMgDX3r3mbldVS3ypV624YLFN2BNjS9Cs8LX237IxiQ8ibBP3GW6ij3pQL0Q5kW86E0yUAwE5i1e8leA6LuK2OHuzYhvyyBmtVVl6girOPlKDNT1u3erUlNQCqkzwaT3xDy+2JvhL48iQeTDqrzPJplUkCiNDmbODrgVQ0Bk/IhTQLkOvT6z/McxrkmFTLSF+qM59lAvJMl1F9BGzu6djRwArdSUlP3PNKIqg4laR7SgJ3dBtj0lzyy9Yc4sIugbVJI+hVJHDUsOUmZ1/qejPWOx7bb/Rt/SwBn3It97XRpn40JW4qZ+WcQKBgQDqFqOfRStmUfmx290HkTFScy30bJ4rjs8+rZdmTPzQgC8Ug8xni3y/wrzvy0IbKYJWWSqT/5D8RfyLUVj89O02TV8m8fQCnnnIa/X75eoWAt4mRlU9nvIt9BY43Y1IL73ITLDcmaP/IQUO81zAsssmf0jREnGHeKNJHFf4isVZFQKBgQDepOTE7qOO8imWjkuF8nRFrkasjPrP6iYptJrT4eoSJNLfM28FnVafs8buBe5JddSf2OUyKmEuqvBP/6ORNuUm0Ou3yJdzcy0L5oQR6DktM1HsUunoiVD2ZjltN+xQmxFhMAptPuzQ0II79ArPu5mCuhARGtSIwZAVpIBRibsHtwKBgQCGErFkZ5mT4R/CXssZqm81agLIG+37xK+uln5AeZfTU5ejiFlqdNneewr7zM7v/7ZG/osEeTvxQaSDpvPw7ddvYqE9DRdU6K+Xuz4IKIcKVFooUeBAiujqqQKRT1O8JJvuPP6PWvAzEBZ1ma1mMQFp6z0pggbEMLRVC4bXM6QUgQKBgQCAs1j67efmLd4UhdTqbSkBTqjT/frOTVAaM6h8as9gBaFQHO9Ek5sLXmTUGuGP3Wk3ra1vvkfHLlEULXZj7xOvyH06E95Ygm+7vVkC8PZ8RnpI3fUQ0q/Wf2ka1YTpY3o8cATW+dTzMFTYS04knxEyHFRFTvkkxJ+Bo0H54GAZKQKBgFC8ZDX+nV7mTzjFz+6UH3i/tHpRWULH90e/yWpM/+wmDEaPeIN8k95nMnTEw0sskDkvum7QDmyKf9oaQHjgPhNpbWGar9W/CpsnIBI96Lb8wj/7OVb99fh4cgkZRyS5HWT0MEyu4WlWj32HAfkOIRLIn831HbCu63Uj8RSoBj1p".data(using: .utf8)!)
-//        let encrypted = try EncryptedMessage(base64Encoded: "xJtM4wu5N++XvdRcJ4v8kJWSOxOvs6OZ/zVwczsoEL8jliD6jLGytRfgAEwB2/e04HGL86MVMBSVhG3Nco/TgGAmCsHq/yUWC1AHGoTEV6Uq+Ci3ttsbtHtYFYoKdSvxcBiT3niivgcVpVyA+DPyXasTNbe0fTA+H6HqZk8a6xa6KfDJx3e48vI+Cj7LZWGFDKAXKe28ZeOob5zYTWC8hi7jO1K400aC8I2BTP+DAg1RonSMl/BT7kNwf4GRORCR2rQT9o4HRJTyGMSU4vSGhsfy6gs2lDenVvi7WQ/iEGa3sEY143BQBykfAv5YWPHVFJnuiEmJNe3nOTa5o0AgdA==")
-//        let clear = try encrypted.decrypted(with: key, padding: .PKCS1)
-//        let data = clear.data
-//        let base64String = clear.base64String
-//            string = try clear.string(encoding: .utf8)
-//
-//        } catch {
-//                print("Decript error")
-//        }
-//        return string
-//    }
     
     private func setupNavigation() {
         self.navigationController?.navigationBar.isTranslucent = false
@@ -171,11 +156,31 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                 print("Completion with result: \(result.value) of type \(result.metadataType)")
                 let jsonData = result.value.data(using: .utf8)!
                 do {
+                    try JSONDecoder().decode(QRJson.self, from: jsonData)
+                } catch let error {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Please use a valid QR code", message: nil, preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
+                do {
                     var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+                    
+                    
                     print(qrJson.engGivenName)
-                    qrJson.ScanTime = Date()
-                    qrJson.validFlag =  self.verifyData(qrData: qrJson)
-                    print(qrJson.validFlag)
+//                    qrJson.ScanTime = Date()
+//                    print("Time :    ")
+//                    print(qrJson.ScanTime)
+//                    qrJson.validFlag =  self.verifyData(qrData: qrJson)
+//                    print(qrJson.validFlag)
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy/MM/dd hh:mm:ss"
+                    df.timeZone = TimeZone.current
+                    let now = df.string(from: Date())
+                    print(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
                     if (self.fakeQR(qrJson: qrJson)) {
                         // create the alert
                         print("invalid code")
@@ -188,16 +193,20 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                     } else {
                         if ( self.defaults.object(forKey: "qr_record") != nil) {
                             var arr = self.defaults.object(forKey: "qr_record")as? [String] ?? [String]()
-                            arr.append(result.value)
+//                            arr.append(result.value)
+                            arr.append(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
                             self.defaults.set(arr,forKey: "qr_record")
 
                         }
                         else {
                             var arr = [String]()
-                            arr.append(result.value)
+                            
+//                            arr.append(result.value)
+                            arr.append(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
                             self.defaults.set(arr,forKey: "qr_record")
                         }
                         self.tableview.reloadData()
+                        self.scrollToBottom()
     //                    let dataFieldModel = DataFieldModel.createQR(qr: qrJson);
     //                    if ( self.defaults.object(forKey: "qr_record") != nil) {
     //                        var arr = self.defaults.object(forKey: "qr_record")as? [DataFieldModel] ?? [DataFieldModel]()
@@ -219,11 +228,17 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                 
             }
         }
-
+        
         // Presents the readerVC as modal form sheet
         present(readerVC, animated: true, completion: nil)
     }
-    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            var arr = self.defaults.object(forKey: "qr_record")as? [String] ?? [String]()
+            let indexPath = IndexPath(row: arr.count-1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
     func fakeQR(qrJson:QRJson) -> Bool {
         if (qrJson.engFamilyName != nil || qrJson.engFamilyName != "" || qrJson.PI_node_1 != nil || qrJson.PI_node_1 != "" || qrJson.PI_node != nil || qrJson.PI_node != "") {
             return false
@@ -342,8 +357,9 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
 
 //            cell.imageView?.frame = CGRect(x: 0,y: 0,width: 20,height: 20)
 //            cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-            cell.textLabel?.text = dateFormatter.string(from: qrJson.ScanTime ?? Date())
-            if qrJson.engGivenNameFirstLetter ?? "" == "" {
+            print(qrJson.ScanTime)
+            cell.textLabel?.text = qrJson.ScanTime ?? "***"
+            if qrJson.engFamilyName ?? "" == "" {
                 cell.textLabel?.text! += "\n*****"
             } else {
                 cell.textLabel?.text! += "\n" + (qrJson.engFamilyName ?? "*****") + ", "

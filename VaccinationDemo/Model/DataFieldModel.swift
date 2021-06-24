@@ -45,13 +45,16 @@ class DataFieldModel {
                 timeInterval -= 3600.0 * 24 * 7
                 let start = Date.init(timeIntervalSince1970: timeInterval)
                 value = "\(VaccDateFormatter.string(from: start)) - \(VaccDateFormatter.string(from: date))"
+                needsHashFlags = false
             case .month:
                 var timeInterval = date.timeIntervalSince1970
                 timeInterval -= 3600.0 * 24 * 30
                 let start = Date.init(timeIntervalSince1970: timeInterval)
                 value = "\(VaccDateFormatter.string(from: start)) - \(VaccDateFormatter.string(from: date))"
+                needsHashFlags = false
             case .hide:
                 value = VaccDateFormatter.string(from: date)
+                
             }
         }
     }
