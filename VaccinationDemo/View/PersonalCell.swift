@@ -116,6 +116,76 @@ class PersonalCell: BaseContentCell {
             maker.left.equalTo(docNoTitle)
             maker.top.equalTo(docNoTitle.snp.bottom).offset(VerticalPixel(15))
             maker.right.equalToSuperview().offset(HorizontalPixel(-25))
+//            maker.bottom.equalToSuperview().offset(VerticalPixel(-25))
+        }
+        
+        let docphoto = createLabel(fontSize: 16, textColor: UIColor(hex: 0xfca427))
+        docphoto.text = "ID Photo:"
+        self.bottomView.addSubview(docphoto)
+        docphoto.snp.makeConstraints { (maker) in
+            maker.left.equalTo(self.centerView.snp.centerX).offset(VerticalPixel(15))
+            maker.top.equalToSuperview().offset(VerticalPixel(15))
+        }
+        
+//        self.bottomView.addSubview(docPhotoCheckBox)
+//        docPhotoCheckBox.snp.makeConstraints { (maker) in
+//            maker.left.equalTo(docphoto.snp.right).offset(HorizontalPixel(3))
+//            maker.centerY.equalTo(docphoto)
+//            maker.width.height.equalTo(30)
+//        }
+        
+        self.bottomView.addSubview(docPhotoView)
+        docPhotoView.snp.makeConstraints { (maker) in
+            maker.left.equalTo(docphoto)
+            maker.top.equalTo(docphoto.snp_bottom).offset(HorizontalPixel(10))
+            maker.width.height.equalTo(50)
+        }
+        
+        
+        let passNoTitle = createLabel(fontSize: 16, textColor: UIColor(hex: 0xfca427))
+        passNoTitle.text = "Passport No."
+        self.bottomView.addSubview(passNoTitle)
+        passNoTitle.snp.makeConstraints { (maker) in
+            maker.left.equalTo(docNoTitle)
+            maker.top.equalTo(documentNoLabel.snp.bottom).offset(VerticalPixel(20))
+        }
+        
+        self.bottomView.addSubview(passNoCheckBox)
+        passNoCheckBox.snp.makeConstraints { (maker) in
+            maker.left.equalTo(passNoTitle.snp.right).offset(HorizontalPixel(3))
+            maker.centerY.equalTo(passNoTitle)
+            maker.width.height.equalTo(30)
+        }
+        
+        self.bottomView.addSubview(passNoLabel)
+        passNoLabel.snp.makeConstraints { (maker) in
+            maker.left.equalTo(passNoTitle)
+            maker.top.equalTo(passNoTitle.snp.bottom).offset(VerticalPixel(15))
+            maker.right.equalToSuperview().offset(HorizontalPixel(-25))
+//            maker.bottom.equalToSuperview().offset(VerticalPixel(-25))
+        }
+        
+        
+        let mpNoTitle = createLabel(fontSize: 16, textColor: UIColor(hex: 0xfca427))
+        mpNoTitle.text = "Mainland Travel Permit No."
+        self.bottomView.addSubview(mpNoTitle)
+        mpNoTitle.snp.makeConstraints { (maker) in
+            maker.left.equalTo(passNoTitle)
+            maker.top.equalTo(passNoLabel.snp.bottom).offset(VerticalPixel(20))
+        }
+        
+        self.bottomView.addSubview(mpNoCheckBox)
+        mpNoCheckBox.snp.makeConstraints { (maker) in
+            maker.left.equalTo(mpNoTitle.snp.right).offset(HorizontalPixel(3))
+            maker.centerY.equalTo(mpNoTitle)
+            maker.width.height.equalTo(30)
+        }
+        
+        self.bottomView.addSubview(mpNoLabel)
+        mpNoLabel.snp.makeConstraints { (maker) in
+            maker.left.equalTo(mpNoTitle)
+            maker.top.equalTo(mpNoTitle.snp.bottom).offset(VerticalPixel(15))
+            maker.right.equalToSuperview().offset(HorizontalPixel(-25))
             maker.bottom.equalToSuperview().offset(VerticalPixel(-25))
         }
     }
@@ -151,7 +221,36 @@ class PersonalCell: BaseContentCell {
     private(set) lazy var documentNoCheckBox: HSCheckBox = {
         return createCheckBox()
     }()
+    private(set) lazy var passNoLabel: HSLabel = {
+        return createLabel(fontSize: 16, textColor: .black)
+    }()
     
+    private(set) lazy var mpNoLabel: HSLabel = {
+        return createLabel(fontSize: 16, textColor: .black)
+    }()
+    private(set) lazy var passNoCheckBox: HSCheckBox = {
+        return createCheckBox()
+    }()
+    private(set) lazy var mpNoCheckBox: HSCheckBox = {
+        return createCheckBox()
+    }()
+    private(set) lazy var docPhotoCheckBox: HSCheckBox = {
+        return createCheckBox()
+    }()
+    private(set) lazy var docPhotoView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "user.png")?.imageWithInsets(insetDimen: 10.0)
+        iv.backgroundColor = .white
+        iv.contentMode = .scaleAspectFit
+        iv.isUserInteractionEnabled = true
+//        iv.layer.masksToBounds = true
+//        iv.layer.cornerRadius = 20
+//        iv.layer.borderWidth = 5
+//        iv.layer.borderColor = UIColor.gray.cgColor
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(templateTappedRes))
+//        iv.addGestureRecognizer(tap)
+        return iv
+    }()
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

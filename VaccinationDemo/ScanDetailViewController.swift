@@ -180,6 +180,43 @@ class ScanDetailViewController: UIViewController {
                 setTag(withLabel: personalCell.documentNoLabel, checkBox: personalCell.documentNoCheckBox, field: dn)
             }
             
+            if let idphoto = root.child(withType: .PID) {
+                print("Image url")
+                print(idphoto.value)
+                let url = URL(string: idphoto.value)
+
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    print(data)
+                    DispatchQueue.main.async {
+                        print("run")
+                        self.personalCell.docPhotoView.image = UIImage(data: data!)
+                    }
+                }
+            }
+            
+            if let pnf = root.child(withType: .PNF) {
+                personalCell.passNoLabel.text = ((pnf.value.count == 64) ? "*****":pnf.value)
+                
+//                setTag(withLabel: personalCell.passNoLabel, checkBox: personalCell.passNoCheckBox, field: pnf)
+            }
+            if let pnl = root.child(withType: .PNL) {
+                personalCell.passNoLabel.text! += ((pnl.value.count == 64) ? "*****":pnl.value)
+                
+    //            setTag(withLabel: personalCell.passNoLabel, checkBox: personalCell.passNoCheckBox, field: pnl)
+            }
+            if let  mtpnf = root.child(withType: .MTPNF) {
+                personalCell.mpNoLabel.text = ((mtpnf.value.count == 64) ? "*****":mtpnf.value)
+                
+//                setTag(withLabel: personalCell.mpNoLabel, checkBox: personalCell.mpNoCheckBox, field: mtpnf)
+            }
+            if let  mtpnl = root.child(withType: .MTPNL) {
+                personalCell.mpNoLabel.text! += ((mtpnl.value.count == 64) ? "*****":mtpnl.value)
+                
+    //            setTag(withLabel: personalCell.mpNoLabel, checkBox: personalCell.mpNoCheckBox, field: mtpnf)
+            }
+            
+            
             if let fvn = root.child(withType: .FVN) {
                 recordsCell.vaccinatedLabel.text = ((fvn.value.count == 64) ? "*****":fvn.value)
                 

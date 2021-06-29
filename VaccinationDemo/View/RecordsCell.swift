@@ -33,7 +33,8 @@ class RecordsSubCell: UIView {
     
     private func setupUI() {
         addSubview(dateLabel)
-        addSubview(dateSettingsView)
+//        addSubview(dateSettingsView)
+        addSubview(vaccinatedDateCheckBox)
         addSubview(doseLabel)
         
         addSubview(lnTitle)
@@ -55,7 +56,12 @@ class RecordsSubCell: UIView {
             maker.width.lessThanOrEqualTo(SCREEN_WIDTH * 2.0 / 3.0 - HorizontalPixel(52))
         }
         
-        dateSettingsView.snp.makeConstraints { (maker) in
+//        dateSettingsView.snp.makeConstraints { (maker) in
+//            maker.left.equalTo(dateLabel.snp.right).offset(HorizontalPixel(3))
+//            maker.centerY.equalTo(dateLabel)
+//            maker.width.height.equalTo(30)
+//        }
+        vaccinatedDateCheckBox.snp.makeConstraints { (maker) in
             maker.left.equalTo(dateLabel.snp.right).offset(HorizontalPixel(3))
             maker.centerY.equalTo(dateLabel)
             maker.width.height.equalTo(30)
@@ -178,6 +184,12 @@ class RecordsSubCell: UIView {
         l.backgroundColor = UIColor(hex: 0xb4b1b1)
         return l
     }()
+    private(set) lazy var vaccinatedDateCheckBox: HSCheckBox = {
+        guard let cb = dataSource?.createCheckBox(isChecked: false, isHidden: true) else {
+            return HSCheckBox()
+        }
+        return cb
+    }()
 }
 
 
@@ -254,6 +266,7 @@ class RecordsCell: BaseContentCell, RecordsSubCellDataSource {
     private(set) lazy var vaccinatedCheckBox: HSCheckBox = {
         return createCheckBox()
     }()
+    
     
     private(set) lazy var d1SubCell: RecordsSubCell = {
         let cell = RecordsSubCell(dataSource: self)

@@ -23,14 +23,26 @@ enum DataFieldType: Int {
     
     case EGNF
     
+    case PID
+    
+    case PID_hash
+    
     ///身份证明文件类别
     case DT
     ///身份证明文件号码
     case DN
-    
+    // ID first half
     case DNF
-    
+    // ID second half
     case DNL
+    // passport first half
+    case PNF
+    //passport second half
+    case PNL
+    // Mainland Travel Permit No first half
+    case MTPNF
+    // Mainland Travel Permit No second half
+    case MTPNL
     
     ///疫苗名称(第一针)
     case FVN
@@ -77,6 +89,10 @@ enum DataFieldType: Int {
             ret = "engGivenName"
         case .EGNF:
             ret = "engGivenNameFirstLetter"
+        case .PID:
+            ret = "idPhoto"
+        case .PID_hash:
+            ret = "idPhotoHash"
         case .DT:
             ret = "docType"
         case .DN:
@@ -85,7 +101,14 @@ enum DataFieldType: Int {
             ret = "docNumberFirstHalf"
         case .DNL:
             ret = "docNumberSecondHalf"
-            
+        case .PNF:
+            ret = "passportNumberFirstHalf"
+        case .PNL:
+            ret = "passportNumberSecondHalf"
+        case .MTPNF:
+            ret = "mainlandTravelPermitNoFirstHalf"
+        case .MTPNL:
+            ret = "mainlandTravelPermitNoSecondHalf"
         case .FVN:
             ret = "vaxName_1"
         case .FVLN:

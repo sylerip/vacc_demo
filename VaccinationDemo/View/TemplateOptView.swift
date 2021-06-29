@@ -189,11 +189,21 @@ class TemplateOptView: UIView {
             maker.width.equalToSuperview().multipliedBy(0.40)
             maker.height.equalTo(imageViewCustom.snp.width)
         }
-        cv.addSubview(imageViewEdit)
-        imageViewEdit.snp.makeConstraints { (maker) in
+        
+        cv.addSubview(imageViewCustomCn)
+        imageViewCustomCn.snp.makeConstraints { (maker) in
             maker.top.equalTo(imageViewAir.snp.bottom).offset(VerticalPixel(15))
             maker.left.equalTo(imageViewCustom.snp.right)
             maker.right.equalToSuperview().offset(HorizontalPixel(-25))
+            maker.width.equalToSuperview().multipliedBy(0.40)
+            maker.height.equalTo(imageViewCustomCn.snp.width)
+        }
+        
+        cv.addSubview(imageViewEdit)
+        imageViewEdit.snp.makeConstraints { (maker) in
+            maker.top.equalTo(imageViewCustom.snp.bottom).offset(VerticalPixel(15))
+            maker.left.equalToSuperview().offset(HorizontalPixel(25))
+//            maker.right.equalToSuperview().offset(HorizontalPixel(-25))
             maker.width.equalToSuperview().multipliedBy(0.40)
             maker.height.equalTo(imageViewEdit.snp.width)
         }
@@ -230,9 +240,23 @@ class TemplateOptView: UIView {
         iv.addGestureRecognizer(tap)
         return iv
     }()
+    private(set) lazy var imageViewCustomCn: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "custom_cn.png")?.imageWithInsets(insetDimen: 20.0)
+        iv.backgroundColor = .white
+        iv.contentMode = .scaleAspectFit
+        iv.isUserInteractionEnabled = true
+        iv.layer.masksToBounds = true
+        iv.layer.cornerRadius = 20
+        iv.layer.borderWidth = 5
+        iv.layer.borderColor = UIColor.gray.cgColor
+        let tap = UITapGestureRecognizer(target: self, action: #selector(templateTappedCustomCn))
+        iv.addGestureRecognizer(tap)
+        return iv
+    }()
     private(set) lazy var imageViewCustom: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "custom.png")?.imageWithInsets(insetDimen: 20.0)
+        iv.image = UIImage(named: "custom_int.png")?.imageWithInsets(insetDimen: 20.0)
         iv.backgroundColor = .white
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
@@ -335,6 +359,10 @@ class TemplateOptView: UIView {
     }
     @objc func templateTappedCustom(gesture: UIGestureRecognizer) {
         MainViewController().templateTappedCustom(gesture: gesture)
+        self.dismiss()
+    }
+    @objc func templateTappedCustomCn(gesture: UIGestureRecognizer) {
+        MainViewController().templateTappedCustomCn(gesture: gesture)
         self.dismiss()
     }
     @objc func templateTappedCustomize(gesture: UIGestureRecognizer) {

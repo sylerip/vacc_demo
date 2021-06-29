@@ -89,17 +89,17 @@ class MainViewController: UIViewController {
             maker.top.equalTo(personalCell.snp.bottom).offset(VerticalPixel(15))
         }
         
-        contentView.addSubview(testResultsCell)
-        testResultsCell.snp.makeConstraints { (maker) in
-            maker.left.right.equalTo(personalCell)
-            maker.top.equalTo(recordsCell.snp.bottom).offset(VerticalPixel(15))
-        }
+//        contentView.addSubview(testResultsCell)
+//        testResultsCell.snp.makeConstraints { (maker) in
+//            maker.left.right.equalTo(personalCell)
+//            maker.top.equalTo(recordsCell.snp.bottom).offset(VerticalPixel(15))
+//        }
         
         shareButton.isHidden = true
         contentView.addSubview(shareButton)
         shareButton.snp.makeConstraints { (maker) in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(testResultsCell.snp.bottom).offset(VerticalPixel(50))
+            maker.top.equalTo(recordsCell.snp.bottom).offset(VerticalPixel(50))
             maker.bottom.equalToSuperview().offset(VerticalPixel(-50))
             maker.height.equalTo(VerticalPixel(60))
         }
@@ -144,6 +144,44 @@ class MainViewController: UIViewController {
             setTag(withLabel: personalCell.documentNoLabel, checkBox: personalCell.documentNoCheckBox, field: dn)
         }
         
+        
+        if let idphoto = root.child(withType: .PID) {
+            print("Image url")
+            print(idphoto.value)
+            let url = URL(string: idphoto.value)
+
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                print(data)
+                DispatchQueue.main.async {
+                    print("run")
+                    self.personalCell.docPhotoView.image = UIImage(data: data!)
+                }
+            }
+        }
+        
+        if let pnf = root.child(withType: .PNF) {
+            personalCell.passNoLabel.text = pnf.value
+            
+            setTag(withLabel: personalCell.passNoLabel, checkBox: personalCell.passNoCheckBox, field: pnf)
+        }
+        if let pnl = root.child(withType: .PNL) {
+            personalCell.passNoLabel.text! += pnl.value
+            
+//            setTag(withLabel: personalCell.passNoLabel, checkBox: personalCell.passNoCheckBox, field: pnl)
+        }
+        if let  mtpnf = root.child(withType: .MTPNF) {
+            personalCell.mpNoLabel.text = mtpnf.value
+            
+            setTag(withLabel: personalCell.mpNoLabel, checkBox: personalCell.mpNoCheckBox, field: mtpnf)
+        }
+        if let  mtpnl = root.child(withType: .MTPNL) {
+            personalCell.mpNoLabel.text! += mtpnl.value
+            
+//            setTag(withLabel: personalCell.mpNoLabel, checkBox: personalCell.mpNoCheckBox, field: mtpnf)
+        }
+        
+        
         if let fvn = root.child(withType: .FVN) {
             recordsCell.vaccinatedLabel.text = fvn.value
             
@@ -157,7 +195,8 @@ class MainViewController: UIViewController {
         if let fvd = root.child(withType: .FVD) {
             recordsCell.d1SubCell.dateLabel.text = fvd.value
             
-            setTag(withLabel: recordsCell.d1SubCell.dateLabel, dsView: recordsCell.d1SubCell.dateSettingsView, field: fvd)
+            setTag(withLabel: recordsCell.d1SubCell.dateLabel, checkBox: recordsCell.d1SubCell.vaccinatedDateCheckBox, field: fvd)
+//            setTag(withLabel: recordsCell.d1SubCell.dateLabel, dsView: recordsCell.d1SubCell.dateSettingsView, field: fvd)
         }
         if let fvp = root.child(withType: .FVP) {
             recordsCell.d1SubCell.vpLabel.text = fvp.value
@@ -172,8 +211,8 @@ class MainViewController: UIViewController {
         }
         if let svd = root.child(withType: .SVD) {
             recordsCell.d2SubCell.dateLabel.text = svd.value
-            
-            setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
+            setTag(withLabel: recordsCell.d2SubCell.dateLabel, checkBox: recordsCell.d2SubCell.vaccinatedDateCheckBox, field: svd)
+//            setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
         }
         if let svp = root.child(withType: .SVP) {
             recordsCell.d2SubCell.vpLabel.text = svp.value
@@ -181,7 +220,7 @@ class MainViewController: UIViewController {
             setTag(withLabel: recordsCell.d2SubCell.vpLabel, checkBox: recordsCell.d2SubCell.vpCheckBox, field: svp)
         }
         
-        reloadTestResults()
+//        reloadTestResults()
     }
     @objc private func editFirstName(){
         //1. Create the alert controller.
@@ -230,68 +269,68 @@ class MainViewController: UIViewController {
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
-    private func reloadTestResults() {
-        guard let `root` = root else { return }
-        guard let subfield = root.parent(withSubType: .NSCD) else { return }
-        guard let parent = root.parent(withField: subfield) else { return }
-        
-        var isBindingN = false
-        var isBindingI = false
-        for i in 0..<parent.children.count {
-            if testResultsCell.subcells.count > i {
-                let subcell = testResultsCell.subcells[i]
-                let field = parent.children[i]
-                
-                var isN = false
-                var isI = false
-                for sf in field.children {
-                    switch sf.fieldType {
-                    case .NSCD, .ISCD:
-                        subcell.dateLabel.text = sf.value
-                        
-                        setTag(withLabel: subcell.dateLabel, dsView: subcell.dateSettingsView, field: sf)
-                        
-                        if (sf.fieldType == .NSCD && isBindingN) || (sf.fieldType == .ISCD && isBindingI) {
-                            sf.needsHashFlags = true
-                        }
-                        
-                        if sf.fieldType == .NSCD {
-                            isN = true
-                        } else {
-                            isI = true
-                        }
-                    case .NTR, .ITR:
-                        if let ret = TestResult(rawValue: sf.value) {
-                            subcell.testResult = ret
-                        }
-                        
-                        setTag(withLabel: subcell.testResultLabel, checkBox: subcell.trCheckBox, field: sf)
-                        
-                        if (sf.fieldType == .NTR && isBindingN) || (sf.fieldType == .ITR && isBindingI) {
-                            sf.needsHashFlags = true
-                        }
-                        
-                        if sf.fieldType == .NTR {
-                            subcell.testNameLabel.text = "Nucleic Acid Test"
-                            isN = true
-                        } else {
-                            subcell.testNameLabel.text = "Serum IgG Antibody Test"
-                            isI = true
-                        }
-                    default:
-                        break
-                    }
-                }
-                
-                if isN {
-                    isBindingN = true
-                }
-                if isI {
-                    isBindingI = true
-                }
-            }
-        }
-    }
+//    private func reloadTestResults() {
+//        guard let `root` = root else { return }
+//        guard let subfield = root.parent(withSubType: .NSCD) else { return }
+//        guard let parent = root.parent(withField: subfield) else { return }
+//
+//        var isBindingN = false
+//        var isBindingI = false
+//        for i in 0..<parent.children.count {
+//            if testResultsCell.subcells.count > i {
+//                let subcell = testResultsCell.subcells[i]
+//                let field = parent.children[i]
+//
+//                var isN = false
+//                var isI = false
+//                for sf in field.children {
+//                    switch sf.fieldType {
+//                    case .NSCD, .ISCD:
+//                        subcell.dateLabel.text = sf.value
+//
+//                        setTag(withLabel: subcell.dateLabel, dsView: subcell.dateSettingsView, field: sf)
+//
+//                        if (sf.fieldType == .NSCD && isBindingN) || (sf.fieldType == .ISCD && isBindingI) {
+//                            sf.needsHashFlags = true
+//                        }
+//
+//                        if sf.fieldType == .NSCD {
+//                            isN = true
+//                        } else {
+//                            isI = true
+//                        }
+//                    case .NTR, .ITR:
+//                        if let ret = TestResult(rawValue: sf.value) {
+//                            subcell.testResult = ret
+//                        }
+//
+//                        setTag(withLabel: subcell.testResultLabel, checkBox: subcell.trCheckBox, field: sf)
+//
+//                        if (sf.fieldType == .NTR && isBindingN) || (sf.fieldType == .ITR && isBindingI) {
+//                            sf.needsHashFlags = true
+//                        }
+//
+//                        if sf.fieldType == .NTR {
+//                            subcell.testNameLabel.text = "Nucleic Acid Test"
+//                            isN = true
+//                        } else {
+//                            subcell.testNameLabel.text = "Serum IgG Antibody Test"
+//                            isI = true
+//                        }
+//                    default:
+//                        break
+//                    }
+//                }
+//
+//                if isN {
+//                    isBindingN = true
+//                }
+//                if isI {
+//                    isBindingI = true
+//                }
+//            }
+//        }
+//    }
     private func setTag(withLabel label: HSLabel? = nil, checkBox: HSCheckBox? = nil, dsView: HSTriangleView? = nil, field: DataFieldModel) {
         if label != nil {
             label!.tag = field.fieldType.rawValue
@@ -426,14 +465,17 @@ class MainViewController: UIViewController {
         guard let `root` = root else { return }
         
         if qrCodeView.superview == nil {
-            //  v date always show
+//            //  v date always show start
 //            if let fvd = root.child(withType: .FVD) {
 //                fvd.needsHashFlags = false
 //            }
 //            if let svd = root.child(withType: .SVD) {
 //                svd.needsHashFlags = false
 //            }
-            
+            // end
+            if let photoHash = root.child(withType: .PID_hash){
+                photoHash.needsHashFlags = false
+            }
             root.calcHashValue()
             
             qrCodeButton.isHidden = true
@@ -444,12 +486,13 @@ class MainViewController: UIViewController {
             qrCodeView.show()
             // pass different json string to the view
             //
+            
             print(root.jsonString())
-            let jsonData = root.jsonString().data(using: .utf8)!
+            let jsonData = appendRoot(qrDataStr: root.jsonString()).data(using: .utf8)!
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             
             print(SearchViewController().verifyData(qrData: qrJson))
-            qrCodeView.generateQRCode(value: root.jsonString())
+            qrCodeView.generateQRCode(value: appendRoot(qrDataStr: root.jsonString()))
         }
     }
     
@@ -659,18 +702,21 @@ class MainViewController: UIViewController {
         switch type {
         case "restaurant":
             reloadDataTemplateRes()
-            static_json = "{\"engFamilyName\":\"Chan\",\"leaf_engGivenName\":\"e634a178ebf6596533b557fa06b0f75b235e08f9f384339a0868855e9ecdb1fe\",\"engGivenNameFirstLetter\":\"T\",\"PI_node_2\":\"6da3fc423ad1171f1ff545296c6e765e60f44fb371e6bbcd966a41d04bc5ca76\",\"VR_node_1\":\"47a55b048b936e54b2d19dbc7c4f0274a6db6ed63dfdb21d4a272be8abc7e051\",\"leaf_vaxName_2\":\"1847e0394ef612d415fda837fad61b6698a3c782d1b2806b747baba7bf123c56\",\"leaf_lotNumber_2\":\"6eba2cf74453eb76b3400eee742d277a48d5b3cc02a7ae88f6f35abd845e7f3c\",\"vaxDate_2\":\"26-Apr-2021\",\"leaf_vaxLocation_2\":\"8454fd935464c1f2d2cf2557a5e668de0bb566bc01ee1ecd5786380e5bd99d2d\"}"
+            
         case "airplane":
             reloadDataTemplateAir()
-            static_json = "{\"engFamilyName\":\"Chan\",\"engGivenName\":\"Tai Man\",\"engGivenNameFirstLetter\":\"T\",\"docType\":\"HKID\",\"docNumber\":\"M123456(1)\",\"docNumberFirstHalf\":\"M123\",\"docNumberSecondHalf\":\"456(1)\",\"VR_node_1\":\"47a55b048b936e54b2d19dbc7c4f0274a6db6ed63dfdb21d4a272be8abc7e051\",\"leaf_vaxName_2\":\"1847e0394ef612d415fda837fad61b6698a3c782d1b2806b747baba7bf123c56\",\"leaf_lotNumber_2\":\"6eba2cf74453eb76b3400eee742d277a48d5b3cc02a7ae88f6f35abd845e7f3c\",\"vaxDate_2\":\"26-Apr-2021\",\"leaf_vaxLocation_2\":\"8454fd935464c1f2d2cf2557a5e668de0bb566bc01ee1ecd5786380e5bd99d2d\"}"
+            
         case "custom":
             reloadDataTemplateCustom()
-            static_json = "{\"engFamilyName\":\"Chan\",\"engGivenName\":\"Tai Man\",\"engGivenNameFirstLetter\":\"T\",\"docType\":\"HKID\",\"docNumber\":\"M123456(1)\",\"docNumberFirstHalf\":\"M123\",\"docNumberSecondHalf\":\"456(1)\",\"vaxName_1\":\"CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated\",\"lotNumber_1\":\"A2021010011\",\"vaxDate_1\":\"26-Mar-2021\",\"vaxLocation_1\":\"Community Vaccination Centre, Yuen Wo Road Sports Centre\",\"vaxName_2\":\"CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated\",\"lotNumber_2\":\"A2021010022\",\"vaxDate_2\":\"26-Apr-2021\",\"vaxLocation_2\":\"Community Vaccination Centre, Yuen Wo Road Sports Centre\"}"
+        
+        case "customcn":
+            reloadDataTemplateCustomCn()
+           
         default:
             self.changeShareState()
         }
         
-        print(root?.jsonString())
+//        print(root?.jsonString())
         guard let `root` = root else { return }
         
 //        if qrCodeView.superview == nil {
@@ -683,12 +729,14 @@ class MainViewController: UIViewController {
             qrCodeView.show()
             // pass different json string to the view
             //
-            print(root.jsonString())
-            let jsonData = root.jsonString().data(using: .utf8)!
-            var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
-            
+//            print(root.jsonString())
+            let output_str = appendRoot(qrDataStr: root.jsonString())
+            let jsonData = output_str.data(using: .utf8)!
+            let qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+            print("OUT____________________")
             print(SearchViewController().verifyData(qrData: qrJson))
-            qrCodeView.generateQRCode(value: root.jsonString())
+            print(output_str)
+            qrCodeView.generateQRCode(value: output_str)
 //            qrCodeView.generateQRCode(value: static_json)
 //        }
     }
@@ -707,6 +755,10 @@ class MainViewController: UIViewController {
     @objc func templateTappedCustom(gesture: UIGestureRecognizer) {
         print("Custom click")
         templateQR(type: "custom")
+    }
+    @objc func templateTappedCustomCn(gesture: UIGestureRecognizer) {
+        print("Custom click")
+        templateQR(type: "customcn")
     }
     @objc func templateTappedCustomize(gesture: UIGestureRecognizer) {
         print("Customize click")
@@ -730,6 +782,14 @@ class MainViewController: UIViewController {
         }
         if let dn = root.child(withType: .DN) {
             dn.needsHashFlags = true
+        }
+        
+        if let idphoto = root.child(withType: .PID){
+            idphoto.needsHashFlags = false
+        }
+        
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
         }
         
         if let fvn = root.child(withType: .FVN) {
@@ -781,13 +841,25 @@ class MainViewController: UIViewController {
         }
         if let dnf = root.child(withType: .DNF) {
             
-            dnf.needsHashFlags = false
+            dnf.needsHashFlags = true
         }
         if let dnl = root.child(withType: .DNL) {
             
-            dnl.needsHashFlags = true
+            dnl.needsHashFlags = false
         }
         
+        if let pnol = root.child(withType: .PNL) {
+            
+            pnol.needsHashFlags = false
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+            
+            mtpnl.needsHashFlags = false
+        }
+        
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
+        }
         if let fvn = root.child(withType: .FVN) {
             fvn.needsHashFlags = true
         }
@@ -829,13 +901,23 @@ class MainViewController: UIViewController {
         }
         if let dt = root.child(withType: .DT) {
             
-            dt.needsHashFlags = false
+            dt.needsHashFlags = true
         }
         if let dn = root.child(withType: .DN) {
 //            dn.value = String(dn.value.prefix(4))
-            dn.needsHashFlags = false
+            dn.needsHashFlags = true
         }
-        
+        if let pnol = root.child(withType: .PNL) {
+            
+            pnol.needsHashFlags = false
+        }
+        if let pnof = root.child(withType: .PNF) {
+            
+            pnof.needsHashFlags = false
+        }
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
+        }
         if let fvn = root.child(withType: .FVN) {
             fvn.needsHashFlags = false
         }
@@ -860,6 +942,133 @@ class MainViewController: UIViewController {
         if let svp = root.child(withType: .SVP) {
             svp.needsHashFlags = false
         }
+    }
+    private func reloadDataTemplateCustomCn() {
+        root = DataFieldModel.createTestRoot()
+        guard let `root` = root else { return }
+        
+        if let efn = root.child(withType: .EFN) {
+            efn.needsHashFlags = false
+        }
+        if let egn = root.child(withType: .EGN) {
+//            egn.value = String(egn.value.prefix(1))
+            egn.needsHashFlags = false
+        }
+        if let egnf = root.child(withType: .EGNF){
+            egnf.needsHashFlags = false
+        }
+        if let dt = root.child(withType: .DT) {
+            
+            dt.needsHashFlags = true
+        }
+        if let dn = root.child(withType: .DN) {
+//            dn.value = String(dn.value.prefix(4))
+            dn.needsHashFlags = true
+        }
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+            
+            mtpnl.needsHashFlags = false
+        }
+        if let mtpnf = root.child(withType: .MTPNF) {
+            
+            mtpnf.needsHashFlags = false
+        }
+        if let fvn = root.child(withType: .FVN) {
+            fvn.needsHashFlags = false
+        }
+        if let fvln = root.child(withType: .FVLN) {
+            fvln.needsHashFlags = false
+        }
+        if let fvd = root.child(withType: .FVD) {
+            fvd.needsHashFlags = false
+        }
+        if let fvp = root.child(withType: .FVP) {
+            fvp.needsHashFlags = false
+        }
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = false
+        }
+        if let svln = root.child(withType: .SVLN) {
+            svln.needsHashFlags = false
+        }
+        if let svd = root.child(withType: .SVD) {
+            svd.needsHashFlags = false
+        }
+        if let svp = root.child(withType: .SVP) {
+            svp.needsHashFlags = false
+        }
+    }
+    private func appendRoot(qrDataStr:String)->String{
+        print("_______________________")
+        print(qrDataStr)
+        let jsonData = qrDataStr.data(using: .utf8)!
+        var qrData: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+        var qrhash = ""
+        var qrhashPI = ""
+        var qrhashVR = ""
+        if qrData.PI_node == nil || qrData.PI_node == "" {
+            if  qrData.PI_node_1 == nil || qrData.PI_node_1 == "" {
+                var pi_node_1 =  (((qrData.engFamilyName != nil) ? qrData.engFamilyName!.sha256 : qrData.leaf_engFamilyName) ?? "")
+                pi_node_1 += (((qrData.engGivenName != nil) ? qrData.engGivenName!.sha256 : qrData.leaf_engGivenName) ?? "")
+                pi_node_1 += (((qrData.engGivenNameFirstLetter != nil) ? qrData.engGivenNameFirstLetter!.sha256 : qrData.leaf_engGivenNameFirstLetter) ?? "")
+                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto!.sha256 : qrData.leaf_idPhoto) ?? "")
+                pi_node_1 += (((qrData.idPhotoHash != nil) ? qrData.idPhotoHash! : qrData.leaf_idPhotoHash) ?? "")
+                qrhashPI += pi_node_1.sha256
+            } else {
+                qrhashPI += qrData.PI_node_1!
+            }
+            print(qrhashPI)
+            if  qrData.PI_node_2 == nil || qrData.PI_node_2 == "" {
+                var pi_node_2 = (((qrData.docType != nil) ? qrData.docType!.sha256 : qrData.leaf_docType) ?? "")
+                pi_node_2 += (((qrData.docNumber != nil) ? qrData.docNumber!.sha256 : qrData.leaf_docNumber) ?? "")
+                pi_node_2 += (((qrData.docNumberFirstHalf != nil) ? qrData.docNumberFirstHalf!.sha256 : qrData.leaf_docNumberFirstHalf) ?? "")
+                pi_node_2 += (((qrData.docNumberSecondHalf != nil) ? qrData.docNumberSecondHalf!.sha256 : qrData.leaf_docNumberSecondHalf) ?? "")
+                pi_node_2 += (((qrData.passportNumberFirstHalf != nil) ? qrData.passportNumberFirstHalf!.sha256 : qrData.leaf_passportNumberFirstHalf) ?? "")
+                pi_node_2 += (((qrData.passportNumberSecondHalf != nil) ? qrData.passportNumberSecondHalf!.sha256 : qrData.leaf_passportNumberSecondHalf) ?? "")
+                pi_node_2 += (((qrData.mainlandTravelPermitNoFirstHalf != nil) ? qrData.mainlandTravelPermitNoFirstHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoFirstHalf) ?? "")
+                pi_node_2 += (((qrData.mainlandTravelPermitNoSecondHalf != nil) ? qrData.mainlandTravelPermitNoSecondHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoSecondHalf) ?? "")
+                qrhashPI += pi_node_2.sha256
+            } else {
+                qrhashPI += qrData.PI_node_2 ?? ""
+            }
+            qrhashPI = qrhashPI.sha256
+        } else {
+            qrhashPI = qrData.PI_node ?? ""
+        }
+        
+        print(qrhashPI)
+        qrhash += qrhashPI
+        if qrData.VR_node == nil || qrData.VR_node == "" {
+            if  qrData.VR_node_1 == nil || qrData.VR_node_1 == "" {
+                var vr_node_1 = (((qrData.vaxName_1 != nil) ? qrData.vaxName_1!.sha256 : qrData.leaf_vaxName_1) ?? "")
+                vr_node_1 += (((qrData.lotNumber_1 != nil) ? qrData.lotNumber_1!.sha256 : qrData.leaf_lotNumber_1) ?? "")
+                vr_node_1 += (((qrData.vaxDate_1 != nil) ? qrData.vaxDate_1!.sha256 : qrData.leaf_vaxDate_1) ?? "")
+                vr_node_1 += (((qrData.vaxLocation_1 != nil) ? qrData.vaxLocation_1!.sha256 : qrData.leaf_vaxLocation_1) ?? "")
+                qrhashVR += vr_node_1.sha256
+            } else {
+                qrhashVR += qrData.VR_node_1 ?? ""
+            }
+            print(qrhashVR)
+            if  qrData.VR_node_2 == nil || qrData.VR_node_2 == "" {
+                var vr_node_2 = (((qrData.vaxName_2 != nil) ? qrData.vaxName_2!.sha256 : qrData.leaf_vaxName_2) ?? "")
+                vr_node_2 += (((qrData.lotNumber_2 != nil) ? qrData.lotNumber_2!.sha256 : qrData.leaf_lotNumber_2) ?? "")
+                vr_node_2 += (((qrData.vaxDate_2 != nil) ? qrData.vaxDate_2!.sha256 : qrData.leaf_vaxDate_2) ?? "")
+                vr_node_2 += (((qrData.vaxLocation_2 != nil) ? qrData.vaxLocation_2!.sha256 : qrData.leaf_vaxLocation_2) ?? "")
+                qrhashVR += vr_node_2.sha256
+            } else {
+                qrhashVR += qrData.VR_node_2 ?? ""
+            }
+            qrhashVR = qrhashVR.sha256
+        } else {
+            qrhashVR = qrData.VR_node ?? ""
+        }
+        qrhash += qrhashVR
+        
+        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + qrhash.sha256 + "\" }"))
+        
     }
 }
 

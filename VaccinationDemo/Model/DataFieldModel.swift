@@ -159,7 +159,7 @@ class DataFieldModel {
         }
         
 //        let piSet: Set<DataFieldType> = [.CFN, .CGN, .EFN, .EGN, .DT, .DN]
-        let piSet: Set<DataFieldType> = [.EFN, .EGN,.EGNF, .DT, .DN , .DNF, .DNL]
+        let piSet: Set<DataFieldType> = [.EFN, .EGN,.EGNF, .DT, .DN , .DNF, .DNL, .PNF, .PNL, .MTPNF, .MTPNL, .PID, .PID_hash]
         let vaxSet: Set<DataFieldType> = [.FVN, .FVLN, .FVD, .FVP, .SVN, .SVLN, .SVD, .SVP]
         let testSet: Set<DataFieldType> = [.NSCD, .NTR, .ISCD, .ITR]
         
@@ -327,12 +327,16 @@ extension DataFieldModel {
 }
 
 extension DataFieldModel {
+    class func getIDPhoto() -> String {
+        
+        return ""
+    }
     class func createTestRoot() -> DataFieldModel {
         let root = DataFieldModel(type: .Parent)
         
         root.children.append(personalNode())
         root.children.append(recordsNode())
-        root.children.append(testResultsNode())
+//        root.children.append(testResultsNode())
         
         return root
     }
@@ -383,9 +387,22 @@ extension DataFieldModel {
         }
         sub1_2.random = hs_random()
         
+        let sub1_3 = DataFieldModel(type: .PID)
+        sub1_3.value = "https://icon-library.com/images/icon/icon-4.jpg"
+        sub1_3.random = hs_random()
+        
+        let sub1_4 = DataFieldModel(type: .PID_hash)
+        let url = URL(string: sub1_3.value)
+        let data = try? Data(contentsOf: url!)
+        let imgBase64 = data!.base64EncodedString(options: .lineLength64Characters)
+        sub1_4.value = imgBase64.sha256
+        sub1_4.random = hs_random()
+        
         sub1.children.append(sub1_0)
         sub1.children.append(sub1_1)
         sub1.children.append(sub1_2)
+        sub1.children.append(sub1_3)
+        sub1.children.append(sub1_4)
         
         let sub2 = DataFieldModel(type: .Parent)
         let sub2_0 = DataFieldModel(type: .DT)
@@ -402,10 +419,27 @@ extension DataFieldModel {
         sub2_3.value = "456(1)"
         sub2_3.random = hs_random()
         
+        let sub2_4 = DataFieldModel(type: .PNF)
+        sub2_4.value = "P1234"
+        sub2_4.random = hs_random()
+        let sub2_5 = DataFieldModel(type: .PNL)
+        sub2_5.value = "56789"
+        sub2_5.random = hs_random()
+        let sub2_6 = DataFieldModel(type: .MTPNF)
+        sub2_6.value = "P5678"
+        sub2_6.random = hs_random()
+        let sub2_7 = DataFieldModel(type: .MTPNL)
+        sub2_7.value = "56789"
+        sub2_7.random = hs_random()
+        
         sub2.children.append(sub2_0)
         sub2.children.append(sub2_1)
         sub2.children.append(sub2_2)
         sub2.children.append(sub2_3)
+        sub2.children.append(sub2_4)
+        sub2.children.append(sub2_5)
+        sub2.children.append(sub2_6)
+        sub2.children.append(sub2_7)
         
 //        parent.children.append(sub0)
         parent.children.append(sub1)
@@ -546,8 +580,19 @@ extension DataFieldModel {
 //        sub1_2.value = qr.EGNF!
 //        sub1_2.random = hs_random()
         
+        let sub1_3 = DataFieldModel(type: .PID)
+        sub1_3.value = qr.idPhoto ?? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ASample_User_Icon.png&psig=AOvVaw3EZzkjLT0JRAYeMM6YQo3d&ust=1625035980127000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCLj88fSgvPECFQAAAAAdAAAAABAD"
+        sub1_3.random = hs_random()
+        
+        let sub1_4 = DataFieldModel(type: .PID_hash)
+        sub1_4.value = qr.idPhotoHash! ?? ""
+        sub1_4.random = hs_random()
+        
+        
         sub1.children.append(sub1_0)
         sub1.children.append(sub1_1)
+        sub1.children.append(sub1_3)
+        sub1.children.append(sub1_4)
 //        sub1.children.append(sub1_2)
         
         let sub2 = DataFieldModel(type: .Parent)
@@ -563,9 +608,25 @@ extension DataFieldModel {
 //        let sub2_3 = DataFieldModel(type: .DNL)
 //        sub2_3.value = qr.DNL!
 //        sub2_3.random = hs_random()
+        let sub2_4 = DataFieldModel(type: .PNF)
+        sub2_4.value = qr.passportNumberFirstHalf ?? (qr.passportNumberFirstHalf ?? "*****")
+        sub2_4.random = hs_random()
+        let sub2_5 = DataFieldModel(type: .PNL)
+        sub2_5.value = qr.passportNumberSecondHalf ?? (qr.passportNumberSecondHalf ?? "*****")
+        sub2_5.random = hs_random()
+        let sub2_6 = DataFieldModel(type: .MTPNF)
+        sub2_6.value = qr.mainlandTravelPermitNoFirstHalf ?? (qr.mainlandTravelPermitNoFirstHalf ?? "*****")
+        sub2_6.random = hs_random()
+        let sub2_7 = DataFieldModel(type: .MTPNL)
+        sub2_7.value = qr.mainlandTravelPermitNoSecondHalf ?? (qr.mainlandTravelPermitNoSecondHalf ?? "*****")
+        sub2_7.random = hs_random()
         
         sub2.children.append(sub2_0)
         sub2.children.append(sub2_1)
+        sub2.children.append(sub2_4)
+        sub2.children.append(sub2_5)
+        sub2.children.append(sub2_6)
+        sub2.children.append(sub2_7)
 //        sub2.children.append(sub2_2)
 //        sub2.children.append(sub2_3)
         

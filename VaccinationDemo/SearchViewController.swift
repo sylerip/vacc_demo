@@ -47,6 +47,13 @@ struct QRJson: Codable {
      var docNumber:String?
      var docNumberFirstHalf:String?
      var docNumberSecondHalf:String?
+     var idPhoto:String?
+     var idPhotoHash:String?
+     var passportNumberFirstHalf:String?
+     var passportNumberSecondHalf:String?
+     var mainlandTravelPermitNoFirstHalf:String?
+     var mainlandTravelPermitNoSecondHalf:String?
+     
      var vaxName_1:String?
      var lotNumber_1:String?
      var vaxDate_1:String?
@@ -56,13 +63,19 @@ struct QRJson: Codable {
      var vaxDate_2:String?
      var vaxLocation_2:String?
     
-    var leaf_engFamilyName:String?
+     var leaf_engFamilyName:String?
      var leaf_engGivenName:String?
      var leaf_engGivenNameFirstLetter:String?
      var leaf_docType:String?
      var leaf_docNumber:String?
      var leaf_docNumberFirstHalf:String?
      var leaf_docNumberSecondHalf:String?
+     var leaf_idPhoto:String?
+     var leaf_idPhotoHash:String?
+     var leaf_passportNumberFirstHalf:String?
+     var leaf_passportNumberSecondHalf:String?
+     var leaf_mainlandTravelPermitNoFirstHalf:String?
+     var leaf_mainlandTravelPermitNoSecondHalf:String?
      var leaf_vaxName_1:String?
      var leaf_lotNumber_1:String?
      var leaf_vaxDate_1:String?
@@ -80,7 +93,7 @@ struct QRJson: Codable {
      var VR_node_1:String?
      var VR_node_2:String?
 
-     
+     var rootSignature:String?
 }
 
 class SearchViewController: UITableViewController, QRCodeReaderViewControllerDelegate {
@@ -90,7 +103,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
     let cellReuseIdentifier = "qrRecordCell"
     
     // Chan Tai Man
-    let testingRootHash = "cae205b9e2e59603f8a47681bab22f77689dddcaa1ff3be62fb040a056555c5c"
+//    let testingRootHash = "cae205b9e2e59603f8a47681bab22f77689dddcaa1ff3be62fb040a056555c5c"
     
     // Chan Siu Man
 //    let testingRootHash = "151dc20e365a1c90ae004172f528f7d140931ce73815995b4d46983f4d098e13"
@@ -257,6 +270,8 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                 var pi_node_1 =  (((qrData.engFamilyName != nil) ? qrData.engFamilyName!.sha256 : qrData.leaf_engFamilyName) ?? "")
                 pi_node_1 += (((qrData.engGivenName != nil) ? qrData.engGivenName!.sha256 : qrData.leaf_engGivenName) ?? "")
                 pi_node_1 += (((qrData.engGivenNameFirstLetter != nil) ? qrData.engGivenNameFirstLetter!.sha256 : qrData.leaf_engGivenNameFirstLetter) ?? "")
+                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto!.sha256 : qrData.leaf_idPhoto) ?? "")
+                pi_node_1 += (((qrData.idPhotoHash != nil) ? qrData.idPhotoHash! : qrData.leaf_idPhotoHash) ?? "")
                 qrhashPI += pi_node_1.sha256
             } else {
                 qrhashPI += qrData.PI_node_1!
@@ -267,6 +282,10 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                 pi_node_2 += (((qrData.docNumber != nil) ? qrData.docNumber!.sha256 : qrData.leaf_docNumber) ?? "")
                 pi_node_2 += (((qrData.docNumberFirstHalf != nil) ? qrData.docNumberFirstHalf!.sha256 : qrData.leaf_docNumberFirstHalf) ?? "")
                 pi_node_2 += (((qrData.docNumberSecondHalf != nil) ? qrData.docNumberSecondHalf!.sha256 : qrData.leaf_docNumberSecondHalf) ?? "")
+                pi_node_2 += (((qrData.passportNumberFirstHalf != nil) ? qrData.passportNumberFirstHalf!.sha256 : qrData.leaf_passportNumberFirstHalf) ?? "")
+                pi_node_2 += (((qrData.passportNumberSecondHalf != nil) ? qrData.passportNumberSecondHalf!.sha256 : qrData.leaf_passportNumberSecondHalf) ?? "")
+                pi_node_2 += (((qrData.mainlandTravelPermitNoFirstHalf != nil) ? qrData.mainlandTravelPermitNoFirstHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoFirstHalf) ?? "")
+                pi_node_2 += (((qrData.mainlandTravelPermitNoSecondHalf != nil) ? qrData.mainlandTravelPermitNoSecondHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoSecondHalf) ?? "")
                 qrhashPI += pi_node_2.sha256
             } else {
                 qrhashPI += qrData.PI_node_2 ?? ""
@@ -305,10 +324,10 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         
         qrhash += qrhashVR
         print(qrhash)
-        print(self.testingRootHash)
+        print(qrData.rootSignature)
         print(qrhash.sha256)
-        print(qrhash.sha256 == self.testingRootHash)
-        return (qrhash.sha256 == self.testingRootHash)
+        print(qrhash.sha256 == qrData.rootSignature)
+        return (qrhash.sha256 == qrData.rootSignature)
 //        return true
         
     }
