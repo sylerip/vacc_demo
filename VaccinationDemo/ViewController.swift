@@ -833,7 +833,7 @@ class MainViewController: UIViewController {
         }
         if let dt = root.child(withType: .DT) {
             
-            dt.needsHashFlags = false
+            dt.needsHashFlags = true
         }
         if let dn = root.child(withType: .DN) {
             

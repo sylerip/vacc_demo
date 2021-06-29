@@ -423,7 +423,7 @@ extension DataFieldModel {
         sub2_4.value = "P1234"
         sub2_4.random = hs_random()
         let sub2_5 = DataFieldModel(type: .PNL)
-        sub2_5.value = "56789"
+        sub2_5.value = "12345"
         sub2_5.random = hs_random()
         let sub2_6 = DataFieldModel(type: .MTPNF)
         sub2_6.value = "P5678"
@@ -600,7 +600,7 @@ extension DataFieldModel {
         sub2_0.value = qr.docType ?? "*****"
         sub2_0.random = hs_random()
         let sub2_1 = DataFieldModel(type: .DN)
-        sub2_1.value = qr.docNumber ?? (qr.docNumberFirstHalf ?? "*****")
+        sub2_1.value = qr.docNumber ?? ((qr.docNumberFirstHalf ?? "*****") + "****")
         sub2_1.random = hs_random()
 //        let sub2_2 = DataFieldModel(type: .DNF)
 //        sub2_2.value = qr.DNF!
