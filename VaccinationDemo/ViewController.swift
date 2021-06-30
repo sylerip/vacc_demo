@@ -155,7 +155,8 @@ class MainViewController: UIViewController {
                 print(data)
                 DispatchQueue.main.async {
                     print("run")
-                    self.personalCell.docPhotoView.image = UIImage(data: data!)
+                    let defaultData = UIImage(named: "user.png")?.pngData()
+                    self.personalCell.docPhotoView.image = UIImage(data: ((data ?? defaultData)!))
                 }
             }
         }

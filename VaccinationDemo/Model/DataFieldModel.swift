@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DataFieldModel {
     private(set) var uuid: String
@@ -388,14 +389,14 @@ extension DataFieldModel {
         sub1_2.random = hs_random()
         
         let sub1_3 = DataFieldModel(type: .PID)
-        sub1_3.value = "https://icon-library.com/images/icon/icon-4.jpg"
+        sub1_3.value = "https://icons-for-free.com/download-icon-boy+guy+man+icon-1320166733913205010_128.png"
         sub1_3.random = hs_random()
         
         let sub1_4 = DataFieldModel(type: .PID_hash)
         let url = URL(string: sub1_3.value)
         let data = try? Data(contentsOf: url!)
-        let imgBase64 = data!.base64EncodedString(options: .lineLength64Characters)
-        sub1_4.value = imgBase64.sha256
+        let imgBase64 = data?.base64EncodedString(options: .lineLength64Characters)
+        sub1_4.value = imgBase64?.sha256 ?? UIImage(named: "user.png")?.pngData()?.base64EncodedString(options: .lineLength64Characters).sha256 as! String
         sub1_4.random = hs_random()
         
         sub1.children.append(sub1_0)
