@@ -601,7 +601,7 @@ extension DataFieldModel {
         sub2_0.value = qr.docType ?? "*****"
         sub2_0.random = hs_random()
         let sub2_1 = DataFieldModel(type: .DN)
-        sub2_1.value = qr.docNumber ?? ((qr.docNumberFirstHalf ?? "*****") + "****")
+        sub2_1.value = qr.docNumber ?? ((qr.docNumberFirstHalf ??  "****" + (qr.docNumberSecondHalf ?? "*****")) )
         sub2_1.random = hs_random()
 //        let sub2_2 = DataFieldModel(type: .DNF)
 //        sub2_2.value = qr.DNF!

@@ -474,6 +474,21 @@ class MainViewController: UIViewController {
 //                svd.needsHashFlags = false
 //            }
             // end
+            
+            if let pnf = root.child(withType: .PNF) {
+                if pnf.isNeedsHash == false {
+                    let pnl = root.child(withType: .PNL)
+                    pnl?.needsHashFlags = false
+                }
+            }
+            if let mtpnf = root.child(withType: .MTPNF) {
+                if mtpnf.isNeedsHash == false {
+                    let mtpnl = root.child(withType: .MTPNL)
+                    mtpnl?.needsHashFlags = false
+                }
+                
+            }
+            
             if let photoHash = root.child(withType: .PID_hash){
                 photoHash.needsHashFlags = false
             }
