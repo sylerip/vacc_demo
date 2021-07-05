@@ -18,7 +18,6 @@
 		291953F4266723D500A80CEC /* tick_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 291953F1266723D500A80CEC /* tick_green.png */; };
 		291953F6266723D500A80CEC /* cross_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 291953F3266723D500A80CEC /* cross_red.png */; };
 		291953F82667241A00A80CEC /* tick_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 291953F72667241A00A80CEC /* tick_yellow.png */; };
-		291953FF26676DE900A80CEC /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 291953FD26676DE900A80CEC /* failed.png */; };
 		291954082668E07100A80CEC /* verified_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 291954042668E07100A80CEC /* verified_green.png */; };
 		291954092668E07100A80CEC /* verified_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 291954052668E07100A80CEC /* verified_yellow.png */; };
 		2919540D2668E26400A80CEC /* syringe_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919540B2668E26400A80CEC /* syringe_green.png */; };
@@ -26,6 +25,7 @@
 		29B16B10268AF2F500F39ACC /* custom_cn.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0E268AF2F500F39ACC /* custom_cn.png */; };
 		29B16B11268AF2F500F39ACC /* custom_int.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0F268AF2F500F39ACC /* custom_int.png */; };
 		29B16B13268AFB6300F39ACC /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B12268AFB6300F39ACC /* user.png */; };
+		29E5AED526929CD7002A5AC8 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E5AED426929CD7002A5AC8 /* failed.png */; };
 		2F7358E3F61271DD5207910D /* Pods_VaccinationDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24F89D035AA23F864B03AC3 /* Pods_VaccinationDemoTests.framework */; };
 		6D58291AC58723B3206F145F /* Pods_VaccinationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB0F18B97F73FF352D17E68 /* Pods_VaccinationDemo.framework */; };
 		A9C788880E509C3A3801C53A /* Pods_VaccinationDemo_VaccinationDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5438ABFEC02381B8A59A3C39 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */; };
@@ -127,7 +127,6 @@
 		291953F1266723D500A80CEC /* tick_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick_green.png; sourceTree = "<group>"; };
 		291953F3266723D500A80CEC /* cross_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross_red.png; sourceTree = "<group>"; };
 		291953F72667241A00A80CEC /* tick_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick_yellow.png; sourceTree = "<group>"; };
-		291953FD26676DE900A80CEC /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = failed.png; path = ../../../../../../Downloads/failed.png; sourceTree = "<group>"; };
 		291954042668E07100A80CEC /* verified_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified_green.png; sourceTree = "<group>"; };
 		291954052668E07100A80CEC /* verified_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified_yellow.png; sourceTree = "<group>"; };
 		2919540B2668E26400A80CEC /* syringe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syringe_green.png; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		29B16B0E268AF2F500F39ACC /* custom_cn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_cn.png; sourceTree = "<group>"; };
 		29B16B0F268AF2F500F39ACC /* custom_int.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_int.png; sourceTree = "<group>"; };
 		29B16B12268AFB6300F39ACC /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		29E5AED426929CD7002A5AC8 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		5438ABFEC02381B8A59A3C39 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VaccinationDemo_VaccinationDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		994380D2F4318B86F3AA9034 /* Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8BDD136819C0A5ECC7E201A /* Pods-VaccinationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaccinationDemo.debug.xcconfig"; path = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +248,7 @@
 		291953DA2664CA1600A80CEC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				29E5AED426929CD7002A5AC8 /* failed.png */,
 				29B16B12268AFB6300F39ACC /* user.png */,
 				29B16B0E268AF2F500F39ACC /* custom_cn.png */,
 				29B16B0F268AF2F500F39ACC /* custom_int.png */,
@@ -255,7 +256,6 @@
 				2919540C2668E26400A80CEC /* syringe_yellow.png */,
 				291954042668E07100A80CEC /* verified_green.png */,
 				291954052668E07100A80CEC /* verified_yellow.png */,
-				291953FD26676DE900A80CEC /* failed.png */,
 				291953F72667241A00A80CEC /* tick_yellow.png */,
 				291953F3266723D500A80CEC /* cross_red.png */,
 				291953F1266723D500A80CEC /* tick_green.png */,
@@ -618,7 +618,6 @@
 				291953E12664CA2D00A80CEC /* custom.png in Resources */,
 				291954092668E07100A80CEC /* verified_yellow.png in Resources */,
 				291953E02664CA2D00A80CEC /* airplane.png in Resources */,
-				291953FF26676DE900A80CEC /* failed.png in Resources */,
 				291953F82667241A00A80CEC /* tick_yellow.png in Resources */,
 				29B16B10268AF2F500F39ACC /* custom_cn.png in Resources */,
 				E5163D4C261C9B4E00F10E30 /* LaunchScreen.storyboard in Resources */,
@@ -627,6 +626,7 @@
 				29B16B11268AF2F500F39ACC /* custom_int.png in Resources */,
 				291954082668E07100A80CEC /* verified_green.png in Resources */,
 				2919540D2668E26400A80CEC /* syringe_green.png in Resources */,
+				29E5AED526929CD7002A5AC8 /* failed.png in Resources */,
 				2919540E2668E26400A80CEC /* syringe_yellow.png in Resources */,
 				291953DF2664CA2D00A80CEC /* restaurant.png in Resources */,
 				E5163D47261C9B4E00F10E30 /* Main.storyboard in Resources */,
