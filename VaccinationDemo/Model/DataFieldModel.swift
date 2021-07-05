@@ -389,7 +389,9 @@ extension DataFieldModel {
         sub1_2.random = hs_random()
         
         let sub1_3 = DataFieldModel(type: .PID)
-        sub1_3.value = "https://icons-for-free.com/download-icon-boy+guy+man+icon-1320166733913205010_128.png"
+//        sub1_3.value = "https://butrace.hkbu.edu.hk/ivas/sample_id_photo.png"
+
+        sub1_3.value = "https://drive.google.com/uc?id=1xDKFeTcbEWNmUMJQWsNfLv63upNZ3sKM"
         sub1_3.random = hs_random()
         
         let sub1_4 = DataFieldModel(type: .PID_hash)

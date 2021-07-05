@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.init(hex: 0x256ba9)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.hs_systemFont(size: 22, isBold: true)]
-        self.navigationItem.title = "iVaxCert"
+        self.navigationItem.title = "Health Wallet"
 //        self.title = "iVaxCert"
         
         let leftItem = UIBarButtonItem(customView: self.cancelButton)

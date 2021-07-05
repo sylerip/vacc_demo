@@ -138,7 +138,8 @@ class PersonalCell: BaseContentCell {
         docPhotoView.snp.makeConstraints { (maker) in
             maker.left.equalTo(docphoto)
             maker.top.equalTo(docphoto.snp_bottom).offset(HorizontalPixel(10))
-            maker.width.height.equalTo(50)
+            maker.height.equalTo(120)
+            maker.width.equalTo(90)
         }
         
         
