@@ -220,8 +220,88 @@ class MainViewController: UIViewController {
             
             setTag(withLabel: recordsCell.d2SubCell.vpLabel, checkBox: recordsCell.d2SubCell.vpCheckBox, field: svp)
         }
+//        print(calInitRoot(root: root))
         
 //        reloadTestResults()
+    }
+    private func calInitRoot(root: DataFieldModel)-> String {
+        if let efn = root.child(withType: .EFN) {
+            efn.needsHashFlags = false
+        }
+        if let egn = root.child(withType: .EGN) {
+//            egn.value = String(egn.value.prefix(1))
+            egn.needsHashFlags = false
+        }
+        if let egnf = root.child(withType: .EGNF){
+            egnf.needsHashFlags = false
+        }
+        if let dt = root.child(withType: .DT) {
+            
+            dt.needsHashFlags = false
+        }
+        if let dn = root.child(withType: .DN) {
+//            dn.value = String(dn.value.prefix(4))
+            dn.needsHashFlags = false
+        }
+        if let dnf = root.child(withType: .DNF) {
+//            dn.value = String(dn.value.prefix(4))
+            dnf.needsHashFlags = false
+        }
+        if let dnl = root.child(withType: .DNL) {
+//            dn.value = String(dn.value.prefix(4))
+            dnl.needsHashFlags = false
+        }
+        if let pid = root.child(withType: .PID){
+            pid.needsHashFlags = false
+        }
+        
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+            
+            mtpnl.needsHashFlags = false
+        }
+        if let mtpnf = root.child(withType: .MTPNF) {
+            
+            mtpnf.needsHashFlags = false
+        }
+        if let pnol = root.child(withType: .PNL) {
+            
+            pnol.needsHashFlags = false
+        }
+        if let pnof = root.child(withType: .PNF) {
+            
+            pnof.needsHashFlags = false
+        }
+        if let fvn = root.child(withType: .FVN) {
+            fvn.needsHashFlags = false
+        }
+        if let fvln = root.child(withType: .FVLN) {
+            fvln.needsHashFlags = false
+        }
+        if let fvd = root.child(withType: .FVD) {
+            fvd.needsHashFlags = false
+        }
+        if let fvp = root.child(withType: .FVP) {
+            fvp.needsHashFlags = false
+        }
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = false
+        }
+        if let svln = root.child(withType: .SVLN) {
+            svln.needsHashFlags = false
+        }
+        if let svd = root.child(withType: .SVD) {
+            svd.needsHashFlags = false
+        }
+        if let svp = root.child(withType: .SVP) {
+            svp.needsHashFlags = false
+        }
+        print("root")
+        print(root.jsonString())
+        return MainViewController().calRoot(qrDataStr: root.jsonString())
+        
     }
     @objc private func editFirstName(){
         //1. Create the alert controller.
@@ -1017,7 +1097,89 @@ class MainViewController: UIViewController {
             svp.needsHashFlags = false
         }
     }
+//    private func appendRoot(qrDataStr:String)->String{
+//        print("_______________________")
+//        print(qrDataStr)
+//        let jsonData = qrDataStr.data(using: .utf8)!
+//        var qrData: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+//        var qrhash = ""
+//        var qrhashPI = ""
+//        var qrhashVR = ""
+//        if qrData.PI_node == nil || qrData.PI_node == "" {
+//            if  qrData.PI_node_1 == nil || qrData.PI_node_1 == "" {
+//                var pi_node_1 =  (((qrData.engFamilyName != nil) ? qrData.engFamilyName!.sha256 : qrData.leaf_engFamilyName) ?? "")
+//                pi_node_1 += (((qrData.engGivenName != nil) ? qrData.engGivenName!.sha256 : qrData.leaf_engGivenName) ?? "")
+//                pi_node_1 += (((qrData.engGivenNameFirstLetter != nil) ? qrData.engGivenNameFirstLetter!.sha256 : qrData.leaf_engGivenNameFirstLetter) ?? "")
+//                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto!.sha256 : qrData.leaf_idPhoto) ?? "")
+//                pi_node_1 += (((qrData.idPhotoHash != nil) ? qrData.idPhotoHash! : qrData.leaf_idPhotoHash) ?? "")
+//                qrhashPI += pi_node_1.sha256
+//            } else {
+//                qrhashPI += qrData.PI_node_1!
+//            }
+//            print(qrhashPI)
+//            if  qrData.PI_node_2 == nil || qrData.PI_node_2 == "" {
+//                var pi_node_2 = (((qrData.docType != nil) ? qrData.docType!.sha256 : qrData.leaf_docType) ?? "")
+//                pi_node_2 += (((qrData.docNumber != nil) ? qrData.docNumber!.sha256 : qrData.leaf_docNumber) ?? "")
+//                pi_node_2 += (((qrData.docNumberFirstHalf != nil) ? qrData.docNumberFirstHalf!.sha256 : qrData.leaf_docNumberFirstHalf) ?? "")
+//                pi_node_2 += (((qrData.docNumberSecondHalf != nil) ? qrData.docNumberSecondHalf!.sha256 : qrData.leaf_docNumberSecondHalf) ?? "")
+//                pi_node_2 += (((qrData.passportNumberFirstHalf != nil) ? qrData.passportNumberFirstHalf!.sha256 : qrData.leaf_passportNumberFirstHalf) ?? "")
+//                pi_node_2 += (((qrData.passportNumberSecondHalf != nil) ? qrData.passportNumberSecondHalf!.sha256 : qrData.leaf_passportNumberSecondHalf) ?? "")
+//                pi_node_2 += (((qrData.mainlandTravelPermitNoFirstHalf != nil) ? qrData.mainlandTravelPermitNoFirstHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoFirstHalf) ?? "")
+//                pi_node_2 += (((qrData.mainlandTravelPermitNoSecondHalf != nil) ? qrData.mainlandTravelPermitNoSecondHalf!.sha256 : qrData.leaf_mainlandTravelPermitNoSecondHalf) ?? "")
+//                qrhashPI += pi_node_2.sha256
+//            } else {
+//                qrhashPI += qrData.PI_node_2 ?? ""
+//            }
+//            qrhashPI = qrhashPI.sha256
+//        } else {
+//            qrhashPI = qrData.PI_node ?? ""
+//        }
+//
+//        print(qrhashPI)
+//        qrhash += qrhashPI
+//        if qrData.VR_node == nil || qrData.VR_node == "" {
+//            if  qrData.VR_node_1 == nil || qrData.VR_node_1 == "" {
+//                var vr_node_1 = (((qrData.vaxName_1 != nil) ? qrData.vaxName_1!.sha256 : qrData.leaf_vaxName_1) ?? "")
+//                vr_node_1 += (((qrData.lotNumber_1 != nil) ? qrData.lotNumber_1!.sha256 : qrData.leaf_lotNumber_1) ?? "")
+//                vr_node_1 += (((qrData.vaxDate_1 != nil) ? qrData.vaxDate_1!.sha256 : qrData.leaf_vaxDate_1) ?? "")
+//                vr_node_1 += (((qrData.vaxLocation_1 != nil) ? qrData.vaxLocation_1!.sha256 : qrData.leaf_vaxLocation_1) ?? "")
+//                qrhashVR += vr_node_1.sha256
+//            } else {
+//                qrhashVR += qrData.VR_node_1 ?? ""
+//            }
+//            print(qrhashVR)
+//            if  qrData.VR_node_2 == nil || qrData.VR_node_2 == "" {
+//                var vr_node_2 = (((qrData.vaxName_2 != nil) ? qrData.vaxName_2!.sha256 : qrData.leaf_vaxName_2) ?? "")
+//                vr_node_2 += (((qrData.lotNumber_2 != nil) ? qrData.lotNumber_2!.sha256 : qrData.leaf_lotNumber_2) ?? "")
+//                vr_node_2 += (((qrData.vaxDate_2 != nil) ? qrData.vaxDate_2!.sha256 : qrData.leaf_vaxDate_2) ?? "")
+//                vr_node_2 += (((qrData.vaxLocation_2 != nil) ? qrData.vaxLocation_2!.sha256 : qrData.leaf_vaxLocation_2) ?? "")
+//                qrhashVR += vr_node_2.sha256
+//            } else {
+//                qrhashVR += qrData.VR_node_2 ?? ""
+//            }
+//            qrhashVR = qrhashVR.sha256
+//        } else {
+//            qrhashVR = qrData.VR_node ?? ""
+//        }
+//        qrhash += qrhashVR
+//
+//        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + qrhash.sha256 + "\" }"))
+//
+//    }
     private func appendRoot(qrDataStr:String)->String{
+        print("_______________________")
+        print(qrDataStr)
+        var rootHash = ""
+        let defaults = UserDefaults.standard
+        if UserDefaults.standard.object(forKey: "rootHash") != nil {
+            print(defaults.string(forKey: "rootHash"))
+            rootHash = defaults.string(forKey: "rootHash")!
+        }
+        
+        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + rootHash + "\" }"))
+        
+    }
+    func calRoot(qrDataStr:String)->String{
         print("_______________________")
         print(qrDataStr)
         let jsonData = qrDataStr.data(using: .utf8)!
@@ -1082,8 +1244,8 @@ class MainViewController: UIViewController {
             qrhashVR = qrData.VR_node ?? ""
         }
         qrhash += qrhashVR
-        
-        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + qrhash.sha256 + "\" }"))
+        print("_______________________")
+        return qrhash.sha256
         
     }
 }

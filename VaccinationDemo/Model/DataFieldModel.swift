@@ -338,8 +338,95 @@ extension DataFieldModel {
         root.children.append(personalNode())
         root.children.append(recordsNode())
 //        root.children.append(testResultsNode())
+//        root.calcHashValue()
+        let defaults = UserDefaults.standard
+        if UserDefaults.standard.object(forKey: "rootHash") == nil {
+            defaults.set(calInitRoot(root: root),forKey: "rootHash")
+            print("stored")
+            print(calInitRoot(root: root))
+        }
+        print(calInitRoot(root: root))
         
         return root
+    }
+    private class func calInitRoot(root: DataFieldModel)-> String {
+        if let efn = root.child(withType: .EFN) {
+            efn.needsHashFlags = false
+        }
+        if let egn = root.child(withType: .EGN) {
+//            egn.value = String(egn.value.prefix(1))
+            egn.needsHashFlags = false
+        }
+        if let egnf = root.child(withType: .EGNF){
+            egnf.needsHashFlags = false
+        }
+        if let dt = root.child(withType: .DT) {
+            
+            dt.needsHashFlags = false
+        }
+        if let dn = root.child(withType: .DN) {
+//            dn.value = String(dn.value.prefix(4))
+            dn.needsHashFlags = false
+        }
+        if let dnf = root.child(withType: .DNF) {
+//            dn.value = String(dn.value.prefix(4))
+            dnf.needsHashFlags = false
+        }
+        if let dnl = root.child(withType: .DNL) {
+//            dn.value = String(dn.value.prefix(4))
+            dnl.needsHashFlags = false
+        }
+        if let pid = root.child(withType: .PID){
+            pid.needsHashFlags = false
+        }
+        
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = false
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+            
+            mtpnl.needsHashFlags = false
+        }
+        if let mtpnf = root.child(withType: .MTPNF) {
+            
+            mtpnf.needsHashFlags = false
+        }
+        if let pnol = root.child(withType: .PNL) {
+            
+            pnol.needsHashFlags = false
+        }
+        if let pnof = root.child(withType: .PNF) {
+            
+            pnof.needsHashFlags = false
+        }
+        if let fvn = root.child(withType: .FVN) {
+            fvn.needsHashFlags = false
+        }
+        if let fvln = root.child(withType: .FVLN) {
+            fvln.needsHashFlags = false
+        }
+        if let fvd = root.child(withType: .FVD) {
+            fvd.needsHashFlags = false
+        }
+        if let fvp = root.child(withType: .FVP) {
+            fvp.needsHashFlags = false
+        }
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = false
+        }
+        if let svln = root.child(withType: .SVLN) {
+            svln.needsHashFlags = false
+        }
+        if let svd = root.child(withType: .SVD) {
+            svd.needsHashFlags = false
+        }
+        if let svp = root.child(withType: .SVP) {
+            svp.needsHashFlags = false
+        }
+        print("root")
+        print(root.jsonString())
+        return MainViewController().calRoot(qrDataStr: root.jsonString())
+        
     }
     private class func hs_random() -> String {
         return "\(RandomNumber(from: 100, to: 999))"
