@@ -147,8 +147,8 @@ class ScanDetailViewController: UIViewController {
             
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             self.qrJson = qrJson
-            qrJson.validFlag = SearchViewController().verifyData(qrData: qrJson)
-            if qrJson.validFlag! == false {
+            
+            if (qrJson.validFlag ?? true) == false {
 
                 imageViewVerified.image = UIImage(named: "failed.png")?.imageWithInsets(insetDimen: 10.0)
                    

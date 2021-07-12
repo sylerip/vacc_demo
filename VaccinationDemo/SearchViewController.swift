@@ -11,6 +11,7 @@ import UIKit
 //import SQLite
 import QRCodeReader
 import SwiftyRSA
+import Alamofire
 
 struct QRJson: Codable {
 //    enum Category: String, Decodable {
@@ -187,53 +188,8 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
 //                    qrJson.ScanTime = Date()
 //                    print("Time :    ")
 //                    print(qrJson.ScanTime)
-//                    qrJson.validFlag =  self.verifyData(qrData: qrJson)
-//                    print(qrJson.validFlag)
-                    let df = DateFormatter()
-                    df.dateFormat = "yyyy/MM/dd hh:mm:ss"
-                    df.timeZone = TimeZone.current
-                    let now = df.string(from: Date())
-                    print(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
-                    if (self.fakeQR(qrJson: qrJson)) {
-                        // create the alert
-                        print("invalid code")
-                        DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Please use a valid QR code", message: nil, preferredStyle: .alert)
-                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                            alert.addAction(cancelAction)
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    } else {
-                        if ( self.defaults.object(forKey: "qr_record") != nil) {
-                            var arr = self.defaults.object(forKey: "qr_record")as? [String] ?? [String]()
-//                            arr.append(result.value)
-                            arr.append(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
-                            self.defaults.set(arr,forKey: "qr_record")
-
-                        }
-                        else {
-                            var arr = [String]()
-                            
-//                            arr.append(result.value)
-                            arr.append(result.value.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" }")))
-                            self.defaults.set(arr,forKey: "qr_record")
-                        }
-                        self.tableview.reloadData()
-                        self.scrollToBottom()
-    //                    let dataFieldModel = DataFieldModel.createQR(qr: qrJson);
-    //                    if ( self.defaults.object(forKey: "qr_record") != nil) {
-    //                        var arr = self.defaults.object(forKey: "qr_record")as? [DataFieldModel] ?? [DataFieldModel]()
-    //                        arr.append(dataFieldModel)
-    //                        self.defaults.set(arr,forKey: "qr_record")
-    //
-    //                    }
-    //                    else {
-    //                        var arr = [DataFieldModel]()
-    //                        arr.append(dataFieldModel)
-    //                        self.defaults.set(arr,forKey: "qr_record")
-    //                    }
-                        
-                    }
+                    self.verifyData(qrData: qrJson, qrStr: result.value)
+                    
                 } catch {
                     print("JSON error: \(error.localizedDescription)")
                 }
@@ -259,7 +215,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         return true
     }
     
-    public func verifyData(qrData:QRJson) -> Bool{
+    public func verifyData(qrData:QRJson, qrStr: String) {
         // if changed to dynamic array, just check if the 'id_n' is not nil or 'leaf_id_n' is not nil
         // add a while loop and while the id is true contiune
         var qrhash = ""
@@ -327,8 +283,81 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         print(qrData.rootSignature)
         print(qrhash.sha256)
         print(qrhash.sha256 == qrData.rootSignature)
-        return (qrhash.sha256 == qrData.rootSignature)
+        getRootHash(rootHashCal: qrhash.sha256, qrData: qrData, qrStr:qrStr)
+        
+//        return (qrhash.sha256 == qrData.rootSignature)
 //        return true
+        
+    }
+    struct results: Codable {
+        let records: String
+    }
+    func getRootHash(rootHashCal: String, qrData:QRJson, qrStr:String) {
+        let params = [
+            "command": "query",
+            "id": rootHashCal.sha256
+            
+        ]
+        print(rootHashCal)
+        Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+            print("Response--------------------------------")
+            var ifvalFlag = false
+            switch response.result {
+                case .success(let results):
+                    print("succes!")
+                    print(response)
+                    print(rootHashCal)
+                    if (String(decoding: response.data!, as: UTF8.self).lowercased().range(of:rootHashCal) != nil) {
+//                        return true
+                        ifvalFlag = true
+                        
+                    } else {
+                        ifvalFlag = false
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                    print(response.response?.statusCode)
+                    ifvalFlag = false
+                }
+            let df = DateFormatter()
+            df.dateFormat = "yyyy/MM/dd hh:mm:ss"
+            df.timeZone = TimeZone.current
+            let now = df.string(from: Date())
+            let vflag = ifvalFlag ? "true":"false"
+            print(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\", \"validFlag\":"+vflag+"}")))
+            
+            if (self.fakeQR(qrJson: qrData)) {
+                // create the alert
+                print("invalid code")
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Please use a valid QR code", message: nil, preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    alert.addAction(cancelAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                if ( self.defaults.object(forKey: "qr_record") != nil) {
+                    var arr = self.defaults.object(forKey: "qr_record")as? [String] ?? [String]()
+//                            arr.append(result.value)
+                    
+                    arr.append(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
+                    self.defaults.set(arr,forKey: "qr_record")
+
+                }
+                else {
+                    var arr = [String]()
+                    
+//                            arr.append(result.value)
+                    arr.append(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
+                    self.defaults.set(arr,forKey: "qr_record")
+                }
+                self.tableview.reloadData()
+                self.scrollToBottom()
+                
+            }
+            print("Response--------------------------------")
+        }
         
     }
     
@@ -356,7 +385,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
             let jsonData = arr[indexPath.row].data(using: .utf8)!
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             let dateFormatter = DateFormatter()
-            qrJson.validFlag = self.verifyData(qrData: qrJson)
+//            qrJson.validFlag = self.verifyData(qrData: qrJson)
             dateFormatter.timeZone = TimeZone.current
             dateFormatter.dateFormat = "d/M/Y HH:mm:ss "
             // set the text from the data model
@@ -365,7 +394,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
             // check pass fail function
             var image : UIImage = UIImage(named: "syringe_yellow.png")!
                         print("The loaded image: \(image)")
-            if qrJson.validFlag! == false {
+            if (qrJson.validFlag ?? true) == false {
                 image  = UIImage(named: "cross_red.png")!
             } else {
                 if  (qrJson.vaxDate_2 != nil && qrJson.vaxDate_2 != "" && ifTwoWeek(dateStr:qrJson.vaxDate_2!)){

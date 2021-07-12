@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CryptoKit
+import Alamofire
 
 class DataFieldModel {
     private(set) var uuid: String
@@ -344,11 +346,32 @@ extension DataFieldModel {
             defaults.set(calInitRoot(root: root),forKey: "rootHash")
             print("stored")
             print(calInitRoot(root: root))
+            // upload root hash with HKDocument ID
+            uploadRootHash(rootHash: calInitRoot(root: root))
         }
         print(calInitRoot(root: root))
         
         return root
     }
+    class func uploadRootHash(rootHash: String) {
+        let params = [
+            "command": "create",
+            "id": rootHash.sha256,
+            "records": "{rootHash:"+rootHash+"}"
+        ]
+
+        Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+            debugPrint(response)
+        }
+    }
+//    @available(iOS 13.0, *)
+//    class func MD5(string: String) -> String {
+//        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
+//
+//        return digest.map {
+//            String(format: "%02hhx", $0)
+//        }.joined()
+//    }
     private class func calInitRoot(root: DataFieldModel)-> String {
         if let efn = root.child(withType: .EFN) {
             efn.needsHashFlags = false
@@ -361,7 +384,7 @@ extension DataFieldModel {
             egnf.needsHashFlags = false
         }
         if let dt = root.child(withType: .DT) {
-            
+
             dt.needsHashFlags = false
         }
         if let dn = root.child(withType: .DN) {
@@ -379,24 +402,24 @@ extension DataFieldModel {
         if let pid = root.child(withType: .PID){
             pid.needsHashFlags = false
         }
-        
+
         if let photoHash = root.child(withType: .PID_hash){
             photoHash.needsHashFlags = false
         }
         if let mtpnl = root.child(withType: .MTPNL) {
-            
+
             mtpnl.needsHashFlags = false
         }
         if let mtpnf = root.child(withType: .MTPNF) {
-            
+
             mtpnf.needsHashFlags = false
         }
         if let pnol = root.child(withType: .PNL) {
-            
+
             pnol.needsHashFlags = false
         }
         if let pnof = root.child(withType: .PNF) {
-            
+
             pnof.needsHashFlags = false
         }
         if let fvn = root.child(withType: .FVN) {
@@ -425,7 +448,82 @@ extension DataFieldModel {
         }
         print("root")
         print(root.jsonString())
-        return MainViewController().calRoot(qrDataStr: root.jsonString())
+        let jsonStr = root.jsonString()
+        if let efn = root.child(withType: .EFN) {
+            efn.needsHashFlags = true
+        }
+        if let egn = root.child(withType: .EGN) {
+//            egn.value = String(egn.value.prefix(1))
+            egn.needsHashFlags = true
+        }
+        if let egnf = root.child(withType: .EGNF){
+            egnf.needsHashFlags = true
+        }
+        if let dt = root.child(withType: .DT) {
+
+            dt.needsHashFlags = true
+        }
+        if let dn = root.child(withType: .DN) {
+//            dn.value = String(dn.value.prefix(4))
+            dn.needsHashFlags = true
+        }
+        if let dnf = root.child(withType: .DNF) {
+//            dn.value = String(dn.value.prefix(4))
+            dnf.needsHashFlags = true
+        }
+        if let dnl = root.child(withType: .DNL) {
+//            dn.value = String(dn.value.prefix(4))
+            dnl.needsHashFlags = true
+        }
+        if let pid = root.child(withType: .PID){
+            pid.needsHashFlags = true
+        }
+
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = true
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+
+            mtpnl.needsHashFlags = true
+        }
+        if let mtpnf = root.child(withType: .MTPNF) {
+
+            mtpnf.needsHashFlags = true
+        }
+        if let pnol = root.child(withType: .PNL) {
+
+            pnol.needsHashFlags = true
+        }
+        if let pnof = root.child(withType: .PNF) {
+
+            pnof.needsHashFlags = true
+        }
+        if let fvn = root.child(withType: .FVN) {
+            fvn.needsHashFlags = true
+        }
+        if let fvln = root.child(withType: .FVLN) {
+            fvln.needsHashFlags = true
+        }
+        if let fvd = root.child(withType: .FVD) {
+            fvd.needsHashFlags = true
+        }
+        if let fvp = root.child(withType: .FVP) {
+            fvp.needsHashFlags = true
+        }
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = true
+        }
+        if let svln = root.child(withType: .SVLN) {
+            svln.needsHashFlags = true
+        }
+        if let svd = root.child(withType: .SVD) {
+            svd.needsHashFlags = true
+        }
+        if let svp = root.child(withType: .SVP) {
+            svp.needsHashFlags = true
+        }
+        
+        return MainViewController().calRoot(qrDataStr: jsonStr)
         
     }
     private class func hs_random() -> String {

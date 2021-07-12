@@ -587,7 +587,7 @@ class MainViewController: UIViewController {
             let jsonData = appendRoot(qrDataStr: root.jsonString()).data(using: .utf8)!
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             
-            print(SearchViewController().verifyData(qrData: qrJson))
+//            print(SearchViewController().verifyData(qrData: qrJson))
             qrCodeView.generateQRCode(value: appendRoot(qrDataStr: root.jsonString()))
         }
     }
@@ -830,7 +830,7 @@ class MainViewController: UIViewController {
             let jsonData = output_str.data(using: .utf8)!
             let qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             print("OUT____________________")
-            print(SearchViewController().verifyData(qrData: qrJson))
+//            print(SearchViewController().verifyData(qrData: qrJson))
             print(output_str)
             qrCodeView.generateQRCode(value: output_str)
 //            qrCodeView.generateQRCode(value: static_json)
@@ -1176,8 +1176,8 @@ class MainViewController: UIViewController {
             rootHash = defaults.string(forKey: "rootHash")!
         }
         
-        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + rootHash + "\" }"))
-        
+//        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + rootHash + "\" }"))
+        return qrDataStr
     }
     func calRoot(qrDataStr:String)->String{
         print("_______________________")
