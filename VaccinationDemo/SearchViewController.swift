@@ -94,7 +94,7 @@ struct QRJson: Codable {
      var VR_node_1:String?
      var VR_node_2:String?
 
-     var rootSignature:String?
+     var roothash:String?
 }
 
 class SearchViewController: UITableViewController, QRCodeReaderViewControllerDelegate {
@@ -279,10 +279,10 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         }
         
         qrhash += qrhashVR
-        print(qrhash)
-        print(qrData.rootSignature)
-        print(qrhash.sha256)
-        print(qrhash.sha256 == qrData.rootSignature)
+//        print(qrhash)
+//        print(qrData.rootSignature)
+//        print(qrhash.sha256)
+//        print(qrhash.sha256 == qrData.rootSignature)
         getRootHash(rootHashCal: qrhash.sha256, qrData: qrData, qrStr:qrStr)
         
 //        return (qrhash.sha256 == qrData.rootSignature)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum VaccPage {
     case index
@@ -95,7 +96,7 @@ class MainViewController: UIViewController {
 //            maker.top.equalTo(recordsCell.snp.bottom).offset(VerticalPixel(15))
 //        }
         
-        shareButton.isHidden = true
+        shareButton.isHidden = false
         contentView.addSubview(shareButton)
         shareButton.snp.makeConstraints { (maker) in
             maker.centerX.equalToSuperview()
@@ -456,15 +457,73 @@ class MainViewController: UIViewController {
         testResultsCell.checkBoxDidClickBlock = checkBoxBlock
         testResultsCell.dateSettingsDidClickBlock = dateSettingsBlock
         
-//        shareButton.didClickBlock = { [weak self] in
-//            print("share btn click 282")
-//            guard let `self` = self else { return }
-//            self.changeShareState(state: true)
-//
-////            self.templateOptView.show(on: self.view)
-//            self.templateOptView.show()
-//
-//        }
+        shareButton.didClickBlock = { [weak self] in
+            print("share btn click 282")
+            // download the data here and write the data to default
+            let alert = UIAlertController(title: "Fetch new data", message: "Enter DocID", preferredStyle: .alert)
+            let defaults = UserDefaults.standard
+            //2. Add the text field. You can configure it however you need.
+            alert.addTextField { (textField) in
+                textField.text = ""
+            }
+
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                print("Text field: \(textField?.text)")
+                let params = [
+                    "key": textField?.text
+                    
+                ]
+                Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+                    debugPrint(response)
+                    let jsonData = response.data!
+                                        
+                    do {
+                        try JSONDecoder().decode(QRJson.self, from: jsonData)
+                    } catch let error {
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Invalid data. Please try again.", message: nil, preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                            alert.addAction(cancelAction)
+                            self!.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    var qrData: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+                    defaults.set(qrData.engFamilyName, forKey: "EFN")
+                    defaults.set(qrData.engGivenName, forKey: "EGN")
+                    defaults.set(qrData.engGivenNameFirstLetter, forKey: "engGivenNameFirstLetter")
+                    defaults.set(qrData.docType, forKey: "docType")
+                    defaults.set(qrData.docNumber, forKey: "docNumber")
+                    defaults.set(qrData.docNumberFirstHalf, forKey: "docNumberFirstHalf")
+                    defaults.set(qrData.docNumberSecondHalf, forKey: "docNumberSecondHalf")
+                    defaults.set(qrData.idPhoto, forKey: "idPhoto")
+                    defaults.set(qrData.idPhotoHash, forKey: "idPhotoHash")
+                    defaults.set(qrData.passportNumberFirstHalf, forKey: "passportNumberFirstHalf")
+                    defaults.set(qrData.passportNumberSecondHalf, forKey: "passportNumberSecondHalf")
+                    defaults.set(qrData.mainlandTravelPermitNoFirstHalf, forKey: "mainlandTravelPermitNoFirstHalf")
+                    defaults.set(qrData.mainlandTravelPermitNoSecondHalf, forKey: "mainlandTravelPermitNoSecondHalf")
+                    defaults.set(qrData.vaxName_1, forKey: "vaxName_1")
+                    defaults.set(qrData.lotNumber_1, forKey: "lotNumber_1")
+                    defaults.set(qrData.vaxDate_1, forKey: "vaxDate_1")
+                    defaults.set(qrData.vaxLocation_1, forKey: "vaxLocation_1")
+                    defaults.set(qrData.vaxName_2, forKey: "vaxName_2")
+                    defaults.set(qrData.lotNumber_2, forKey: "lotNumber_2")
+                    defaults.set(qrData.vaxDate_2, forKey: "vaxDate_2")
+                    defaults.set(qrData.vaxLocation_2, forKey: "vaxLocation_2")
+                    defaults.set(qrData.roothash, forKey: "roothash")
+                    // write the data to user defaults
+                    self!.reloadData()
+                }
+                
+            }))
+
+            // 4. Present the alert.
+            self!.present(alert, animated: true, completion: nil)
+            
+
+        }
         
         qrCodeView.didSaveBlock = { [weak self] in
             guard let `self` = self else { return }
@@ -497,7 +556,7 @@ class MainViewController: UIViewController {
 //            self.customButton.isHidden = false
             
             self.cancelButton.isHidden = true
-            self.shareButton.isHidden = true
+            self.shareButton.isHidden = false
 
             self.testResultsCell.isHideShowAllView = false
         }
