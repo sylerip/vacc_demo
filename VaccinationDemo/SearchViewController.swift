@@ -298,6 +298,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
             "id": rootHashCal.sha256
             
         ]
+        print("-------------------------------------")
         print(rootHashCal)
         Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
             print("Response--------------------------------")
@@ -421,7 +422,8 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
     func ifTwoWeek(dateStr:String) -> Bool{
         print(dateStr)
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "dd-MMM-yyyy"
+//        dateFormatterGet.dateFormat = "dd-MMM-yyyy"
+        dateFormatterGet.dateFormat = "yyyy-mm-dd"
         dateFormatterGet.timeZone = TimeZone(identifier: "Asia/Taipei")
         guard let date = dateFormatterGet.date(from: dateStr)?.addingTimeInterval(1209600) else { return false}
         if (Date() > date){
@@ -440,7 +442,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         reader.stopScanning()
         
         dismiss(animated: true) { [weak self] in
-            print("yo")
+//            print("yo")
 //            self?.checkin(venueID: result.value)
             //decode QR code
 

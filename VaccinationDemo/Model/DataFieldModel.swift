@@ -346,7 +346,7 @@ extension DataFieldModel {
 //        if UserDefaults.standard.object(forKey: "rootHash") == nil {
 //            defaults.set(calInitRoot(root: root),forKey: "rootHash")
 //            print("stored")
-//            print(calInitRoot(root: root))
+//        print(calInitRoot(root: root))
 //            // upload root hash with HKDocument ID
 //            uploadRootHash(rootHash: calInitRoot(root: root))
 //        }

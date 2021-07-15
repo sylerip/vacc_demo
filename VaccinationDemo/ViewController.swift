@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        print("abcd".sha256)
         setupNavigation()
         
         setupUI()
@@ -155,7 +155,7 @@ class MainViewController: UIViewController {
                 let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                 print(data)
                 DispatchQueue.main.async {
-                    print("run")
+//                    print("run")
                     let defaultData = UIImage(named: "user.png")?.pngData()
                     self.personalCell.docPhotoView.image = UIImage(data: ((data ?? defaultData)!))
                 }
@@ -351,68 +351,7 @@ class MainViewController: UIViewController {
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
-//    private func reloadTestResults() {
-//        guard let `root` = root else { return }
-//        guard let subfield = root.parent(withSubType: .NSCD) else { return }
-//        guard let parent = root.parent(withField: subfield) else { return }
-//
-//        var isBindingN = false
-//        var isBindingI = false
-//        for i in 0..<parent.children.count {
-//            if testResultsCell.subcells.count > i {
-//                let subcell = testResultsCell.subcells[i]
-//                let field = parent.children[i]
-//
-//                var isN = false
-//                var isI = false
-//                for sf in field.children {
-//                    switch sf.fieldType {
-//                    case .NSCD, .ISCD:
-//                        subcell.dateLabel.text = sf.value
-//
-//                        setTag(withLabel: subcell.dateLabel, dsView: subcell.dateSettingsView, field: sf)
-//
-//                        if (sf.fieldType == .NSCD && isBindingN) || (sf.fieldType == .ISCD && isBindingI) {
-//                            sf.needsHashFlags = true
-//                        }
-//
-//                        if sf.fieldType == .NSCD {
-//                            isN = true
-//                        } else {
-//                            isI = true
-//                        }
-//                    case .NTR, .ITR:
-//                        if let ret = TestResult(rawValue: sf.value) {
-//                            subcell.testResult = ret
-//                        }
-//
-//                        setTag(withLabel: subcell.testResultLabel, checkBox: subcell.trCheckBox, field: sf)
-//
-//                        if (sf.fieldType == .NTR && isBindingN) || (sf.fieldType == .ITR && isBindingI) {
-//                            sf.needsHashFlags = true
-//                        }
-//
-//                        if sf.fieldType == .NTR {
-//                            subcell.testNameLabel.text = "Nucleic Acid Test"
-//                            isN = true
-//                        } else {
-//                            subcell.testNameLabel.text = "Serum IgG Antibody Test"
-//                            isI = true
-//                        }
-//                    default:
-//                        break
-//                    }
-//                }
-//
-//                if isN {
-//                    isBindingN = true
-//                }
-//                if isI {
-//                    isBindingI = true
-//                }
-//            }
-//        }
-//    }
+
     private func setTag(withLabel label: HSLabel? = nil, checkBox: HSCheckBox? = nil, dsView: HSTriangleView? = nil, field: DataFieldModel) {
         if label != nil {
             label!.tag = field.fieldType.rawValue
@@ -470,12 +409,14 @@ class MainViewController: UIViewController {
             // 3. Grab the value from the text field, and print it when the user clicks OK.
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                 let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-                print("Text field: \(textField?.text)")
+                print("Text field: \(textField!.text ?? "a")")
+                
                 let params = [
-                    "key": textField?.text
+                    "key": textField!.text ?? "M123456"
                     
                 ]
-                Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+                print(params)
+                Alamofire.request("https://butrace.hkbu.edu.hk/eHealthWallet/get_json.php", method: .post, parameters: params).responseJSON { response in
                     debugPrint(response)
                     let jsonData = response.data!
                                         
@@ -513,6 +454,17 @@ class MainViewController: UIViewController {
                     defaults.set(qrData.vaxDate_2, forKey: "vaxDate_2")
                     defaults.set(qrData.vaxLocation_2, forKey: "vaxLocation_2")
                     defaults.set(qrData.roothash, forKey: "roothash")
+                    print(self!.calRoot(qrDataStr: String(decoding: jsonData, as: UTF8.self)))
+                    print(qrData.roothash!)
+                    let params = [
+                        "command": "create",
+                        "id": qrData.roothash!.sha256,
+                        "records": "{rootHash:"+qrData.roothash!+"}"
+                    ]
+
+                    Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+                        debugPrint(response)
+                    }
                     // write the data to user defaults
                     self!.reloadData()
                 }
@@ -1251,8 +1203,10 @@ class MainViewController: UIViewController {
                 var pi_node_1 =  (((qrData.engFamilyName != nil) ? qrData.engFamilyName!.sha256 : qrData.leaf_engFamilyName) ?? "")
                 pi_node_1 += (((qrData.engGivenName != nil) ? qrData.engGivenName!.sha256 : qrData.leaf_engGivenName) ?? "")
                 pi_node_1 += (((qrData.engGivenNameFirstLetter != nil) ? qrData.engGivenNameFirstLetter!.sha256 : qrData.leaf_engGivenNameFirstLetter) ?? "")
-                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto!.sha256 : qrData.leaf_idPhoto) ?? "")
+                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto?.sha256 : qrData.leaf_idPhoto) ?? "")
+                print(qrData.idPhoto)
                 pi_node_1 += (((qrData.idPhotoHash != nil) ? qrData.idPhotoHash! : qrData.leaf_idPhotoHash) ?? "")
+                print(pi_node_1)
                 qrhashPI += pi_node_1.sha256
             } else {
                 qrhashPI += qrData.PI_node_1!
@@ -1271,6 +1225,7 @@ class MainViewController: UIViewController {
             } else {
                 qrhashPI += qrData.PI_node_2 ?? ""
             }
+            print(qrhashPI)
             qrhashPI = qrhashPI.sha256
         } else {
             qrhashPI = qrData.PI_node ?? ""
@@ -1298,12 +1253,16 @@ class MainViewController: UIViewController {
             } else {
                 qrhashVR += qrData.VR_node_2 ?? ""
             }
+            print(qrhashVR)
             qrhashVR = qrhashVR.sha256
+            print(qrhashVR)
         } else {
             qrhashVR = qrData.VR_node ?? ""
         }
         qrhash += qrhashVR
+        print(qrhash)
         print("_______________________")
+        
         return qrhash.sha256
         
     }
