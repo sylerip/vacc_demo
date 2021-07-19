@@ -403,17 +403,23 @@ class MainViewController: UIViewController {
             let defaults = UserDefaults.standard
             //2. Add the text field. You can configure it however you need.
             alert.addTextField { (textField) in
-                textField.text = ""
+                textField.placeholder = "HKID"
+            }
+            alert.addTextField { (textFieldPass) in
+                    textFieldPass.placeholder = "Password"
+                    textFieldPass.isSecureTextEntry = true
             }
 
             // 3. Grab the value from the text field, and print it when the user clicks OK.
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                 let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                let textFieldPass = alert?.textFields![1]
+                
                 print("Text field: \(textField!.text ?? "a")")
                 
                 let params = [
-                    "key": textField!.text ?? "M123456"
-                    
+                    "key": textField!.text ?? "M123456",
+                    "pass": textFieldPass!.text ?? "butrace2021"
                 ]
                 print(params)
                 Alamofire.request("https://butrace.hkbu.edu.hk/eHealthWallet/get_json.php", method: .post, parameters: params).responseJSON { response in
@@ -454,6 +460,25 @@ class MainViewController: UIViewController {
                     defaults.set(qrData.vaxDate_2, forKey: "vaxDate_2")
                     defaults.set(qrData.vaxLocation_2, forKey: "vaxLocation_2")
                     defaults.set(qrData.roothash, forKey: "roothash")
+//                    print(self!.calRoot(qrDataStr: String(decoding: jsonData, as: UTF8.self)))
+//                    print(qrData.roothash!)
+//                    let params = [
+//                        "command": "create",
+//                        "id": qrData.roothash!.sha256,
+//                        "records": "{rootHash:"+qrData.roothash!+"}"
+//                    ]
+//
+//                    Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+//                        debugPrint(response)
+//                    }
+                    // write the data to user defaults
+                    self!.reloadData()
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Demo data is updated", message: nil, preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        self!.present(alert, animated: true, completion: nil)
+                    }
                     print(self!.calRoot(qrDataStr: String(decoding: jsonData, as: UTF8.self)))
                     print(qrData.roothash!)
                     let params = [
@@ -465,8 +490,6 @@ class MainViewController: UIViewController {
                     Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
                         debugPrint(response)
                     }
-                    // write the data to user defaults
-                    self!.reloadData()
                 }
                 
             }))
