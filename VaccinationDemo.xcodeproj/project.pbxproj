@@ -22,6 +22,7 @@
 		291954092668E07100A80CEC /* verified_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 291954052668E07100A80CEC /* verified_yellow.png */; };
 		2919540D2668E26400A80CEC /* syringe_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919540B2668E26400A80CEC /* syringe_green.png */; };
 		2919540E2668E26400A80CEC /* syringe_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919540C2668E26400A80CEC /* syringe_yellow.png */; };
+		2947CC392787F5B8003BD46D /* Bulletproofs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2947CC382787F5B8003BD46D /* Bulletproofs.framework */; };
 		29B16B10268AF2F500F39ACC /* custom_cn.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0E268AF2F500F39ACC /* custom_cn.png */; };
 		29B16B11268AF2F500F39ACC /* custom_int.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0F268AF2F500F39ACC /* custom_int.png */; };
 		29B16B13268AFB6300F39ACC /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B12268AFB6300F39ACC /* user.png */; };
@@ -131,6 +132,7 @@
 		291954052668E07100A80CEC /* verified_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified_yellow.png; sourceTree = "<group>"; };
 		2919540B2668E26400A80CEC /* syringe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syringe_green.png; sourceTree = "<group>"; };
 		2919540C2668E26400A80CEC /* syringe_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syringe_yellow.png; sourceTree = "<group>"; };
+		2947CC382787F5B8003BD46D /* Bulletproofs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bulletproofs.framework; sourceTree = "<group>"; };
 		29B16B0E268AF2F500F39ACC /* custom_cn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_cn.png; sourceTree = "<group>"; };
 		29B16B0F268AF2F500F39ACC /* custom_int.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_int.png; sourceTree = "<group>"; };
 		29B16B12268AFB6300F39ACC /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D58291AC58723B3206F145F /* Pods_VaccinationDemo.framework in Frameworks */,
+				2947CC392787F5B8003BD46D /* Bulletproofs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +296,7 @@
 		E5163D33261C9B4E00F10E30 = {
 			isa = PBXGroup;
 			children = (
+				2947CC382787F5B8003BD46D /* Bulletproofs.framework */,
 				E5163D3E261C9B4E00F10E30 /* VaccinationDemo */,
 				E5163D55261C9B4E00F10E30 /* VaccinationDemoTests */,
 				E5163D60261C9B4F00F10E30 /* VaccinationDemoUITests */,
@@ -1000,6 +1004,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2867B572P4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VaccinationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1021,6 +1029,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2867B572P4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VaccinationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
