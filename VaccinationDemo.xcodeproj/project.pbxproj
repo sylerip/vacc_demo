@@ -23,6 +23,7 @@
 		2919540D2668E26400A80CEC /* syringe_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919540B2668E26400A80CEC /* syringe_green.png */; };
 		2919540E2668E26400A80CEC /* syringe_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919540C2668E26400A80CEC /* syringe_yellow.png */; };
 		2947CC392787F5B8003BD46D /* Bulletproofs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2947CC382787F5B8003BD46D /* Bulletproofs.framework */; };
+		2947CC3D27883D43003BD46D /* BulletProofsFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2947CC3C27883D43003BD46D /* BulletProofsFunc.m */; };
 		29B16B10268AF2F500F39ACC /* custom_cn.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0E268AF2F500F39ACC /* custom_cn.png */; };
 		29B16B11268AF2F500F39ACC /* custom_int.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B0F268AF2F500F39ACC /* custom_int.png */; };
 		29B16B13268AFB6300F39ACC /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B16B12268AFB6300F39ACC /* user.png */; };
@@ -133,6 +134,9 @@
 		2919540B2668E26400A80CEC /* syringe_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syringe_green.png; sourceTree = "<group>"; };
 		2919540C2668E26400A80CEC /* syringe_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syringe_yellow.png; sourceTree = "<group>"; };
 		2947CC382787F5B8003BD46D /* Bulletproofs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bulletproofs.framework; sourceTree = "<group>"; };
+		2947CC3B27883D43003BD46D /* VaccinationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VaccinationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		2947CC3C27883D43003BD46D /* BulletProofsFunc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulletProofsFunc.m; sourceTree = "<group>"; };
+		2947CC3E27883D95003BD46D /* BulletProofsFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulletProofsFunc.h; sourceTree = "<group>"; };
 		29B16B0E268AF2F500F39ACC /* custom_cn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_cn.png; sourceTree = "<group>"; };
 		29B16B0F268AF2F500F39ACC /* custom_int.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_int.png; sourceTree = "<group>"; };
 		29B16B12268AFB6300F39ACC /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -270,6 +274,16 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		2947CC3A27883D18003BD46D /* objC */ = {
+			isa = PBXGroup;
+			children = (
+				2947CC3C27883D43003BD46D /* BulletProofsFunc.m */,
+				2947CC3B27883D43003BD46D /* VaccinationDemo-Bridging-Header.h */,
+				2947CC3E27883D95003BD46D /* BulletProofsFunc.h */,
+			);
+			path = objC;
+			sourceTree = "<group>";
+		};
 		29EFF297EB5B403E63C7D52D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +333,7 @@
 		E5163D3E261C9B4E00F10E30 /* VaccinationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2947CC3A27883D18003BD46D /* objC */,
 				291953DA2664CA1600A80CEC /* images */,
 				E5163E20261C9E6C00F10E30 /* Third */,
 				E5163D8D261C9CF000F10E30 /* BLL */,
@@ -580,6 +595,7 @@
 				TargetAttributes = {
 					E5163D3B261C9B4E00F10E30 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1320;
 					};
 					E5163D51261C9B4E00F10E30 = {
 						CreatedOnToolsVersion = 12.4;
@@ -805,6 +821,7 @@
 				E5163E67261C9E6C00F10E30 /* ConstraintRelatableTarget.swift in Sources */,
 				E5163E4B261C9E6C00F10E30 /* LayoutConstraintItem.swift in Sources */,
 				E5163DB5261C9CF000F10E30 /* Layout.swift in Sources */,
+				2947CC3D27883D43003BD46D /* BulletProofsFunc.m in Sources */,
 				E5163E68261C9E6C00F10E30 /* LayoutConstraint.swift in Sources */,
 				E5163E56261C9E6C00F10E30 /* ConstraintInsetTarget.swift in Sources */,
 				E5163E63261C9E6C00F10E30 /* ConstraintView+Extensions.swift in Sources */,
@@ -1002,6 +1019,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2867B572P4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1016,6 +1034,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.iVaxCertDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VaccinationDemo/objC/VaccinationDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1027,6 +1047,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2867B572P4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1041,6 +1062,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.iVaxCertDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VaccinationDemo/objC/VaccinationDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
