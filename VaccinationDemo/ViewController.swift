@@ -629,7 +629,7 @@ class MainViewController: UIViewController {
                 var dateProofs = BulletProofs()
                 let proofStr = BulletProofs.genDateProof(root.child(withType: .SVD)?.value)
                 print(proofStr)
-                output_str = output_str.replacingOccurrences(of: "}", with: String(", \"dateRanage\": {" + proofStr! + "} }"))
+                output_str = output_str.replacingOccurrences(of: "}", with: String(", " + proofStr! + " }"))
                 print(output_str)
                 qrCodeView.generateQRCode(value: output_str)
             } else {

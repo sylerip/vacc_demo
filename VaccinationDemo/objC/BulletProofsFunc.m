@@ -24,7 +24,7 @@
 + (NSString *)genDateProof:(NSString *)dateStr {
     NSString *dateRange = @"\"hiddenDayRanage\":\"";
 //    NSString *proofStrJson = @"\"proof\":\"";
-    NSString *proofStrJson = @"\"proof\":";
+    NSString *proofStrJson = @"\"proof\":\"";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM"];
     
@@ -136,8 +136,9 @@
 //    NSString *test = [NSString stringWithFormat:@"%s", [mpcrp base64EncodedDataWithOptions:0]];
     NSString *proofStr =  [[NSString alloc] initWithData:mpcrp encoding:NSUTF8StringEncoding];
     
-    proofStrJson = [proofStrJson stringByAppendingString:proofStr];
-//    proofStrJson = [proofStrJson stringByAppendingString:@"\""];
+    proofStrJson = [proofStrJson stringByAppendingString:[proofStr stringByReplacingOccurrencesOfString:@"\""
+                                                                                        withString:@"'"]];
+    proofStrJson = [proofStrJson stringByAppendingString:@"\""];
 //    NSData *testDecode = [[NSData alloc]initWithBase64EncodedString:test options:0];
 //    BOOL res6 = BulletproofsArbVerifierVerifyProof(veclength, m, testDecode);
 ////    BOOL res6 = BulletproofsArbVerifierVerifyProof(veclength, m, mpcrp);

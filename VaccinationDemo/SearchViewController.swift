@@ -95,6 +95,9 @@ struct QRJson: Codable {
      var VR_node_2:String?
 
      var roothash:String?
+    
+    var hiddenDayRanage:String?
+    var proof:String?
 }
 
 class SearchViewController: UITableViewController, QRCodeReaderViewControllerDelegate {
