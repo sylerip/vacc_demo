@@ -435,7 +435,8 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         return false
     }
     func ifDateProofed(dateRanage:String, proofStr:String) -> Bool{
-        if (BulletProofs.proofDate(proofStr)) {
+        let str = proofStr.replacingOccurrences(of: "'", with: "\"")
+        if (BulletProofs.proofDate(str)) {
             return true
         } else {
             return false
