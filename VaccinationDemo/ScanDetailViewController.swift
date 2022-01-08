@@ -152,7 +152,7 @@ class ScanDetailViewController: UIViewController {
 
                 imageViewVerified.image = UIImage(named: "failed.png")?.imageWithInsets(insetDimen: 10.0)
                    
-            } else if  (qrJson.vaxDate_2 != nil && qrJson.vaxDate_2 != "" && SearchViewController().ifTwoWeek(dateStr: qrJson.vaxDate_2!)){
+            } else if  (qrJson.vaxDate_2 != nil && qrJson.vaxDate_2 != "" && SearchViewController().ifTwoWeek(dateStr: qrJson.vaxDate_2!)) || SearchViewController().ifDateProofed(dateRanage: qrJson.hiddenDayRanage ?? "",proofStr: qrJson.proof ?? ""){
                 imageViewVerified.image = UIImage(named: "verified_green.png")?.imageWithInsets(insetDimen: 10.0)
             }
             root = DataFieldModel.createQR(qr: qrJson)
@@ -244,8 +244,8 @@ class ScanDetailViewController: UIViewController {
                 setTag(withLabel: recordsCell.d2SubCell.lnLabel, checkBox: recordsCell.d2SubCell.lnCheckBox, field: svln)
             }
             if let svd = root.child(withType: .SVD) {
-                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
-                
+//                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
+                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? (root.child(withType: .HDR)?.value ?? "*****"):svd.value)
                 setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
             }
             if let svp = root.child(withType: .SVP) {

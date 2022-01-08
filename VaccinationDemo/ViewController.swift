@@ -626,7 +626,7 @@ class MainViewController: UIViewController {
                 ///
                 
                 print(root.child(withType: .SVD)?.value)
-                var dateProofs = BulletProofs()
+//                var dateProofs = BulletProofs()
                 let proofStr = BulletProofs.genDateProof(root.child(withType: .SVD)?.value)
                 print(proofStr)
                 output_str = output_str.replacingOccurrences(of: "}", with: String(", " + proofStr! + " }"))

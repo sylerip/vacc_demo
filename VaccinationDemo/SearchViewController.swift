@@ -401,7 +401,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
             if (qrJson.validFlag ?? true) == false {
                 image  = UIImage(named: "cross_red.png")!
             } else {
-                if  (qrJson.vaxDate_2 != nil && qrJson.vaxDate_2 != "" && ifTwoWeek(dateStr:qrJson.vaxDate_2!)){
+                if  ((qrJson.vaxDate_2 != nil && qrJson.vaxDate_2 != "" && ifTwoWeek(dateStr:qrJson.vaxDate_2!)) || ifDateProofed(dateRanage: qrJson.hiddenDayRanage ?? "",proofStr: qrJson.proof ?? "")){
                     image  = UIImage(named: "syringe_green.png")!
                 }
             }
@@ -433,6 +433,13 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                     return true
                 }
         return false
+    }
+    func ifDateProofed(dateRanage:String, proofStr:String) -> Bool{
+        if (BulletProofs.proofDate(proofStr)) {
+            return true
+        } else {
+            return false
+        }
     }
         // method to run when table view cell is tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

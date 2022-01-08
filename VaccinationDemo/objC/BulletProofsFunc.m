@@ -131,6 +131,13 @@
 //    }
 //    mpcrp = BulletproofsArbDealerGenFinProof(veclength, m, Otherstrs, mpcrp);
     // Arb end
+    NSDateComponents *isForteenDays = [gregorianCalendar components:NSCalendarUnitDay
+                                                        fromDate:currentDate
+                                                          toDate:[NSDate date]
+                                                         options:0];
+    if ([isForteenDays day]<14) {
+        return @"";
+    }
     
     NSData *mpcrp = BulletproofsStardandRPProve(veclength, m,[NSString stringWithFormat:@"%d",[componentsToday day]]);
 //    NSString *test = [NSString stringWithFormat:@"%s", [mpcrp base64EncodedDataWithOptions:0]];
@@ -139,16 +146,8 @@
     proofStrJson = [proofStrJson stringByAppendingString:[proofStr stringByReplacingOccurrencesOfString:@"\""
                                                                                         withString:@"'"]];
     proofStrJson = [proofStrJson stringByAppendingString:@"\""];
-//    NSData *testDecode = [[NSData alloc]initWithBase64EncodedString:test options:0];
-//    BOOL res6 = BulletproofsArbVerifierVerifyProof(veclength, m, testDecode);
-////    BOOL res6 = BulletproofsArbVerifierVerifyProof(veclength, m, mpcrp);
-//
-//    if (res6) {
-//        NSLog(@"the verification of multi party arbitrary range proof is successful");
-//    } else {
-//        NSLog(@"the verification of multi party arbitrary range proof is failed");
-//    }
-//    return [mpcrp base64EncodedDataWithOptions:0];
+
+//    Change to if not 14 days from now return null proof?
     return [dateRange stringByAppendingString:proofStrJson];
 }
 
