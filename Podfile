@@ -9,6 +9,7 @@ target 'VaccinationDemo' do
   pod 'SQLite.swift', '~> 0.12.0'
   pod 'QRCodeReader.swift', '~> 10.1.0'
   pod 'SwiftyRSA'
+  pod 'Alamofire'
   target 'VaccinationDemoTests' do
     inherit! :search_paths
     # Pods for testing

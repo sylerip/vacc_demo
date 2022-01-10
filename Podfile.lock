@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - QRCodeReader.swift (10.1.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -8,21 +9,24 @@ PODS:
   - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
+  - Alamofire
   - QRCodeReader.swift (~> 10.1.0)
   - SQLite.swift (~> 0.12.0)
   - SwiftyRSA
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - QRCodeReader.swift
     - SQLite.swift
     - SwiftyRSA
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: a33e24688ec7cabd4a8dabc852b515c7817efe6a
+PODFILE CHECKSUM: 33b5b2446da02ad6c062073e634de92a19f9b9e5
 
 COCOAPODS: 1.10.0

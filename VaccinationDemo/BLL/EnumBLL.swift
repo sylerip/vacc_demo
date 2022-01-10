@@ -72,6 +72,11 @@ enum DataFieldType: Int {
     ///IgG检测结果
     case ITR
     
+    case HDR
+    
+    case DP
+    
+    
     ///字段标识
     func fieldName() -> String {
         var ret: String
@@ -136,7 +141,10 @@ enum DataFieldType: Int {
             ret = "ISCD"
         case .ITR:
             ret = "ITR"
-        
+        case .HDR:
+            ret = "hiddenDateRange"
+        case .DP:
+            ret = "proof"
         }
         return ret
     }

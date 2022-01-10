@@ -7,245 +7,320 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03F6349BC7F1C0F3BDFD63082CCE32DB /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B71AEC1233DA15AA8200B512E4278 /* FTS4.swift */; };
+		03F6349BC7F1C0F3BDFD63082CCE32DB /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41024FF7995E44FCDF484B4E8062D8 /* FTS4.swift */; };
 		04985672870F9381A567566DA3FAAEE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B952A83DC85F9D89CF08E7C412E6E8CF /* Security.framework */; };
-		13DC37325FD7C005D5757A7A24879CFB /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947F1DCAC9A13EC793C7C7DD367A6F5 /* Expression.swift */; };
-		16E32D96D226F5CA5ECE9021B4448A2C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D52140C33AA280AE7FE2841A9DFE68 /* Connection.swift */; };
-		18808F9C139BA0E9059E72980F0BF908 /* SQLite.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2855F94E09A5EF9281897867552AC659 /* SQLite.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		188E0D4F7200FED3C7A1245F9F913072 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0031A24E52A14495E9368C98362AC96 /* Coding.swift */; };
-		1946D09EDE4DE349FA7EDD1FB3D94F90 /* ReaderOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8110591B72F19F6695639A8BA1D03A /* ReaderOverlayView.swift */; };
-		1B13B36FAC4CB8F57794A2B328FDA679 /* CoreFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD296E70869DAE7F0185B201EF6B506 /* CoreFunctions.swift */; };
+		0C5E11DE24DAA737704B355F5F2F3426 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40717540DA89BF0094E7918EF68EF9DE /* ParameterEncoding.swift */; };
+		132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B44FF7774C194B25EC458C7F78F9A /* Notifications.swift */; };
+		13DC37325FD7C005D5757A7A24879CFB /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569C9CF7B97E13AD0BF5E4B07EEC9B95 /* Expression.swift */; };
+		16121B76F929876106BD6CDDD5661B9A /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E37C00806409CCC208EC590B49314 /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16E32D96D226F5CA5ECE9021B4448A2C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78338805EDE3235C6AA72B3F06FBD1 /* Connection.swift */; };
+		18808F9C139BA0E9059E72980F0BF908 /* SQLite.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F007EBA94D40428A3C45BFCD69807F75 /* SQLite.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		188E0D4F7200FED3C7A1245F9F913072 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188974A1AABFFA8E27100DA494688B8 /* Coding.swift */; };
+		1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45432A6BCCDA62683C92EC7FAE093B92 /* Alamofire-dummy.m */; };
+		1946D09EDE4DE349FA7EDD1FB3D94F90 /* ReaderOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCA95A27337A712C8FB261D9B8D463 /* ReaderOverlayView.swift */; };
+		1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999910A4A820027B16CD661BD3E7DFC /* MultipartFormData.swift */; };
+		1B13B36FAC4CB8F57794A2B328FDA679 /* CoreFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B2355919F96C5F7E2FFA27D6A783A6 /* CoreFunctions.swift */; };
+		1B984BEA7860BB2E0DB4C838701ECD66 /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0708370FA88D4F0919A04764157EAA /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m */; };
 		278A4D85256D3077401EA802818DE834 /* Pods-VaccinationDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7DADAE91C92A3C6AB6FAB7E03A6D2 /* Pods-VaccinationDemoTests-dummy.m */; };
-		2C4F38367FEF4F7C72224D9EB87B7F71 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0DE5DBD09133F45415C26C849F5057 /* Blob.swift */; };
-		2F1873261C16B7D40D6F340B6F2368C5 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780B4C34B9A11D0EFDDCC1C138145AAD /* Signature.swift */; };
-		318907E4EFD4E68F2365AFE828AE24F0 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FCCFC86476F5D96083835079A81B6 /* ClearMessage.swift */; };
-		31AAD13A75FA67A504E265924E542827 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04880B7F8EE2C0BD0E2274A0474C6C1E /* Statement.swift */; };
-		348B481DC980D7B5252368E2A54CFBF9 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1445F7E2E05BA1716971DD762788E /* Foundation.swift */; };
-		34CF3751CCEE78B9D7B4AD2047C4D5AF /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885A1D71A6B0B5EBE02AC5CE9AEE18B5 /* QRCodeReaderViewController.swift */; };
-		35A0CC737D339BCF7E80028DCAD8A816 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4769824B17E774A85A832083CB141F00 /* Message.swift */; };
-		35C62483773A1A050D1218CE2F392AAC /* Pods-VaccinationDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 854F18FFE132758C6F47793B49C87856 /* Pods-VaccinationDemo-dummy.m */; };
-		428A2AD3C4D318055AB242BE8E952EE4 /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E37C00806409CCC208EC590B49314 /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		444D048C8F52A4002F068AE6198AA5B7 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B699A8BE9ED3637628755242444896 /* Query.swift */; };
-		4A50D35274D871E14260F93489F87E32 /* SQLiteObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C532769B3D40C2357F893EBEEA7B18 /* SQLiteObjc.m */; };
-		4E3EDCB1C27B3725FD8AEFD7E61B9E17 /* RTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D448B591657ACA488977AC4A0C2D98 /* RTree.swift */; };
-		540817F995B4A3A5966C21DFE34B9C0A /* QRCodeReaderViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9759E78E562EB522681066A3FC0DEA /* QRCodeReaderViewContainer.swift */; };
-		54A80F49AECD3BAF29BBD098330E49D1 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4710DAF499767912F194CAECC16C0D /* Asn1Parser.swift */; };
-		5AB7AA2D47C8BD4ED779FB58ADD2EB19 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47162EBC6E9DAF33360D90428D8E414 /* Operators.swift */; };
-		5BA891FB2BE2492499DD30FAD3D2F399 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03C61ECB28A696247BA408E437407DD /* Value.swift */; };
-		5D1D42009E941070E4EDDE947A881181 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB0211AD4FEEFB1CC02E13F493F9B4 /* Errors.swift */; };
-		5F75157A5075DECD1D4512F9A6744CA6 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DE34DA9FA7A4F2340C12ABFB61E3E8 /* fts3_tokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		67F339D752FFF174485AB6F96EC6FA7E /* SQLite.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E969D4D691A0A5F4171A8CA8F04F49AC /* SQLite.swift-dummy.m */; };
-		6967171BF47D707A9327B3BAB924CA6C /* QRCodeReader.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B933D60D5BE255717247CE52E4B4C1 /* QRCodeReader.swift-dummy.m */; };
-		6D0DF8C852F40BD0BA5BA6AF0D517334 /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49021A0EF8934A2A8C5F0F8121476DD /* QRCodeReader.swift */; };
-		79E43357E56514CD6FE8A6F4B1D28C2E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F5B100BCB86F5E0E5D417287A50A92 /* Helpers.swift */; };
-		7F74F071867B13EADBE8A2F3CF13AF06 /* QRCodeReader.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6D7BAF77C326DFCFC992715A01A262 /* QRCodeReader.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80D981A60C44A0938B630CB773315F76 /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0708370FA88D4F0919A04764157EAA /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m */; };
-		88D5FB9CD0BC5BA6A7A6BD75AE615C90 /* SwiftyRSA+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73E920B55FB0C87B558BCAB67E0859D /* SwiftyRSA+ObjC.swift */; };
+		2C4F38367FEF4F7C72224D9EB87B7F71 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F688A13221BCB6F2D696E04B8682EB /* Blob.swift */; };
+		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9829BC945FD9AADEF8F18743EF044 /* SessionDelegate.swift */; };
+		2F1873261C16B7D40D6F340B6F2368C5 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577F8FECE384698166A2C5F915632F4 /* Signature.swift */; };
+		318907E4EFD4E68F2365AFE828AE24F0 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B501A705424FB34B5650808EA1239619 /* ClearMessage.swift */; };
+		31AAD13A75FA67A504E265924E542827 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76710F2C6E9402E29D392BA51D21EF1 /* Statement.swift */; };
+		348B481DC980D7B5252368E2A54CFBF9 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C27FF8FF26DB6BB37B95BE189C46E /* Foundation.swift */; };
+		34CF3751CCEE78B9D7B4AD2047C4D5AF /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A160D7D85AF2D020480B3E6E96D1C /* QRCodeReaderViewController.swift */; };
+		3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A73CB423EE3EA56AB87EBB19916AB6B /* NetworkReachabilityManager.swift */; };
+		35A0CC737D339BCF7E80028DCAD8A816 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6F83F7E2411AA1AD3E7246C490C23 /* Message.swift */; };
+		444D048C8F52A4002F068AE6198AA5B7 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17CCF8FAF27C9A470EA6793B91943ED /* Query.swift */; };
+		4A50D35274D871E14260F93489F87E32 /* SQLiteObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6D8CAAA9B7A9C7565013A1C57E952E /* SQLiteObjc.m */; };
+		4E3EDCB1C27B3725FD8AEFD7E61B9E17 /* RTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454235803C60B9923572252C6E327DC1 /* RTree.swift */; };
+		50013C33D35EBAF31ACF3A8B3A9A3FB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
+		53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452EBD796283E54F5171370838EB4965 /* Validation.swift */; };
+		540817F995B4A3A5966C21DFE34B9C0A /* QRCodeReaderViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA66F541EA497D33B3256DDCB50E06DC /* QRCodeReaderViewContainer.swift */; };
+		54A80F49AECD3BAF29BBD098330E49D1 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C61696FAA8A42D6A45822C749B3850 /* Asn1Parser.swift */; };
+		5AB7AA2D47C8BD4ED779FB58ADD2EB19 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175D5326C4B89F49D948500022A2AC8C /* Operators.swift */; };
+		5BA891FB2BE2492499DD30FAD3D2F399 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6C80B578A54825DCF258145BD251C /* Value.swift */; };
+		5D1D42009E941070E4EDDE947A881181 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42800CDE432DEA03C1D7A6F2D2A2A3B /* Errors.swift */; };
+		5DE96FB34F04898D590D60F3C2088A63 /* Pods-VaccinationDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 435B88E9C5F80086E1DCE86CD2595CBB /* Pods-VaccinationDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F75157A5075DECD1D4512F9A6744CA6 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3937EE5AC466773EAD88D4B30A6C4498 /* fts3_tokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D65C8D7C63B6911EC948563872BAFF /* Result.swift */; };
+		67F339D752FFF174485AB6F96EC6FA7E /* SQLite.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BD1E917631940C9558F23EA6511E1 /* SQLite.swift-dummy.m */; };
+		6967171BF47D707A9327B3BAB924CA6C /* QRCodeReader.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F81A00F5D25462112D07D0A2D3A01D /* QRCodeReader.swift-dummy.m */; };
+		6D0DF8C852F40BD0BA5BA6AF0D517334 /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A71FB70DAB05AA3DE70B0F219E196F /* QRCodeReader.swift */; };
+		79E43357E56514CD6FE8A6F4B1D28C2E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FA3FFC21B1BEBBC4A163D5C3F05DDF /* Helpers.swift */; };
+		7F74F071867B13EADBE8A2F3CF13AF06 /* QRCodeReader.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 855A88CF685BB5AE99DEC2BA57568219 /* QRCodeReader.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1EB48191935F9F141A430E035F4D8 /* AFError.swift */; };
+		88D5FB9CD0BC5BA6A7A6BD75AE615C90 /* SwiftyRSA+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662F201E6A90D65C6C2B9F2706978C7 /* SwiftyRSA+ObjC.swift */; };
+		892085B94388559E7DEC4BA7386444A8 /* Pods-VaccinationDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 854F18FFE132758C6F47793B49C87856 /* Pods-VaccinationDemo-dummy.m */; };
 		8C6BBE622771EB3AAD6B360ED555E329 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
 		8CB22A48B17A55590B712B82CA92A98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
-		8D70740ECE860A7D9815448CC0481315 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3E1F188550C97D688FDCC38F891A01 /* PrivateKey.swift */; };
-		97205CB1427D0AF744247CE71F357591 /* QRCodeReaderViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A425B279DFEBED58453867E97B715A /* QRCodeReaderViewControllerBuilder.swift */; };
-		9949F9F80C4545265A76A0DA6827E7BC /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8724D656E395AA660D0A652927062 /* ToggleTorchButton.swift */; };
-		9B3A040DEACD188FBA57F28AFAADB057 /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B139C39B7FD66946B1C22EF030F9555D /* AggregateFunctions.swift */; };
-		9BDA533ACF30B280CA9C9A6A9923480D /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276C7E23F53969419C316B7403D82D3C /* SwiftyRSA.swift */; };
-		9C519108851167CFA5CE1542B214D53D /* QRCodeReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3D74F023B47282C175A1040ABF561 /* QRCodeReaderView.swift */; };
-		9F66B0B642CF871D7E5E8090181428B7 /* Pods-VaccinationDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 435B88E9C5F80086E1DCE86CD2595CBB /* Pods-VaccinationDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A21A7C2A46C726D600C6D4AA14E428B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
-		A42659683986F68D9D4F244F1DB71C2F /* FTS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A4754573365BAD25DDACF753F06A1 /* FTS5.swift */; };
-		A545E12C27AF78537BE170C550D7A77A /* QRCodeReaderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87348BE51C98D2B3ED3E93114A4E07D9 /* QRCodeReaderResult.swift */; };
-		A966409E4EB7EB56CBE6C9DFA0FC5B94 /* DateAndTimeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A8AB3166376F6A881C84512DD4033 /* DateAndTimeFunctions.swift */; };
+		8D70740ECE860A7D9815448CC0481315 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F76AD360F9A5DF5599CE79C708B22 /* PrivateKey.swift */; };
+		931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23556089216EF6AE9C1D950E4E70E7AA /* SessionManager.swift */; };
+		933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDE63608DF60526AC08C5809B89372 /* Timeline.swift */; };
+		97205CB1427D0AF744247CE71F357591 /* QRCodeReaderViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DD91020857D366D3B4291221D9D13D /* QRCodeReaderViewControllerBuilder.swift */; };
+		98A929C8E9012AB167672714FFD2113C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AA22B6937769E7E25DD059BDDD3E9 /* Request.swift */; };
+		9949F9F80C4545265A76A0DA6827E7BC /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F3F859CE1E0BAF0BDC4B40ED3B4CF /* ToggleTorchButton.swift */; };
+		9B3A040DEACD188FBA57F28AFAADB057 /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326D696AE7E579ADC056B33DB359805 /* AggregateFunctions.swift */; };
+		9BDA533ACF30B280CA9C9A6A9923480D /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C1453340B16CFADF977F8AF9F99395 /* SwiftyRSA.swift */; };
+		9C519108851167CFA5CE1542B214D53D /* QRCodeReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DD26B48E708BEF77A3448128AD4D8D /* QRCodeReaderView.swift */; };
+		A42659683986F68D9D4F244F1DB71C2F /* FTS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671D8759BBD61740FA94CF1DD7F7F69E /* FTS5.swift */; };
+		A545E12C27AF78537BE170C550D7A77A /* QRCodeReaderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30398B6B9D8FE9F98108A29696D7C0A2 /* QRCodeReaderResult.swift */; };
+		A966409E4EB7EB56CBE6C9DFA0FC5B94 /* DateAndTimeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D788851B3F95653994F7C1CFF9DC7F3 /* DateAndTimeFunctions.swift */; };
 		AC4E060582E54A42FE64F5766C3BF68A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
-		B1D89872AC365C78155FF44EE9F28FEF /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D54E2C7602359E3343CB28B8841F0FA /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B3C80EE89729B2E1E94D3F2906AEF7FF /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111B39FCE76AF8503B4BB2BA0A142ECE /* PublicKey.swift */; };
-		B4EA329362D601B8B1F3E47DCD958059 /* SwiftyRSA-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22A9FA119B91EDF3E8E4ED71BBF5F2CF /* SwiftyRSA-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A3C159382B0AF854B86E9318D7AF7B /* TaskDelegate.swift */; };
+		B1D89872AC365C78155FF44EE9F28FEF /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 544A575E669A8A8428E8A2E75B7438D0 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3C80EE89729B2E1E94D3F2906AEF7FF /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F22EAFFF592476E066A10A68752904 /* PublicKey.swift */; };
+		B4EA329362D601B8B1F3E47DCD958059 /* SwiftyRSA-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDEF3296AAAD7D56325613EB52C59F10 /* SwiftyRSA-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B65F73C989C5A40056B9AC6B967FCC6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
-		BB383B727A2E31F4E5A9E4A04F04ACA8 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946C5977076B4C1E84F81492BB8278F /* EncryptedMessage.swift */; };
-		C64E97D5FC0802B08D7CA36AEC74A422 /* CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577020F573C22A58C7947064A51370DA /* CustomFunctions.swift */; };
-		CC6A84CD340B41E10A35EA9543236737 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
-		CCE5FAFFCA449C9E33F7C9F7914A8982 /* SwiftyRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = 08582C0B848DCA637C4E4ED21B665ABB /* SwiftyRSA.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D6E6E2AA38E0E6B0B7D1E0891F4FD12D /* Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D71CB46DFD2662B1E5CDD404BB362F /* Setter.swift */; };
+		BB383B727A2E31F4E5A9E4A04F04ACA8 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D186573883456B15C3D3953FAD7DF6 /* EncryptedMessage.swift */; };
+		BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FAAF9E636C543BBCE95444E23193D6 /* Alamofire.swift */; };
+		C64E97D5FC0802B08D7CA36AEC74A422 /* CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C55AD8B04A1B34F0B06041DF8044236 /* CustomFunctions.swift */; };
+		CCE5FAFFCA449C9E33F7C9F7914A8982 /* SwiftyRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = 151125AD3CEF6FD7EB28691E089B13AC /* SwiftyRSA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3B11D1617500AA82C719C2C1B7FF0C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
+		D3D8C379C6E4FB487E5ABD6800AD7B7E /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39594F428993A40CB82FBB86A6702E3 /* DispatchQueue+Alamofire.swift */; };
+		D65C254F5ABF2CB5ECEE50FE8F8E1A80 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA732D962FB5255F28EEE021414073 /* Response.swift */; };
+		D6E6E2AA38E0E6B0B7D1E0891F4FD12D /* Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995656349D1FA1958F2E7A9B2AA498D /* Setter.swift */; };
+		D74F77457CF2E6574282783F88370C2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B20CCA64083BB656823B2484F7445 /* Foundation.framework */; };
 		E159920E5EBDA6D56A59272009F75252 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89903F9D9173C4547C79838E52EBDB7E /* AVFoundation.framework */; };
-		E2E7A4627F9124F71E5096F6BA8518CE /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE605D0A6DD0EA2F53569E68657FA3 /* Key.swift */; };
-		E40CD05AFD50106B17D9A3B953F1A898 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F66072EDF7898EA46253B54C0A290D /* SwitchCameraButton.swift */; };
-		E50EAA966F48C7CE403C0DFA79312D93 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F657BDE9893F60BEEFE1DC4BC1265B2 /* NSData+SHA.m */; };
-		EB64CEFEA2ED517611E2227C55462254 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B19283024FCBFE2D5E26E71D49E6CF /* SwiftyRSAError.swift */; };
-		EE966B1A61C1960A3BBC22A783C27272 /* Collation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C6949F9984CDD4E279BCBA4DDB5 /* Collation.swift */; };
-		EF5E32C13CFA779B953F8F81AE3C67D6 /* SQLiteObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = A7851C53980BD182D66F3286E52C3614 /* SQLiteObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F47FAF105D05876AE65A43C4ABE1A1EC /* QRCodeReaderViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F44A12D6200D66EAEDE0AAB3FE47A4 /* QRCodeReaderViewControllerDelegate.swift */; };
-		F6BB6C198A2522FF0633261964EB2A24 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967DC42B4733BF8C3BE034E524BB11E /* Schema.swift */; };
-		FA2707A25E0E01A3391DA31D198F87D7 /* SwiftyRSA-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3EE3170BCD8E69295ACFF4211286DC /* SwiftyRSA-dummy.m */; };
+		E2E7A4627F9124F71E5096F6BA8518CE /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9715924FFD0E84A5343D2ADA9EEB2D4 /* Key.swift */; };
+		E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8054877DF7EAEEEDC8A424DF0BED61CC /* ResponseSerialization.swift */; };
+		E40CD05AFD50106B17D9A3B953F1A898 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F11641B38E83805C063793DF45154D /* SwitchCameraButton.swift */; };
+		E50EAA966F48C7CE403C0DFA79312D93 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B1CCA6FB465F892F0AA35D6006C3C0 /* NSData+SHA.m */; };
+		EB64CEFEA2ED517611E2227C55462254 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE0D2073476C1D4291B9F147CC584C /* SwiftyRSAError.swift */; };
+		EE966B1A61C1960A3BBC22A783C27272 /* Collation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61307B7C7D2C5AA88C16F2535F01510E /* Collation.swift */; };
+		EF5E32C13CFA779B953F8F81AE3C67D6 /* SQLiteObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC8C92BF0B0E841C5C163901B8DFF8C /* SQLiteObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1082B5B7EB871EF11D31AA9CDD06C7B /* ServerTrustPolicy.swift */; };
+		F47FAF105D05876AE65A43C4ABE1A1EC /* QRCodeReaderViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6862D4262310AF75D44C798B26C9C5 /* QRCodeReaderViewControllerDelegate.swift */; };
+		F6BB6C198A2522FF0633261964EB2A24 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B49A83A5A65F2C51930EFC8D359F9E /* Schema.swift */; };
+		F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7117EDF49F79B5E304284004B7FE2A94 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA2707A25E0E01A3391DA31D198F87D7 /* SwiftyRSA-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4665D2D9F15BDEDDAC0E76FF4FD1F05E /* SwiftyRSA-dummy.m */; };
 		FA2C3084E65CBDDB80FAE0DAE5BFDF90 /* Pods-VaccinationDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3962FAFD83C8A72758AB550506CE34 /* Pods-VaccinationDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF6AB5778D4AEF9956F3DB881A3184AF /* NSData+SHA.h in Headers */ = {isa = PBXBuildFile; fileRef = E19A58A439FA004B27595931C6818211 /* NSData+SHA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF6AB5778D4AEF9956F3DB881A3184AF /* NSData+SHA.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B3B2E690A0BB5304D17F139AA7ECD82 /* NSData+SHA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		290F20622EC2759D67E925E178F0439F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29F475E46142FCD224E52A385AD26DB6;
-			remoteInfo = QRCodeReader.swift;
-		};
-		3E458F351FD71F4113B33486A14EBCBA /* PBXContainerItemProxy */ = {
+		1644690537A3F59B5C05580776043C36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3B12F56E1DD9B86F01612724AD8BEF88;
 			remoteInfo = "Pods-VaccinationDemo";
 		};
-		6A566B76A59BE9D7F18C6AB11171B447 /* PBXContainerItemProxy */ = {
+		4BF0DE2E56FA61EEDBE5276577453EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F2C1776D90B62B156DB52C41A5C419C;
+			remoteInfo = SQLite.swift;
+		};
+		7C240287D138617E7C7073DD09A63F6F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 92A1C13902E7ACDA3ABB5BA1FEACC86C;
 			remoteInfo = SwiftyRSA;
 		};
-		7CA4D36E4629A8F48FA03610A35FA5CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92A1C13902E7ACDA3ABB5BA1FEACC86C;
-			remoteInfo = SwiftyRSA;
-		};
-		A7C0585104E2EDBD9F088934D4C9F8F6 /* PBXContainerItemProxy */ = {
+		7C5EC07F36B076EA5EC3CD6EF9363D9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29F475E46142FCD224E52A385AD26DB6;
 			remoteInfo = QRCodeReader.swift;
 		};
-		B29FA937CED35A8F405E4F4BFC7BA64F /* PBXContainerItemProxy */ = {
+		9D88489FA7303EB408938C5875661A8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
+		AB238F49191B32ECE7065683BDF35227 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3F2C1776D90B62B156DB52C41A5C419C;
 			remoteInfo = SQLite.swift;
 		};
-		BFCEEC9BC19BC48ED91CA4A4B518F815 /* PBXContainerItemProxy */ = {
+		B441FCAF7A9E19FCCB16CEAED909B809 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F2C1776D90B62B156DB52C41A5C419C;
-			remoteInfo = SQLite.swift;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
+		EE33A77C1AE03D68F219E3BBC8A3F3B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A1C13902E7ACDA3ABB5BA1FEACC86C;
+			remoteInfo = SwiftyRSA;
+		};
+		FA276AFDB87C9D33F0EB8B71552D0C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29F475E46142FCD224E52A385AD26DB6;
+			remoteInfo = QRCodeReader.swift;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03BA6F0CE85EF03CE152E4F8ABD036B6 /* SwiftyRSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.release.xcconfig; sourceTree = "<group>"; };
+		02EE0D2073476C1D4291B9F147CC584C /* SwiftyRSAError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSAError.swift; path = Source/SwiftyRSAError.swift; sourceTree = "<group>"; };
 		03CA3A647C10578045F42C74EE8DFA00 /* Pods-VaccinationDemo-VaccinationDemoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VaccinationDemo-VaccinationDemoUITests-frameworks.sh"; sourceTree = "<group>"; };
-		04880B7F8EE2C0BD0E2274A0474C6C1E /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = Sources/SQLite/Core/Statement.swift; sourceTree = "<group>"; };
+		075F763ADF1140FF4FA74B61E31D3915 /* QRCodeReader.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader.swift-prefix.pch"; sourceTree = "<group>"; };
 		0794F298040BC549B34FD91E36B4F02D /* Pods-VaccinationDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VaccinationDemoTests.modulemap"; sourceTree = "<group>"; };
-		08582C0B848DCA637C4E4ED21B665ABB /* SwiftyRSA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = Source/SwiftyRSA.h; sourceTree = "<group>"; };
-		0D54E2C7602359E3343CB28B8841F0FA /* SQLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLite.h; path = Sources/SQLite/SQLite.h; sourceTree = "<group>"; };
+		0995656349D1FA1958F2E7A9B2AA498D /* Setter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Setter.swift; path = Sources/SQLite/Typed/Setter.swift; sourceTree = "<group>"; };
 		0DA4828908E30CE4A29CB9AD3A405635 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyRSA.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		111B39FCE76AF8503B4BB2BA0A142ECE /* PublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublicKey.swift; path = Source/PublicKey.swift; sourceTree = "<group>"; };
+		0F8BD1E917631940C9558F23EA6511E1 /* SQLite.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SQLite.swift-dummy.m"; sourceTree = "<group>"; };
+		10F81A00F5D25462112D07D0A2D3A01D /* QRCodeReader.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReader.swift-dummy.m"; sourceTree = "<group>"; };
 		119E37C00806409CCC208EC590B49314 /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h"; sourceTree = "<group>"; };
+		151125AD3CEF6FD7EB28691E089B13AC /* SwiftyRSA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = Source/SwiftyRSA.h; sourceTree = "<group>"; };
+		175D5326C4B89F49D948500022A2AC8C /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/SQLite/Typed/Operators.swift; sourceTree = "<group>"; };
 		18C53D45663A23132047B2ECD82EC11E /* Pods-VaccinationDemo-VaccinationDemoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemo-VaccinationDemoUITests-Info.plist"; sourceTree = "<group>"; };
-		1B1B71AEC1233DA15AA8200B512E4278 /* FTS4.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS4.swift; path = Sources/SQLite/Extensions/FTS4.swift; sourceTree = "<group>"; };
-		1C0DE5DBD09133F45415C26C849F5057 /* Blob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blob.swift; path = Sources/SQLite/Core/Blob.swift; sourceTree = "<group>"; };
-		22A9FA119B91EDF3E8E4ED71BBF5F2CF /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
+		1C41024FF7995E44FCDF484B4E8062D8 /* FTS4.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS4.swift; path = Sources/SQLite/Extensions/FTS4.swift; sourceTree = "<group>"; };
+		21DCA95A27337A712C8FB261D9B8D463 /* ReaderOverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReaderOverlayView.swift; path = Sources/ReaderOverlayView.swift; sourceTree = "<group>"; };
+		23556089216EF6AE9C1D950E4E70E7AA /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		24A71FB70DAB05AA3DE70B0F219E196F /* QRCodeReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReader.swift; path = Sources/QRCodeReader.swift; sourceTree = "<group>"; };
+		24DDE63608DF60526AC08C5809B89372 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		25ABCD8D7CB3773A5166786613CF9F42 /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
+		25FAAF9E636C543BBCE95444E23193D6 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		2752153F4E6EF847510614CC71092955 /* Pods-VaccinationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		276C7E23F53969419C316B7403D82D3C /* SwiftyRSA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSA.swift; path = Source/SwiftyRSA.swift; sourceTree = "<group>"; };
-		27D448B591657ACA488977AC4A0C2D98 /* RTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RTree.swift; path = Sources/SQLite/Extensions/RTree.swift; sourceTree = "<group>"; };
-		2855F94E09A5EF9281897867552AC659 /* SQLite.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQLite.swift-umbrella.h"; sourceTree = "<group>"; };
+		27E371E8A5B12A29B21899608D88EB04 /* SwiftyRSA.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyRSA.modulemap; sourceTree = "<group>"; };
+		283B44FF7774C194B25EC458C7F78F9A /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		291AD58C66582DAD4B8F987A7125CAFD /* Pods-VaccinationDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2965B77E26A1BBDC93A24FB72D995753 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VaccinationDemo_VaccinationDemoUITests.framework; path = "Pods-VaccinationDemo-VaccinationDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A6D7BAF77C326DFCFC992715A01A262 /* QRCodeReader.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader.swift-umbrella.h"; sourceTree = "<group>"; };
-		33F58FFFDCBD64E46BACB69520A1DEB8 /* SwiftyRSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.debug.xcconfig; sourceTree = "<group>"; };
+		2B3B2E690A0BB5304D17F139AA7ECD82 /* NSData+SHA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SHA.h"; path = "Source/NSData+SHA.h"; sourceTree = "<group>"; };
+		2FBA879C209EBE93D724C53409DABA89 /* SQLite.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SQLite.swift-Info.plist"; sourceTree = "<group>"; };
+		30398B6B9D8FE9F98108A29696D7C0A2 /* QRCodeReaderResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderResult.swift; path = Sources/QRCodeReaderResult.swift; sourceTree = "<group>"; };
+		3188974A1AABFFA8E27100DA494688B8 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Sources/SQLite/Typed/Coding.swift; sourceTree = "<group>"; };
+		34DD91020857D366D3B4291221D9D13D /* QRCodeReaderViewControllerBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewControllerBuilder.swift; path = Sources/QRCodeReaderViewControllerBuilder.swift; sourceTree = "<group>"; };
+		350A160D7D85AF2D020480B3E6E96D1C /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewController.swift; path = Sources/QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		3652B113DC334A3FDA0C14F6794A5F69 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCodeReader.framework; path = QRCodeReader.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A21F7349A5468784E118B93023B3FFF /* QRCodeReader.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "QRCodeReader.swift-Info.plist"; sourceTree = "<group>"; };
+		3662F201E6A90D65C6C2B9F2706978C7 /* SwiftyRSA+ObjC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftyRSA+ObjC.swift"; path = "Source/SwiftyRSA+ObjC.swift"; sourceTree = "<group>"; };
+		36B49A83A5A65F2C51930EFC8D359F9E /* Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Schema.swift; path = Sources/SQLite/Typed/Schema.swift; sourceTree = "<group>"; };
+		37B1CCA6FB465F892F0AA35D6006C3C0 /* NSData+SHA.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SHA.m"; path = "Source/NSData+SHA.m"; sourceTree = "<group>"; };
+		3937EE5AC466773EAD88D4B30A6C4498 /* fts3_tokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = Sources/SQLiteObjc/fts3_tokenizer.h; sourceTree = "<group>"; };
+		3A73CB423EE3EA56AB87EBB19916AB6B /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		3DFBAAE560D7CE4CBF3BB480BC0460DC /* Pods_VaccinationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VaccinationDemo.framework; path = "Pods-VaccinationDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E228EFE9C51FEB1FD9434C4FB0FF652 /* Pods-VaccinationDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VaccinationDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3E69BA2E3A3676795C58E038B03640B2 /* QRCodeReader.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.swift.debug.xcconfig; sourceTree = "<group>"; };
-		3F657BDE9893F60BEEFE1DC4BC1265B2 /* NSData+SHA.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SHA.m"; path = "Source/NSData+SHA.m"; sourceTree = "<group>"; };
-		3F8110591B72F19F6695639A8BA1D03A /* ReaderOverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReaderOverlayView.swift; path = Sources/ReaderOverlayView.swift; sourceTree = "<group>"; };
+		3E9F3F859CE1E0BAF0BDC4B40ED3B4CF /* ToggleTorchButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToggleTorchButton.swift; path = Sources/ToggleTorchButton.swift; sourceTree = "<group>"; };
+		40717540DA89BF0094E7918EF68EF9DE /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		40B1B2CFDB8366954D2B6FE1B5EDFC29 /* Pods-VaccinationDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40BABEB75A055CC4E8F9959AC957FA15 /* Pods_VaccinationDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VaccinationDemoTests.framework; path = "Pods-VaccinationDemoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		41BE605D0A6DD0EA2F53569E68657FA3 /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Source/Key.swift; sourceTree = "<group>"; };
+		4283095662210A468183BECBEFD93E00 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		42F11641B38E83805C063793DF45154D /* SwitchCameraButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchCameraButton.swift; path = Sources/SwitchCameraButton.swift; sourceTree = "<group>"; };
 		435B88E9C5F80086E1DCE86CD2595CBB /* Pods-VaccinationDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VaccinationDemo-umbrella.h"; sourceTree = "<group>"; };
-		43F5B100BCB86F5E0E5D417287A50A92 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Sources/SQLite/Helpers.swift; sourceTree = "<group>"; };
-		4453C810C234DF54F4341823E0F684FA /* SQLite.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SQLite.swift.release.xcconfig; sourceTree = "<group>"; };
+		43DD26B48E708BEF77A3448128AD4D8D /* QRCodeReaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderView.swift; path = Sources/QRCodeReaderView.swift; sourceTree = "<group>"; };
+		43F6F83F7E2411AA1AD3E7246C490C23 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Source/Message.swift; sourceTree = "<group>"; };
+		452EBD796283E54F5171370838EB4965 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		454235803C60B9923572252C6E327DC1 /* RTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RTree.swift; path = Sources/SQLite/Extensions/RTree.swift; sourceTree = "<group>"; };
+		45432A6BCCDA62683C92EC7FAE093B92 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		4665D2D9F15BDEDDAC0E76FF4FD1F05E /* SwiftyRSA-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyRSA-dummy.m"; sourceTree = "<group>"; };
 		469B20CCA64083BB656823B2484F7445 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4769824B17E774A85A832083CB141F00 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Source/Message.swift; sourceTree = "<group>"; };
-		4DD296E70869DAE7F0185B201EF6B506 /* CoreFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreFunctions.swift; path = Sources/SQLite/Typed/CoreFunctions.swift; sourceTree = "<group>"; };
-		4F9759E78E562EB522681066A3FC0DEA /* QRCodeReaderViewContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewContainer.swift; path = Sources/QRCodeReaderViewContainer.swift; sourceTree = "<group>"; };
-		50D71CB46DFD2662B1E5CDD404BB362F /* Setter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Setter.swift; path = Sources/SQLite/Typed/Setter.swift; sourceTree = "<group>"; };
-		538AA0B7FB82493B1B01D602BFF27674 /* SwiftyRSA-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyRSA-Info.plist"; sourceTree = "<group>"; };
-		54DE34DA9FA7A4F2340C12ABFB61E3E8 /* fts3_tokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = Sources/SQLiteObjc/fts3_tokenizer.h; sourceTree = "<group>"; };
-		577020F573C22A58C7947064A51370DA /* CustomFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomFunctions.swift; path = Sources/SQLite/Typed/CustomFunctions.swift; sourceTree = "<group>"; };
+		4BC8C92BF0B0E841C5C163901B8DFF8C /* SQLiteObjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLiteObjc.h; path = Sources/SQLiteObjc/include/SQLiteObjc.h; sourceTree = "<group>"; };
+		544A575E669A8A8428E8A2E75B7438D0 /* SQLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLite.h; path = Sources/SQLite/SQLite.h; sourceTree = "<group>"; };
+		547AA22B6937769E7E25DD059BDDD3E9 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		569C9CF7B97E13AD0BF5E4B07EEC9B95 /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Sources/SQLite/Typed/Expression.swift; sourceTree = "<group>"; };
+		58B1EB48191935F9F141A430E035F4D8 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		5C2A0C10CDC30C6763249943FB327831 /* Pods-VaccinationDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VaccinationDemo-frameworks.sh"; sourceTree = "<group>"; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0708370FA88D4F0919A04764157EAA /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m"; sourceTree = "<group>"; };
-		6967DC42B4733BF8C3BE034E524BB11E /* Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Schema.swift; path = Sources/SQLite/Typed/Schema.swift; sourceTree = "<group>"; };
-		6BEB0211AD4FEEFB1CC02E13F493F9B4 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/SQLite/Core/Errors.swift; sourceTree = "<group>"; };
-		6E3EE3170BCD8E69295ACFF4211286DC /* SwiftyRSA-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyRSA-dummy.m"; sourceTree = "<group>"; };
+		5E9F76AD360F9A5DF5599CE79C708B22 /* PrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrivateKey.swift; path = Source/PrivateKey.swift; sourceTree = "<group>"; };
+		61307B7C7D2C5AA88C16F2535F01510E /* Collation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collation.swift; path = Sources/SQLite/Typed/Collation.swift; sourceTree = "<group>"; };
+		671D8759BBD61740FA94CF1DD7F7F69E /* FTS5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5.swift; path = Sources/SQLite/Extensions/FTS5.swift; sourceTree = "<group>"; };
+		6CDD90DED568786F3DB12CFCC240D38E /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		6F3C0B5D939F89AD21C8B668920A6AA2 /* Pods-VaccinationDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemo-Info.plist"; sourceTree = "<group>"; };
-		722636CDFAFEF8B90C2F3BBC7BB589F7 /* QRCodeReader.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader.swift-prefix.pch"; sourceTree = "<group>"; };
-		760FCCFC86476F5D96083835079A81B6 /* ClearMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ClearMessage.swift; path = Source/ClearMessage.swift; sourceTree = "<group>"; };
+		7117EDF49F79B5E304284004B7FE2A94 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		73DA732D962FB5255F28EEE021414073 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		74D186573883456B15C3D3953FAD7DF6 /* EncryptedMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EncryptedMessage.swift; path = Source/EncryptedMessage.swift; sourceTree = "<group>"; };
 		7641F1F46D3B681F605088029E2CA31C /* Pods-VaccinationDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		780B4C34B9A11D0EFDDCC1C138145AAD /* Signature.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Signature.swift; path = Source/Signature.swift; sourceTree = "<group>"; };
+		78D65C8D7C63B6911EC948563872BAFF /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		7B6862D4262310AF75D44C798B26C9C5 /* QRCodeReaderViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewControllerDelegate.swift; path = Sources/QRCodeReaderViewControllerDelegate.swift; sourceTree = "<group>"; };
 		7C59EB720B63DDB311108647609CAC08 /* Pods-VaccinationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemo.release.xcconfig"; sourceTree = "<group>"; };
-		7D69F579B955856F817211AFE33008F6 /* QRCodeReader.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QRCodeReader.swift.modulemap; sourceTree = "<group>"; };
-		7EAFC28EF6EDA9FF302C5BB66C383A5A /* SQLite.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SQLite.swift.debug.xcconfig; sourceTree = "<group>"; };
-		80B933D60D5BE255717247CE52E4B4C1 /* QRCodeReader.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReader.swift-dummy.m"; sourceTree = "<group>"; };
+		8054877DF7EAEEEDC8A424DF0BED61CC /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		81258C4FD1564A316E63D74FB0C1C750 /* SQLite.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SQLite.swift.modulemap; sourceTree = "<group>"; };
+		82C61696FAA8A42D6A45822C749B3850 /* Asn1Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
+		82FA3FFC21B1BEBBC4A163D5C3F05DDF /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Sources/SQLite/Helpers.swift; sourceTree = "<group>"; };
 		854F18FFE132758C6F47793B49C87856 /* Pods-VaccinationDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VaccinationDemo-dummy.m"; sourceTree = "<group>"; };
-		87348BE51C98D2B3ED3E93114A4E07D9 /* QRCodeReaderResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderResult.swift; path = Sources/QRCodeReaderResult.swift; sourceTree = "<group>"; };
-		885A1D71A6B0B5EBE02AC5CE9AEE18B5 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewController.swift; path = Sources/QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		855A88CF685BB5AE99DEC2BA57568219 /* QRCodeReader.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader.swift-umbrella.h"; sourceTree = "<group>"; };
+		85C1453340B16CFADF977F8AF9F99395 /* SwiftyRSA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSA.swift; path = Source/SwiftyRSA.swift; sourceTree = "<group>"; };
+		889EBAB427DAF5C4272DE455CF74CB1F /* QRCodeReader.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.swift.release.xcconfig; sourceTree = "<group>"; };
 		89903F9D9173C4547C79838E52EBDB7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		8E1B949E18482CE263FF16363165511E /* SQLite.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQLite.swift-prefix.pch"; sourceTree = "<group>"; };
-		8E88D7B63851CF20BE3C143B11BAD69C /* SQLite.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SQLite.swift.modulemap; sourceTree = "<group>"; };
-		93B66C6949F9984CDD4E279BCBA4DDB5 /* Collation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collation.swift; path = Sources/SQLite/Typed/Collation.swift; sourceTree = "<group>"; };
+		8C7034E03AE14E519D976AF623486FD9 /* SwiftyRSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.debug.xcconfig; sourceTree = "<group>"; };
+		8D788851B3F95653994F7C1CFF9DC7F3 /* DateAndTimeFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateAndTimeFunctions.swift; path = Sources/SQLite/Typed/DateAndTimeFunctions.swift; sourceTree = "<group>"; };
+		925C27FF8FF26DB6BB37B95BE189C46E /* Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Foundation.swift; path = Sources/SQLite/Foundation.swift; sourceTree = "<group>"; };
+		96A3C159382B0AF854B86E9318D7AF7B /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		975DEE2D0714B7694BA8B50768B05641 /* Pods-VaccinationDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		98C532769B3D40C2357F893EBEEA7B18 /* SQLiteObjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLiteObjc.m; path = Sources/SQLiteObjc/SQLiteObjc.m; sourceTree = "<group>"; };
+		985D07788886FFA5614DC55E4B4622EC /* SQLite.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQLite.swift-prefix.pch"; sourceTree = "<group>"; };
 		9905164E1231D61A026C5D255EDC8D57 /* Pods-VaccinationDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VaccinationDemo.modulemap"; sourceTree = "<group>"; };
-		9946C5977076B4C1E84F81492BB8278F /* EncryptedMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EncryptedMessage.swift; path = Source/EncryptedMessage.swift; sourceTree = "<group>"; };
+		9C55AD8B04A1B34F0B06041DF8044236 /* CustomFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomFunctions.swift; path = Sources/SQLite/Typed/CustomFunctions.swift; sourceTree = "<group>"; };
+		9C78338805EDE3235C6AA72B3F06FBD1 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/SQLite/Core/Connection.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FD1445F7E2E05BA1716971DD762788E /* Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Foundation.swift; path = Sources/SQLite/Foundation.swift; sourceTree = "<group>"; };
+		A1082B5B7EB871EF11D31AA9CDD06C7B /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		A19CE6BD79D8F0DC0465980260F7A433 /* Pods-VaccinationDemo-VaccinationDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VaccinationDemo-VaccinationDemoUITests.modulemap"; sourceTree = "<group>"; };
+		A1F688A13221BCB6F2D696E04B8682EB /* Blob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blob.swift; path = Sources/SQLite/Core/Blob.swift; sourceTree = "<group>"; };
+		A2F6C80B578A54825DCF258145BD251C /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = Sources/SQLite/Core/Value.swift; sourceTree = "<group>"; };
+		A31C2E74CD1DD130BB65DCAA70CC677F /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
+		A3B2355919F96C5F7E2FFA27D6A783A6 /* CoreFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreFunctions.swift; path = Sources/SQLite/Typed/CoreFunctions.swift; sourceTree = "<group>"; };
+		A42800CDE432DEA03C1D7A6F2D2A2A3B /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/SQLite/Core/Errors.swift; sourceTree = "<group>"; };
 		A4513AC4282C4A1DA772E4AA816FB1BF /* Pods-VaccinationDemo-VaccinationDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VaccinationDemo-VaccinationDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A7851C53980BD182D66F3286E52C3614 /* SQLiteObjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLiteObjc.h; path = Sources/SQLiteObjc/include/SQLiteObjc.h; sourceTree = "<group>"; };
-		A8C8724D656E395AA660D0A652927062 /* ToggleTorchButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToggleTorchButton.swift; path = Sources/ToggleTorchButton.swift; sourceTree = "<group>"; };
-		A98A4754573365BAD25DDACF753F06A1 /* FTS5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5.swift; path = Sources/SQLite/Extensions/FTS5.swift; sourceTree = "<group>"; };
+		A577F8FECE384698166A2C5F915632F4 /* Signature.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Signature.swift; path = Source/Signature.swift; sourceTree = "<group>"; };
 		AA99CBAC3581B55C2591B0724F37CD8E /* Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AC4A8AB3166376F6A881C84512DD4033 /* DateAndTimeFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateAndTimeFunctions.swift; path = Sources/SQLite/Typed/DateAndTimeFunctions.swift; sourceTree = "<group>"; };
-		B0031A24E52A14495E9368C98362AC96 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Sources/SQLite/Typed/Coding.swift; sourceTree = "<group>"; };
-		B0B699A8BE9ED3637628755242444896 /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = Sources/SQLite/Typed/Query.swift; sourceTree = "<group>"; };
-		B139C39B7FD66946B1C22EF030F9555D /* AggregateFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AggregateFunctions.swift; path = Sources/SQLite/Typed/AggregateFunctions.swift; sourceTree = "<group>"; };
-		B3B19283024FCBFE2D5E26E71D49E6CF /* SwiftyRSAError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSAError.swift; path = Source/SwiftyRSAError.swift; sourceTree = "<group>"; };
-		B47162EBC6E9DAF33360D90428D8E414 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/SQLite/Typed/Operators.swift; sourceTree = "<group>"; };
-		B5F44A12D6200D66EAEDE0AAB3FE47A4 /* QRCodeReaderViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewControllerDelegate.swift; path = Sources/QRCodeReaderViewControllerDelegate.swift; sourceTree = "<group>"; };
-		B7E1934C090C26CB6A77D2611CB5CFB8 /* QRCodeReader.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.swift.release.xcconfig; sourceTree = "<group>"; };
+		AEBCB22577FAF4D68E8DBC38992A1F75 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		B39594F428993A40CB82FBB86A6702E3 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		B501A705424FB34B5650808EA1239619 /* ClearMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ClearMessage.swift; path = Source/ClearMessage.swift; sourceTree = "<group>"; };
+		B6497DED3ECBB80941FB9890114A96A5 /* SQLite.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SQLite.swift.debug.xcconfig; sourceTree = "<group>"; };
 		B952A83DC85F9D89CF08E7C412E6E8CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		B9FD636C28C38FF63D78BE5D07E5D636 /* SwiftyRSA.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyRSA.modulemap; sourceTree = "<group>"; };
-		C4A425B279DFEBED58453867E97B715A /* QRCodeReaderViewControllerBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewControllerBuilder.swift; path = Sources/QRCodeReaderViewControllerBuilder.swift; sourceTree = "<group>"; };
+		B9715924FFD0E84A5343D2ADA9EEB2D4 /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Source/Key.swift; sourceTree = "<group>"; };
+		BB6D8CAAA9B7A9C7565013A1C57E952E /* SQLiteObjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLiteObjc.m; path = Sources/SQLiteObjc/SQLiteObjc.m; sourceTree = "<group>"; };
+		BFAE910FA5DE23B4F881E690D7E154AC /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
 		C5C7DADAE91C92A3C6AB6FAB7E03A6D2 /* Pods-VaccinationDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VaccinationDemoTests-dummy.m"; sourceTree = "<group>"; };
+		C76710F2C6E9402E29D392BA51D21EF1 /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = Sources/SQLite/Core/Statement.swift; sourceTree = "<group>"; };
 		C8C295431202B589EE66FD3F0615A4C3 /* Pods-VaccinationDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemoTests-Info.plist"; sourceTree = "<group>"; };
-		D0D52140C33AA280AE7FE2841A9DFE68 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/SQLite/Core/Connection.swift; sourceTree = "<group>"; };
-		D60887FFFDBCF9387C4B1340810EC551 /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
-		D73E920B55FB0C87B558BCAB67E0859D /* SwiftyRSA+ObjC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftyRSA+ObjC.swift"; path = "Source/SwiftyRSA+ObjC.swift"; sourceTree = "<group>"; };
-		D947F1DCAC9A13EC793C7C7DD367A6F5 /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Sources/SQLite/Typed/Expression.swift; sourceTree = "<group>"; };
-		DA98A6DEBA9CD894BF7455887E7BEDB2 /* SQLite.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SQLite.swift-Info.plist"; sourceTree = "<group>"; };
+		CC92BA89FE0FECE3879B8BD67F8F776B /* SwiftyRSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.release.xcconfig; sourceTree = "<group>"; };
+		D5993116AEFAF663433ABBCDEF38701E /* QRCodeReader.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.swift.debug.xcconfig; sourceTree = "<group>"; };
+		D999910A4A820027B16CD661BD3E7DFC /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		DC946CC61DB4BA0B24768D8D7834E689 /* QRCodeReader.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "QRCodeReader.swift-Info.plist"; sourceTree = "<group>"; };
+		DDEF3296AAAD7D56325613EB52C59F10 /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		DE3962FAFD83C8A72758AB550506CE34 /* Pods-VaccinationDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VaccinationDemoTests-umbrella.h"; sourceTree = "<group>"; };
-		E03C61ECB28A696247BA408E437407DD /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = Sources/SQLite/Core/Value.swift; sourceTree = "<group>"; };
-		E19A58A439FA004B27595931C6818211 /* NSData+SHA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SHA.h"; path = "Source/NSData+SHA.h"; sourceTree = "<group>"; };
-		E49021A0EF8934A2A8C5F0F8121476DD /* QRCodeReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReader.swift; path = Sources/QRCodeReader.swift; sourceTree = "<group>"; };
-		E969D4D691A0A5F4171A8CA8F04F49AC /* SQLite.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SQLite.swift-dummy.m"; sourceTree = "<group>"; };
-		EB4710DAF499767912F194CAECC16C0D /* Asn1Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
-		F0A3D74F023B47282C175A1040ABF561 /* QRCodeReaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderView.swift; path = Sources/QRCodeReaderView.swift; sourceTree = "<group>"; };
+		E17CCF8FAF27C9A470EA6793B91943ED /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = Sources/SQLite/Typed/Query.swift; sourceTree = "<group>"; };
+		E1F22EAFFF592476E066A10A68752904 /* PublicKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublicKey.swift; path = Source/PublicKey.swift; sourceTree = "<group>"; };
+		E326D696AE7E579ADC056B33DB359805 /* AggregateFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AggregateFunctions.swift; path = Sources/SQLite/Typed/AggregateFunctions.swift; sourceTree = "<group>"; };
+		EA66F541EA497D33B3256DDCB50E06DC /* QRCodeReaderViewContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeReaderViewContainer.swift; path = Sources/QRCodeReaderViewContainer.swift; sourceTree = "<group>"; };
+		EFE71F6A0FA1BB8C9310483C77C78414 /* QRCodeReader.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QRCodeReader.swift.modulemap; sourceTree = "<group>"; };
+		F007EBA94D40428A3C45BFCD69807F75 /* SQLite.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SQLite.swift-umbrella.h"; sourceTree = "<group>"; };
 		F249B98BB0539507A638F999507F51CC /* Pods-VaccinationDemo-VaccinationDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VaccinationDemo-VaccinationDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F4F66072EDF7898EA46253B54C0A290D /* SwitchCameraButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchCameraButton.swift; path = Sources/SwitchCameraButton.swift; sourceTree = "<group>"; };
+		F24A4E2BA7CE7EC0A728FCE91E2C852E /* SwiftyRSA-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyRSA-Info.plist"; sourceTree = "<group>"; };
+		F533F8774A9244DED153A5721EF76411 /* SQLite.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SQLite.swift.release.xcconfig; sourceTree = "<group>"; };
 		F5FA45A44C42CC2CA3A324A3E914CE19 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SQLite.framework; path = SQLite.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87B40C24AEE498580E7ACB593A39F4F /* Pods-VaccinationDemo-VaccinationDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VaccinationDemo-VaccinationDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FAB9829BC945FD9AADEF8F18743EF044 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		FC748BAABCEF8AB8614DE0257B33BCB3 /* Pods-VaccinationDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VaccinationDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FE3E1F188550C97D688FDCC38F891A01 /* PrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrivateKey.swift; path = Source/PrivateKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		090C1D63463ACF622287EFF9D5C9392D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50013C33D35EBAF31ACF3A8B3A9A3FB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0E472E6B58CCE989BF3A4EA11B147843 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E159920E5EBDA6D56A59272009F75252 /* AVFoundation.framework in Frameworks */,
 				8CB22A48B17A55590B712B82CA92A98F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		386B1EEB302F987F9E01FCEC749A975E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B11D1617500AA82C719C2C1B7FF0C6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,11 +332,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		51F2FB3DA780E4EEA8D926A4FAB4C06D /* Frameworks */ = {
+		9569AA5B588B11C4BC35823B42DB65C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC6A84CD340B41E10A35EA9543236737 /* Foundation.framework in Frameworks */,
+				D74F77457CF2E6574282783F88370C2B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,14 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6BBE622771EB3AAD6B360ED555E329 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D62FADEBF705BC8B07BE158C55903F52 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A21A7C2A46C726D600C6D4AA14E428B0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,62 +368,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0461D608FFCC7708BC48F77A3139DFDE /* Pods */ = {
+		110AD57424258668116B994F94EA752A /* QRCodeReader.swift */ = {
 			isa = PBXGroup;
 			children = (
-				B6C895CBBF8004559C529B032D636EFB /* QRCodeReader.swift */,
-				13D479FCA2E0F9ABE0BC324DC672EE18 /* SQLite.swift */,
-				FCA3D5DCEDC1D4974D9F3891BA139568 /* SwiftyRSA */,
+				24A71FB70DAB05AA3DE70B0F219E196F /* QRCodeReader.swift */,
+				30398B6B9D8FE9F98108A29696D7C0A2 /* QRCodeReaderResult.swift */,
+				43DD26B48E708BEF77A3448128AD4D8D /* QRCodeReaderView.swift */,
+				EA66F541EA497D33B3256DDCB50E06DC /* QRCodeReaderViewContainer.swift */,
+				350A160D7D85AF2D020480B3E6E96D1C /* QRCodeReaderViewController.swift */,
+				34DD91020857D366D3B4291221D9D13D /* QRCodeReaderViewControllerBuilder.swift */,
+				7B6862D4262310AF75D44C798B26C9C5 /* QRCodeReaderViewControllerDelegate.swift */,
+				21DCA95A27337A712C8FB261D9B8D463 /* ReaderOverlayView.swift */,
+				42F11641B38E83805C063793DF45154D /* SwitchCameraButton.swift */,
+				3E9F3F859CE1E0BAF0BDC4B40ED3B4CF /* ToggleTorchButton.swift */,
+				DF10E9134C67ACC78D04127F8570A29B /* Support Files */,
 			);
-			name = Pods;
+			name = QRCodeReader.swift;
+			path = QRCodeReader.swift;
 			sourceTree = "<group>";
 		};
-		13D479FCA2E0F9ABE0BC324DC672EE18 /* SQLite.swift */ = {
+		238D2AF36EFD330FA8E8DA47C3F7253C /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				B4C7308EA8F22389251CCFF8DD19D2C5 /* standard */,
-				6DD88613BC4EBCEA09217F6E229ED2B0 /* Support Files */,
-			);
-			name = SQLite.swift;
-			path = SQLite.swift;
-			sourceTree = "<group>";
-		};
-		55E4E900362D1367E52716A5095E7AD1 /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				D73E920B55FB0C87B558BCAB67E0859D /* SwiftyRSA+ObjC.swift */,
+				3662F201E6A90D65C6C2B9F2706978C7 /* SwiftyRSA+ObjC.swift */,
 			);
 			name = ObjC;
 			sourceTree = "<group>";
 		};
-		6BECD81ACB25363668055D9C7A0B2AF0 /* Support Files */ = {
+		3A82A187E76AA9B3F5538312FE457197 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7D69F579B955856F817211AFE33008F6 /* QRCodeReader.swift.modulemap */,
-				80B933D60D5BE255717247CE52E4B4C1 /* QRCodeReader.swift-dummy.m */,
-				3A21F7349A5468784E118B93023B3FFF /* QRCodeReader.swift-Info.plist */,
-				722636CDFAFEF8B90C2F3BBC7BB589F7 /* QRCodeReader.swift-prefix.pch */,
-				2A6D7BAF77C326DFCFC992715A01A262 /* QRCodeReader.swift-umbrella.h */,
-				3E69BA2E3A3676795C58E038B03640B2 /* QRCodeReader.swift.debug.xcconfig */,
-				B7E1934C090C26CB6A77D2611CB5CFB8 /* QRCodeReader.swift.release.xcconfig */,
+				8866EF860CBC42A77B66C1A53E1192D8 /* Alamofire */,
+				110AD57424258668116B994F94EA752A /* QRCodeReader.swift */,
+				FA582A710CF41AB83EBA2A8113F79726 /* SQLite.swift */,
+				B651880A6E06E95882989CE1C21EF389 /* SwiftyRSA */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/QRCodeReader.swift";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		6DD88613BC4EBCEA09217F6E229ED2B0 /* Support Files */ = {
+		5EE8C85BD22D5EC27DED3F05AA68BB74 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E88D7B63851CF20BE3C143B11BAD69C /* SQLite.swift.modulemap */,
-				E969D4D691A0A5F4171A8CA8F04F49AC /* SQLite.swift-dummy.m */,
-				DA98A6DEBA9CD894BF7455887E7BEDB2 /* SQLite.swift-Info.plist */,
-				8E1B949E18482CE263FF16363165511E /* SQLite.swift-prefix.pch */,
-				2855F94E09A5EF9281897867552AC659 /* SQLite.swift-umbrella.h */,
-				7EAFC28EF6EDA9FF302C5BB66C383A5A /* SQLite.swift.debug.xcconfig */,
-				4453C810C234DF54F4341823E0F684FA /* SQLite.swift.release.xcconfig */,
+				4283095662210A468183BECBEFD93E00 /* Alamofire.modulemap */,
+				45432A6BCCDA62683C92EC7FAE093B92 /* Alamofire-dummy.m */,
+				BFAE910FA5DE23B4F881E690D7E154AC /* Alamofire-Info.plist */,
+				AEBCB22577FAF4D68E8DBC38992A1F75 /* Alamofire-prefix.pch */,
+				7117EDF49F79B5E304284004B7FE2A94 /* Alamofire-umbrella.h */,
+				A31C2E74CD1DD130BB65DCAA70CC677F /* Alamofire.debug.xcconfig */,
+				6CDD90DED568786F3DB12CFCC240D38E /* Alamofire.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SQLite.swift";
+			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
 		78487559E4DBF6B3BF1ACE1744BD1DDC /* Pods-VaccinationDemo */ = {
@@ -374,6 +436,32 @@
 			);
 			name = "Pods-VaccinationDemo";
 			path = "Target Support Files/Pods-VaccinationDemo";
+			sourceTree = "<group>";
+		};
+		8866EF860CBC42A77B66C1A53E1192D8 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				58B1EB48191935F9F141A430E035F4D8 /* AFError.swift */,
+				25FAAF9E636C543BBCE95444E23193D6 /* Alamofire.swift */,
+				B39594F428993A40CB82FBB86A6702E3 /* DispatchQueue+Alamofire.swift */,
+				D999910A4A820027B16CD661BD3E7DFC /* MultipartFormData.swift */,
+				3A73CB423EE3EA56AB87EBB19916AB6B /* NetworkReachabilityManager.swift */,
+				283B44FF7774C194B25EC458C7F78F9A /* Notifications.swift */,
+				40717540DA89BF0094E7918EF68EF9DE /* ParameterEncoding.swift */,
+				547AA22B6937769E7E25DD059BDDD3E9 /* Request.swift */,
+				73DA732D962FB5255F28EEE021414073 /* Response.swift */,
+				8054877DF7EAEEEDC8A424DF0BED61CC /* ResponseSerialization.swift */,
+				78D65C8D7C63B6911EC948563872BAFF /* Result.swift */,
+				A1082B5B7EB871EF11D31AA9CDD06C7B /* ServerTrustPolicy.swift */,
+				FAB9829BC945FD9AADEF8F18743EF044 /* SessionDelegate.swift */,
+				23556089216EF6AE9C1D950E4E70E7AA /* SessionManager.swift */,
+				96A3C159382B0AF854B86E9318D7AF7B /* TaskDelegate.swift */,
+				24DDE63608DF60526AC08C5809B89372 /* Timeline.swift */,
+				452EBD796283E54F5171370838EB4965 /* Validation.swift */,
+				5EE8C85BD22D5EC27DED3F05AA68BB74 /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 		891E9A28B01746CD0727483566F4BD29 /* Pods-VaccinationDemo-VaccinationDemoUITests */ = {
@@ -409,55 +497,73 @@
 			path = "Target Support Files/Pods-VaccinationDemoTests";
 			sourceTree = "<group>";
 		};
-		B4C7308EA8F22389251CCFF8DD19D2C5 /* standard */ = {
+		9593DFAE2E6731C3B50A4B1FC0E25AC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B139C39B7FD66946B1C22EF030F9555D /* AggregateFunctions.swift */,
-				1C0DE5DBD09133F45415C26C849F5057 /* Blob.swift */,
-				B0031A24E52A14495E9368C98362AC96 /* Coding.swift */,
-				93B66C6949F9984CDD4E279BCBA4DDB5 /* Collation.swift */,
-				D0D52140C33AA280AE7FE2841A9DFE68 /* Connection.swift */,
-				4DD296E70869DAE7F0185B201EF6B506 /* CoreFunctions.swift */,
-				577020F573C22A58C7947064A51370DA /* CustomFunctions.swift */,
-				AC4A8AB3166376F6A881C84512DD4033 /* DateAndTimeFunctions.swift */,
-				6BEB0211AD4FEEFB1CC02E13F493F9B4 /* Errors.swift */,
-				D947F1DCAC9A13EC793C7C7DD367A6F5 /* Expression.swift */,
-				9FD1445F7E2E05BA1716971DD762788E /* Foundation.swift */,
-				54DE34DA9FA7A4F2340C12ABFB61E3E8 /* fts3_tokenizer.h */,
-				1B1B71AEC1233DA15AA8200B512E4278 /* FTS4.swift */,
-				A98A4754573365BAD25DDACF753F06A1 /* FTS5.swift */,
-				43F5B100BCB86F5E0E5D417287A50A92 /* Helpers.swift */,
-				B47162EBC6E9DAF33360D90428D8E414 /* Operators.swift */,
-				B0B699A8BE9ED3637628755242444896 /* Query.swift */,
-				27D448B591657ACA488977AC4A0C2D98 /* RTree.swift */,
-				6967DC42B4733BF8C3BE034E524BB11E /* Schema.swift */,
-				50D71CB46DFD2662B1E5CDD404BB362F /* Setter.swift */,
-				0D54E2C7602359E3343CB28B8841F0FA /* SQLite.h */,
-				A7851C53980BD182D66F3286E52C3614 /* SQLiteObjc.h */,
-				98C532769B3D40C2357F893EBEEA7B18 /* SQLiteObjc.m */,
-				04880B7F8EE2C0BD0E2274A0474C6C1E /* Statement.swift */,
-				E03C61ECB28A696247BA408E437407DD /* Value.swift */,
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				3DFBAAE560D7CE4CBF3BB480BC0460DC /* Pods_VaccinationDemo.framework */,
+				2965B77E26A1BBDC93A24FB72D995753 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */,
+				40BABEB75A055CC4E8F9959AC957FA15 /* Pods_VaccinationDemoTests.framework */,
+				3652B113DC334A3FDA0C14F6794A5F69 /* QRCodeReader.framework */,
+				F5FA45A44C42CC2CA3A324A3E914CE19 /* SQLite.framework */,
+				0DA4828908E30CE4A29CB9AD3A405635 /* SwiftyRSA.framework */,
 			);
-			name = standard;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		B6C895CBBF8004559C529B032D636EFB /* QRCodeReader.swift */ = {
+		B651880A6E06E95882989CE1C21EF389 /* SwiftyRSA */ = {
 			isa = PBXGroup;
 			children = (
-				E49021A0EF8934A2A8C5F0F8121476DD /* QRCodeReader.swift */,
-				87348BE51C98D2B3ED3E93114A4E07D9 /* QRCodeReaderResult.swift */,
-				F0A3D74F023B47282C175A1040ABF561 /* QRCodeReaderView.swift */,
-				4F9759E78E562EB522681066A3FC0DEA /* QRCodeReaderViewContainer.swift */,
-				885A1D71A6B0B5EBE02AC5CE9AEE18B5 /* QRCodeReaderViewController.swift */,
-				C4A425B279DFEBED58453867E97B715A /* QRCodeReaderViewControllerBuilder.swift */,
-				B5F44A12D6200D66EAEDE0AAB3FE47A4 /* QRCodeReaderViewControllerDelegate.swift */,
-				3F8110591B72F19F6695639A8BA1D03A /* ReaderOverlayView.swift */,
-				F4F66072EDF7898EA46253B54C0A290D /* SwitchCameraButton.swift */,
-				A8C8724D656E395AA660D0A652927062 /* ToggleTorchButton.swift */,
-				6BECD81ACB25363668055D9C7A0B2AF0 /* Support Files */,
+				82C61696FAA8A42D6A45822C749B3850 /* Asn1Parser.swift */,
+				B501A705424FB34B5650808EA1239619 /* ClearMessage.swift */,
+				74D186573883456B15C3D3953FAD7DF6 /* EncryptedMessage.swift */,
+				B9715924FFD0E84A5343D2ADA9EEB2D4 /* Key.swift */,
+				43F6F83F7E2411AA1AD3E7246C490C23 /* Message.swift */,
+				2B3B2E690A0BB5304D17F139AA7ECD82 /* NSData+SHA.h */,
+				37B1CCA6FB465F892F0AA35D6006C3C0 /* NSData+SHA.m */,
+				5E9F76AD360F9A5DF5599CE79C708B22 /* PrivateKey.swift */,
+				E1F22EAFFF592476E066A10A68752904 /* PublicKey.swift */,
+				A577F8FECE384698166A2C5F915632F4 /* Signature.swift */,
+				151125AD3CEF6FD7EB28691E089B13AC /* SwiftyRSA.h */,
+				85C1453340B16CFADF977F8AF9F99395 /* SwiftyRSA.swift */,
+				02EE0D2073476C1D4291B9F147CC584C /* SwiftyRSAError.swift */,
+				238D2AF36EFD330FA8E8DA47C3F7253C /* ObjC */,
+				FDE75B25AD32BDA3EF921D277D468FF2 /* Support Files */,
 			);
-			name = QRCodeReader.swift;
-			path = QRCodeReader.swift;
+			name = SwiftyRSA;
+			path = SwiftyRSA;
+			sourceTree = "<group>";
+		};
+		BB9D6A4871FC1D49F8660C0ADB22F3DA /* standard */ = {
+			isa = PBXGroup;
+			children = (
+				E326D696AE7E579ADC056B33DB359805 /* AggregateFunctions.swift */,
+				A1F688A13221BCB6F2D696E04B8682EB /* Blob.swift */,
+				3188974A1AABFFA8E27100DA494688B8 /* Coding.swift */,
+				61307B7C7D2C5AA88C16F2535F01510E /* Collation.swift */,
+				9C78338805EDE3235C6AA72B3F06FBD1 /* Connection.swift */,
+				A3B2355919F96C5F7E2FFA27D6A783A6 /* CoreFunctions.swift */,
+				9C55AD8B04A1B34F0B06041DF8044236 /* CustomFunctions.swift */,
+				8D788851B3F95653994F7C1CFF9DC7F3 /* DateAndTimeFunctions.swift */,
+				A42800CDE432DEA03C1D7A6F2D2A2A3B /* Errors.swift */,
+				569C9CF7B97E13AD0BF5E4B07EEC9B95 /* Expression.swift */,
+				925C27FF8FF26DB6BB37B95BE189C46E /* Foundation.swift */,
+				3937EE5AC466773EAD88D4B30A6C4498 /* fts3_tokenizer.h */,
+				1C41024FF7995E44FCDF484B4E8062D8 /* FTS4.swift */,
+				671D8759BBD61740FA94CF1DD7F7F69E /* FTS5.swift */,
+				82FA3FFC21B1BEBBC4A163D5C3F05DDF /* Helpers.swift */,
+				175D5326C4B89F49D948500022A2AC8C /* Operators.swift */,
+				E17CCF8FAF27C9A470EA6793B91943ED /* Query.swift */,
+				454235803C60B9923572252C6E327DC1 /* RTree.swift */,
+				36B49A83A5A65F2C51930EFC8D359F9E /* Schema.swift */,
+				0995656349D1FA1958F2E7A9B2AA498D /* Setter.swift */,
+				544A575E669A8A8428E8A2E75B7438D0 /* SQLite.h */,
+				4BC8C92BF0B0E841C5C163901B8DFF8C /* SQLiteObjc.h */,
+				BB6D8CAAA9B7A9C7565013A1C57E952E /* SQLiteObjc.m */,
+				C76710F2C6E9402E29D392BA51D21EF1 /* Statement.swift */,
+				A2F6C80B578A54825DCF258145BD251C /* Value.swift */,
+			);
+			name = standard;
 			sourceTree = "<group>";
 		};
 		C0932BCEDDB681D2551CD587284890AE /* Targets Support Files */ = {
@@ -475,23 +581,40 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				0461D608FFCC7708BC48F77A3139DFDE /* Pods */,
-				D7AF044306F60CE97243ABD99F67AD70 /* Products */,
+				3A82A187E76AA9B3F5538312FE457197 /* Pods */,
+				9593DFAE2E6731C3B50A4B1FC0E25AC7 /* Products */,
 				C0932BCEDDB681D2551CD587284890AE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D7AF044306F60CE97243ABD99F67AD70 /* Products */ = {
+		D435D3DE9824FC7FA6A493E2DA5224E6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3DFBAAE560D7CE4CBF3BB480BC0460DC /* Pods_VaccinationDemo.framework */,
-				2965B77E26A1BBDC93A24FB72D995753 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */,
-				40BABEB75A055CC4E8F9959AC957FA15 /* Pods_VaccinationDemoTests.framework */,
-				3652B113DC334A3FDA0C14F6794A5F69 /* QRCodeReader.framework */,
-				F5FA45A44C42CC2CA3A324A3E914CE19 /* SQLite.framework */,
-				0DA4828908E30CE4A29CB9AD3A405635 /* SwiftyRSA.framework */,
+				81258C4FD1564A316E63D74FB0C1C750 /* SQLite.swift.modulemap */,
+				0F8BD1E917631940C9558F23EA6511E1 /* SQLite.swift-dummy.m */,
+				2FBA879C209EBE93D724C53409DABA89 /* SQLite.swift-Info.plist */,
+				985D07788886FFA5614DC55E4B4622EC /* SQLite.swift-prefix.pch */,
+				F007EBA94D40428A3C45BFCD69807F75 /* SQLite.swift-umbrella.h */,
+				B6497DED3ECBB80941FB9890114A96A5 /* SQLite.swift.debug.xcconfig */,
+				F533F8774A9244DED153A5721EF76411 /* SQLite.swift.release.xcconfig */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/SQLite.swift";
+			sourceTree = "<group>";
+		};
+		DF10E9134C67ACC78D04127F8570A29B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFE71F6A0FA1BB8C9310483C77C78414 /* QRCodeReader.swift.modulemap */,
+				10F81A00F5D25462112D07D0A2D3A01D /* QRCodeReader.swift-dummy.m */,
+				DC946CC61DB4BA0B24768D8D7834E689 /* QRCodeReader.swift-Info.plist */,
+				075F763ADF1140FF4FA74B61E31D3915 /* QRCodeReader.swift-prefix.pch */,
+				855A88CF685BB5AE99DEC2BA57568219 /* QRCodeReader.swift-umbrella.h */,
+				D5993116AEFAF663433ABBCDEF38701E /* QRCodeReader.swift.debug.xcconfig */,
+				889EBAB427DAF5C4272DE455CF74CB1F /* QRCodeReader.swift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/QRCodeReader.swift";
 			sourceTree = "<group>";
 		};
 		E40C53ACDAEA4243559C16AF829E4766 /* iOS */ = {
@@ -504,47 +627,42 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F7D52AF0F732F9B07608EACADE050301 /* Support Files */ = {
+		FA582A710CF41AB83EBA2A8113F79726 /* SQLite.swift */ = {
 			isa = PBXGroup;
 			children = (
-				B9FD636C28C38FF63D78BE5D07E5D636 /* SwiftyRSA.modulemap */,
-				6E3EE3170BCD8E69295ACFF4211286DC /* SwiftyRSA-dummy.m */,
-				538AA0B7FB82493B1B01D602BFF27674 /* SwiftyRSA-Info.plist */,
-				D60887FFFDBCF9387C4B1340810EC551 /* SwiftyRSA-prefix.pch */,
-				22A9FA119B91EDF3E8E4ED71BBF5F2CF /* SwiftyRSA-umbrella.h */,
-				33F58FFFDCBD64E46BACB69520A1DEB8 /* SwiftyRSA.debug.xcconfig */,
-				03BA6F0CE85EF03CE152E4F8ABD036B6 /* SwiftyRSA.release.xcconfig */,
+				BB9D6A4871FC1D49F8660C0ADB22F3DA /* standard */,
+				D435D3DE9824FC7FA6A493E2DA5224E6 /* Support Files */,
+			);
+			name = SQLite.swift;
+			path = SQLite.swift;
+			sourceTree = "<group>";
+		};
+		FDE75B25AD32BDA3EF921D277D468FF2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				27E371E8A5B12A29B21899608D88EB04 /* SwiftyRSA.modulemap */,
+				4665D2D9F15BDEDDAC0E76FF4FD1F05E /* SwiftyRSA-dummy.m */,
+				F24A4E2BA7CE7EC0A728FCE91E2C852E /* SwiftyRSA-Info.plist */,
+				25ABCD8D7CB3773A5166786613CF9F42 /* SwiftyRSA-prefix.pch */,
+				DDEF3296AAAD7D56325613EB52C59F10 /* SwiftyRSA-umbrella.h */,
+				8C7034E03AE14E519D976AF623486FD9 /* SwiftyRSA.debug.xcconfig */,
+				CC92BA89FE0FECE3879B8BD67F8F776B /* SwiftyRSA.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyRSA";
 			sourceTree = "<group>";
 		};
-		FCA3D5DCEDC1D4974D9F3891BA139568 /* SwiftyRSA */ = {
-			isa = PBXGroup;
-			children = (
-				EB4710DAF499767912F194CAECC16C0D /* Asn1Parser.swift */,
-				760FCCFC86476F5D96083835079A81B6 /* ClearMessage.swift */,
-				9946C5977076B4C1E84F81492BB8278F /* EncryptedMessage.swift */,
-				41BE605D0A6DD0EA2F53569E68657FA3 /* Key.swift */,
-				4769824B17E774A85A832083CB141F00 /* Message.swift */,
-				E19A58A439FA004B27595931C6818211 /* NSData+SHA.h */,
-				3F657BDE9893F60BEEFE1DC4BC1265B2 /* NSData+SHA.m */,
-				FE3E1F188550C97D688FDCC38F891A01 /* PrivateKey.swift */,
-				111B39FCE76AF8503B4BB2BA0A142ECE /* PublicKey.swift */,
-				780B4C34B9A11D0EFDDCC1C138145AAD /* Signature.swift */,
-				08582C0B848DCA637C4E4ED21B665ABB /* SwiftyRSA.h */,
-				276C7E23F53969419C316B7403D82D3C /* SwiftyRSA.swift */,
-				B3B19283024FCBFE2D5E26E71D49E6CF /* SwiftyRSAError.swift */,
-				55E4E900362D1367E52716A5095E7AD1 /* ObjC */,
-				F7D52AF0F732F9B07608EACADE050301 /* Support Files */,
-			);
-			name = SwiftyRSA;
-			path = SwiftyRSA;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2582784E4FA6A1AC5D23FC53AC3F6EE2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3293623AD08199534ABE2CF7F55E8FA9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,14 +670,6 @@
 				FF6AB5778D4AEF9956F3DB881A3184AF /* NSData+SHA.h in Headers */,
 				B4EA329362D601B8B1F3E47DCD958059 /* SwiftyRSA-umbrella.h in Headers */,
 				CCE5FAFFCA449C9E33F7C9F7914A8982 /* SwiftyRSA.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		534E63EE858EBEFD2C918CEDE6A2449A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				428A2AD3C4D318055AB242BE8E952EE4 /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,11 +700,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED4E060FC80F4F4B5A6B74B4E97E7558 /* Headers */ = {
+		9FDD21B5127CC3E731856F60450E2C21 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F66B0B642CF871D7E5E8090181428B7 /* Pods-VaccinationDemo-umbrella.h in Headers */,
+				5DE96FB34F04898D590D60F3C2088A63 /* Pods-VaccinationDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B84DC42991A41C1AEA91C183081E58BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16121B76F929876106BD6CDDD5661B9A /* Pods-VaccinationDemo-VaccinationDemoUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,19 +739,20 @@
 		};
 		3B12F56E1DD9B86F01612724AD8BEF88 /* Pods-VaccinationDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1079E655A0B22D03E53F1B90F751F9B5 /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo" */;
+			buildConfigurationList = 780F76733049FA76C312BBF45D97E08C /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo" */;
 			buildPhases = (
-				ED4E060FC80F4F4B5A6B74B4E97E7558 /* Headers */,
-				879BFD7EF9475D9D54479CD397D15310 /* Sources */,
-				D62FADEBF705BC8B07BE158C55903F52 /* Frameworks */,
-				2A00BBE9D8C013498999B5CC804513B5 /* Resources */,
+				9FDD21B5127CC3E731856F60450E2C21 /* Headers */,
+				D5E0311F6EE135895C6CAEF43B728234 /* Sources */,
+				9569AA5B588B11C4BC35823B42DB65C3 /* Frameworks */,
+				9A8C13B8A5762F15BDF83EF619D05DC6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8DD8EC4F05C21161821049E73E5A925D /* PBXTargetDependency */,
-				F31045F93B3722453E10EE4E5979347C /* PBXTargetDependency */,
-				0F704086958B2B2F26D992E5407D32B1 /* PBXTargetDependency */,
+				B02E4775A5BC06473561F2E5D62AF934 /* PBXTargetDependency */,
+				D2C3D85AB4F2B52C6F462B284A170314 /* PBXTargetDependency */,
+				BD82D7A5F80F9E1826CB09B5A134C8DE /* PBXTargetDependency */,
+				48CC3A70CA2880DA752EECC70DCD71CA /* PBXTargetDependency */,
 			);
 			name = "Pods-VaccinationDemo";
 			productName = "Pods-VaccinationDemo";
@@ -688,7 +807,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				779AB239301433308486ABCA3CC233BF /* PBXTargetDependency */,
+				0B217BAB7D53F06CD1EA9853370A7500 /* PBXTargetDependency */,
 			);
 			name = "Pods-VaccinationDemoTests";
 			productName = "Pods-VaccinationDemoTests";
@@ -697,23 +816,42 @@
 		};
 		DCAC3EDC74494447CC297F1312783178 /* Pods-VaccinationDemo-VaccinationDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B51945513DAD97F3F34F5451FCE20A3C /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo-VaccinationDemoUITests" */;
+			buildConfigurationList = AD1447C27DA18EA546DC45A1883C3EBB /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo-VaccinationDemoUITests" */;
 			buildPhases = (
-				534E63EE858EBEFD2C918CEDE6A2449A /* Headers */,
-				84A5F9FB3A84B031CA247B13F5CE1088 /* Sources */,
-				51F2FB3DA780E4EEA8D926A4FAB4C06D /* Frameworks */,
-				E5EEB9DA2430394F17CDF7E4AC4EEAC0 /* Resources */,
+				B84DC42991A41C1AEA91C183081E58BF /* Headers */,
+				8EC56123666CD0172A8FCB171311003F /* Sources */,
+				386B1EEB302F987F9E01FCEC749A975E /* Frameworks */,
+				285305EFB461DDE88ABA22155DB13C8B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1B947F53D5B416885FCD61DD83E9ED67 /* PBXTargetDependency */,
-				5369F02A1A57766A57D36C8BAEA22133 /* PBXTargetDependency */,
-				B97A5B38A4646D21C741EBF32D43CB9B /* PBXTargetDependency */,
+				462F7A6D45C2E5E82078EBDFE4BA5259 /* PBXTargetDependency */,
+				02B2AA47D185356AD0070CEA3E620B55 /* PBXTargetDependency */,
+				6786B53A2C4DAA0F5EFFCB9D81DFB019 /* PBXTargetDependency */,
+				16C4F75825B4653974EEB4C6A5B68462 /* PBXTargetDependency */,
 			);
 			name = "Pods-VaccinationDemo-VaccinationDemoUITests";
 			productName = "Pods-VaccinationDemo-VaccinationDemoUITests";
 			productReference = 2965B77E26A1BBDC93A24FB72D995753 /* Pods_VaccinationDemo_VaccinationDemoUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4A5194ABAF7A4780609E0E581DA6B54 /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				2582784E4FA6A1AC5D23FC53AC3F6EE2 /* Headers */,
+				2DDFD9AC10F181CD7130BDF5F9E0502B /* Sources */,
+				090C1D63463ACF622287EFF9D5C9392D /* Frameworks */,
+				473D3E892ABB6C798CFF290644259B34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -734,10 +872,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = D7AF044306F60CE97243ABD99F67AD70 /* Products */;
+			productRefGroup = 9593DFAE2E6731C3B50A4B1FC0E25AC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */,
 				3B12F56E1DD9B86F01612724AD8BEF88 /* Pods-VaccinationDemo */,
 				DCAC3EDC74494447CC297F1312783178 /* Pods-VaccinationDemo-VaccinationDemoUITests */,
 				CF7D9CE9E42CFC89FDAF4F86FBC0603C /* Pods-VaccinationDemoTests */,
@@ -756,14 +895,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		28D2CECEF3132A128D21AE6D165BB2F4 /* Resources */ = {
+		285305EFB461DDE88ABA22155DB13C8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A00BBE9D8C013498999B5CC804513B5 /* Resources */ = {
+		28D2CECEF3132A128D21AE6D165BB2F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -777,6 +916,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		473D3E892ABB6C798CFF290644259B34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7201FB0135853BF5FCF87B19B986B584 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -784,7 +930,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5EEB9DA2430394F17CDF7E4AC4EEAC0 /* Resources */ = {
+		9A8C13B8A5762F15BDF83EF619D05DC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -794,6 +940,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2DDFD9AC10F181CD7130BDF5F9E0502B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */,
+				1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */,
+				BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */,
+				D3D8C379C6E4FB487E5ABD6800AD7B7E /* DispatchQueue+Alamofire.swift in Sources */,
+				1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */,
+				3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */,
+				132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */,
+				0C5E11DE24DAA737704B355F5F2F3426 /* ParameterEncoding.swift in Sources */,
+				98A929C8E9012AB167672714FFD2113C /* Request.swift in Sources */,
+				D65C254F5ABF2CB5ECEE50FE8F8E1A80 /* Response.swift in Sources */,
+				E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */,
+				64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */,
+				F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */,
+				2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */,
+				931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */,
+				AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */,
+				933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */,
+				53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44CDE4EC06FF9CF89E59CDCEB6C72700 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -832,19 +1003,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84A5F9FB3A84B031CA247B13F5CE1088 /* Sources */ = {
+		8EC56123666CD0172A8FCB171311003F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D981A60C44A0938B630CB773315F76 /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		879BFD7EF9475D9D54479CD397D15310 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				35C62483773A1A050D1218CE2F392AAC /* Pods-VaccinationDemo-dummy.m in Sources */,
+				1B984BEA7860BB2E0DB4C838701ECD66 /* Pods-VaccinationDemo-VaccinationDemoUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,57 +1049,77 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5E0311F6EE135895C6CAEF43B728234 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				892085B94388559E7DEC4BA7386444A8 /* Pods-VaccinationDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0F704086958B2B2F26D992E5407D32B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftyRSA;
-			target = 92A1C13902E7ACDA3ABB5BA1FEACC86C /* SwiftyRSA */;
-			targetProxy = 7CA4D36E4629A8F48FA03610A35FA5CE /* PBXContainerItemProxy */;
-		};
-		1B947F53D5B416885FCD61DD83E9ED67 /* PBXTargetDependency */ = {
+		02B2AA47D185356AD0070CEA3E620B55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = QRCodeReader.swift;
 			target = 29F475E46142FCD224E52A385AD26DB6 /* QRCodeReader.swift */;
-			targetProxy = 290F20622EC2759D67E925E178F0439F /* PBXContainerItemProxy */;
+			targetProxy = FA276AFDB87C9D33F0EB8B71552D0C69 /* PBXContainerItemProxy */;
 		};
-		5369F02A1A57766A57D36C8BAEA22133 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SQLite.swift;
-			target = 3F2C1776D90B62B156DB52C41A5C419C /* SQLite.swift */;
-			targetProxy = B29FA937CED35A8F405E4F4BFC7BA64F /* PBXContainerItemProxy */;
-		};
-		779AB239301433308486ABCA3CC233BF /* PBXTargetDependency */ = {
+		0B217BAB7D53F06CD1EA9853370A7500 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-VaccinationDemo";
 			target = 3B12F56E1DD9B86F01612724AD8BEF88 /* Pods-VaccinationDemo */;
-			targetProxy = 3E458F351FD71F4113B33486A14EBCBA /* PBXContainerItemProxy */;
+			targetProxy = 1644690537A3F59B5C05580776043C36 /* PBXContainerItemProxy */;
 		};
-		8DD8EC4F05C21161821049E73E5A925D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = QRCodeReader.swift;
-			target = 29F475E46142FCD224E52A385AD26DB6 /* QRCodeReader.swift */;
-			targetProxy = A7C0585104E2EDBD9F088934D4C9F8F6 /* PBXContainerItemProxy */;
-		};
-		B97A5B38A4646D21C741EBF32D43CB9B /* PBXTargetDependency */ = {
+		16C4F75825B4653974EEB4C6A5B68462 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyRSA;
 			target = 92A1C13902E7ACDA3ABB5BA1FEACC86C /* SwiftyRSA */;
-			targetProxy = 6A566B76A59BE9D7F18C6AB11171B447 /* PBXContainerItemProxy */;
+			targetProxy = 7C240287D138617E7C7073DD09A63F6F /* PBXContainerItemProxy */;
 		};
-		F31045F93B3722453E10EE4E5979347C /* PBXTargetDependency */ = {
+		462F7A6D45C2E5E82078EBDFE4BA5259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = B441FCAF7A9E19FCCB16CEAED909B809 /* PBXContainerItemProxy */;
+		};
+		48CC3A70CA2880DA752EECC70DCD71CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyRSA;
+			target = 92A1C13902E7ACDA3ABB5BA1FEACC86C /* SwiftyRSA */;
+			targetProxy = EE33A77C1AE03D68F219E3BBC8A3F3B8 /* PBXContainerItemProxy */;
+		};
+		6786B53A2C4DAA0F5EFFCB9D81DFB019 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SQLite.swift;
 			target = 3F2C1776D90B62B156DB52C41A5C419C /* SQLite.swift */;
-			targetProxy = BFCEEC9BC19BC48ED91CA4A4B518F815 /* PBXContainerItemProxy */;
+			targetProxy = AB238F49191B32ECE7065683BDF35227 /* PBXContainerItemProxy */;
+		};
+		B02E4775A5BC06473561F2E5D62AF934 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = 9D88489FA7303EB408938C5875661A8D /* PBXContainerItemProxy */;
+		};
+		BD82D7A5F80F9E1826CB09B5A134C8DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SQLite.swift;
+			target = 3F2C1776D90B62B156DB52C41A5C419C /* SQLite.swift */;
+			targetProxy = 4BF0DE2E56FA61EEDBE5276577453EDF /* PBXContainerItemProxy */;
+		};
+		D2C3D85AB4F2B52C6F462B284A170314 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QRCodeReader.swift;
+			target = 29F475E46142FCD224E52A385AD26DB6 /* QRCodeReader.swift */;
+			targetProxy = 7C5EC07F36B076EA5EC3CD6EF9363D9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		15418D497C951AE519FE18044E619CC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4453C810C234DF54F4341823E0F684FA /* SQLite.swift.release.xcconfig */;
+			baseConfigurationReference = F533F8774A9244DED153A5721EF76411 /* SQLite.swift.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1072,7 +1255,7 @@
 			};
 			name = Debug;
 		};
-		54C3F77074628D64198751E8122654E9 /* Debug */ = {
+		619353E41EE5887FF03AD4177E7F2F8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F87B40C24AEE498580E7ACB593A39F4F /* Pods-VaccinationDemo-VaccinationDemoUITests.debug.xcconfig */;
 			buildSettings = {
@@ -1110,7 +1293,7 @@
 		};
 		6FE594D3975D89F427F5BADE89FBA9D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EAFC28EF6EDA9FF302C5BB66C383A5A /* SQLite.swift.debug.xcconfig */;
+			baseConfigurationReference = B6497DED3ECBB80941FB9890114A96A5 /* SQLite.swift.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1144,7 +1327,7 @@
 		};
 		71693E09E113EBAD6616F207027FDB37 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03BA6F0CE85EF03CE152E4F8ABD036B6 /* SwiftyRSA.release.xcconfig */;
+			baseConfigurationReference = CC92BA89FE0FECE3879B8BD67F8F776B /* SwiftyRSA.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1177,11 +1360,10 @@
 			};
 			name = Release;
 		};
-		79D00A2FBEB4AE3F8BCAF8DBFADA3C7D /* Debug */ = {
+		7A990D4D7A394E906F2DE82D639771CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2752153F4E6EF847510614CC71092955 /* Pods-VaccinationDemo.debug.xcconfig */;
+			baseConfigurationReference = 6CDD90DED568786F3DB12CFCC240D38E /* Alamofire.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1190,32 +1372,32 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		7DC41CBC4ACDC776CDC97BE2BBCBF1B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E69BA2E3A3676795C58E038B03640B2 /* QRCodeReader.swift.debug.xcconfig */;
+			baseConfigurationReference = D5993116AEFAF663433ABBCDEF38701E /* QRCodeReader.swift.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1246,43 +1428,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		828D46698C6C720FE1A13B2C91894ABD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA99CBAC3581B55C2591B0724F37CD8E /* Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		83AF84640D86867C0C4D2D2E6AE965C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1320,9 +1465,116 @@
 			};
 			name = Debug;
 		};
+		879A160A5F10114A17915967100D7778 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2752153F4E6EF847510614CC71092955 /* Pods-VaccinationDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		93AD64353C65D45C0D4197F9ECAD786D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A31C2E74CD1DD130BB65DCAA70CC677F /* Alamofire.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9A9F6E77718844651BB3B4E9109EE568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA99CBAC3581B55C2591B0724F37CD8E /* Pods-VaccinationDemo-VaccinationDemoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo-VaccinationDemoUITests/Pods-VaccinationDemo-VaccinationDemoUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AAC72C7358D5D71DF43814A7A0DCB585 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7E1934C090C26CB6A77D2611CB5CFB8 /* QRCodeReader.swift.release.xcconfig */;
+			baseConfigurationReference = 889EBAB427DAF5C4272DE455CF74CB1F /* QRCodeReader.swift.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1355,9 +1607,46 @@
 			};
 			name = Release;
 		};
+		AB47ACCA7E92E425AA24859D10364CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C59EB720B63DDB311108647609CAC08 /* Pods-VaccinationDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AE9F8C3C2DBF07E04C09C5A15C80A75B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33F58FFFDCBD64E46BACB69520A1DEB8 /* SwiftyRSA.debug.xcconfig */;
+			baseConfigurationReference = 8C7034E03AE14E519D976AF623486FD9 /* SwiftyRSA.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1451,55 +1740,9 @@
 			};
 			name = Release;
 		};
-		DCF5E53F0EA8BB62017C59066C02200E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C59EB720B63DDB311108647609CAC08 /* Pods-VaccinationDemo.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VaccinationDemo/Pods-VaccinationDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1079E655A0B22D03E53F1B90F751F9B5 /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79D00A2FBEB4AE3F8BCAF8DBFADA3C7D /* Debug */,
-				DCF5E53F0EA8BB62017C59066C02200E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		11156BCD8D343C57A1FCF85C17D4AD48 /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1536,11 +1779,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B51945513DAD97F3F34F5451FCE20A3C /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo-VaccinationDemoUITests" */ = {
+		780F76733049FA76C312BBF45D97E08C /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54C3F77074628D64198751E8122654E9 /* Debug */,
-				828D46698C6C720FE1A13B2C91894ABD /* Release */,
+				879A160A5F10114A17915967100D7778 /* Debug */,
+				AB47ACCA7E92E425AA24859D10364CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD1447C27DA18EA546DC45A1883C3EBB /* Build configuration list for PBXNativeTarget "Pods-VaccinationDemo-VaccinationDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				619353E41EE5887FF03AD4177E7F2F8B /* Debug */,
+				9A9F6E77718844651BB3B4E9109EE568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4A5194ABAF7A4780609E0E581DA6B54 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93AD64353C65D45C0D4197F9ECAD786D /* Debug */,
+				7A990D4D7A394E906F2DE82D639771CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum VaccPage {
     case index
@@ -22,7 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        print("abcd".sha256)
         setupNavigation()
         
         setupUI()
@@ -95,7 +96,7 @@ class MainViewController: UIViewController {
 //            maker.top.equalTo(recordsCell.snp.bottom).offset(VerticalPixel(15))
 //        }
         
-        shareButton.isHidden = true
+        shareButton.isHidden = false
         contentView.addSubview(shareButton)
         shareButton.snp.makeConstraints { (maker) in
             maker.centerX.equalToSuperview()
@@ -154,7 +155,7 @@ class MainViewController: UIViewController {
                 let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                 print(data)
                 DispatchQueue.main.async {
-                    print("run")
+//                    print("run")
                     let defaultData = UIImage(named: "user.png")?.pngData()
                     self.personalCell.docPhotoView.image = UIImage(data: ((data ?? defaultData)!))
                 }
@@ -350,68 +351,7 @@ class MainViewController: UIViewController {
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
-//    private func reloadTestResults() {
-//        guard let `root` = root else { return }
-//        guard let subfield = root.parent(withSubType: .NSCD) else { return }
-//        guard let parent = root.parent(withField: subfield) else { return }
-//
-//        var isBindingN = false
-//        var isBindingI = false
-//        for i in 0..<parent.children.count {
-//            if testResultsCell.subcells.count > i {
-//                let subcell = testResultsCell.subcells[i]
-//                let field = parent.children[i]
-//
-//                var isN = false
-//                var isI = false
-//                for sf in field.children {
-//                    switch sf.fieldType {
-//                    case .NSCD, .ISCD:
-//                        subcell.dateLabel.text = sf.value
-//
-//                        setTag(withLabel: subcell.dateLabel, dsView: subcell.dateSettingsView, field: sf)
-//
-//                        if (sf.fieldType == .NSCD && isBindingN) || (sf.fieldType == .ISCD && isBindingI) {
-//                            sf.needsHashFlags = true
-//                        }
-//
-//                        if sf.fieldType == .NSCD {
-//                            isN = true
-//                        } else {
-//                            isI = true
-//                        }
-//                    case .NTR, .ITR:
-//                        if let ret = TestResult(rawValue: sf.value) {
-//                            subcell.testResult = ret
-//                        }
-//
-//                        setTag(withLabel: subcell.testResultLabel, checkBox: subcell.trCheckBox, field: sf)
-//
-//                        if (sf.fieldType == .NTR && isBindingN) || (sf.fieldType == .ITR && isBindingI) {
-//                            sf.needsHashFlags = true
-//                        }
-//
-//                        if sf.fieldType == .NTR {
-//                            subcell.testNameLabel.text = "Nucleic Acid Test"
-//                            isN = true
-//                        } else {
-//                            subcell.testNameLabel.text = "Serum IgG Antibody Test"
-//                            isI = true
-//                        }
-//                    default:
-//                        break
-//                    }
-//                }
-//
-//                if isN {
-//                    isBindingN = true
-//                }
-//                if isI {
-//                    isBindingI = true
-//                }
-//            }
-//        }
-//    }
+
     private func setTag(withLabel label: HSLabel? = nil, checkBox: HSCheckBox? = nil, dsView: HSTriangleView? = nil, field: DataFieldModel) {
         if label != nil {
             label!.tag = field.fieldType.rawValue
@@ -456,15 +396,109 @@ class MainViewController: UIViewController {
         testResultsCell.checkBoxDidClickBlock = checkBoxBlock
         testResultsCell.dateSettingsDidClickBlock = dateSettingsBlock
         
-//        shareButton.didClickBlock = { [weak self] in
-//            print("share btn click 282")
-//            guard let `self` = self else { return }
-//            self.changeShareState(state: true)
+        shareButton.didClickBlock = { [weak self] in
+            print("share btn click 282")
+            // download the data here and write the data to default
+            let alert = UIAlertController(title: "Fetch new data", message: "Enter DocID", preferredStyle: .alert)
+            let defaults = UserDefaults.standard
+            //2. Add the text field. You can configure it however you need.
+            alert.addTextField { (textField) in
+                textField.placeholder = "HKID"
+            }
+            alert.addTextField { (textFieldPass) in
+                    textFieldPass.placeholder = "Password"
+                    textFieldPass.isSecureTextEntry = true
+            }
+
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                let textFieldPass = alert?.textFields![1]
+                
+                print("Text field: \(textField!.text ?? "a")")
+                
+                let params = [
+                    "key": textField!.text ?? "M123456",
+                    "pass": textFieldPass!.text ?? "butrace2021"
+                ]
+                print(params)
+                Alamofire.request("https://butrace.hkbu.edu.hk/eHealthWallet/get_json.php", method: .post, parameters: params).responseJSON { response in
+                    debugPrint(response)
+                    let jsonData = response.data!
+                                        
+                    do {
+                        try JSONDecoder().decode(QRJson.self, from: jsonData)
+                    } catch let error {
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Invalid data. Please try again.", message: nil, preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                            alert.addAction(cancelAction)
+                            self!.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    var qrData: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
+                    defaults.set(qrData.engFamilyName, forKey: "EFN")
+                    defaults.set(qrData.engGivenName, forKey: "EGN")
+                    defaults.set(qrData.engGivenNameFirstLetter, forKey: "engGivenNameFirstLetter")
+                    defaults.set(qrData.docType, forKey: "docType")
+                    defaults.set(qrData.docNumber, forKey: "docNumber")
+                    defaults.set(qrData.docNumberFirstHalf, forKey: "docNumberFirstHalf")
+                    defaults.set(qrData.docNumberSecondHalf, forKey: "docNumberSecondHalf")
+                    defaults.set(qrData.idPhoto, forKey: "idPhoto")
+                    defaults.set(qrData.idPhotoHash, forKey: "idPhotoHash")
+                    defaults.set(qrData.passportNumberFirstHalf, forKey: "passportNumberFirstHalf")
+                    defaults.set(qrData.passportNumberSecondHalf, forKey: "passportNumberSecondHalf")
+                    defaults.set(qrData.mainlandTravelPermitNoFirstHalf, forKey: "mainlandTravelPermitNoFirstHalf")
+                    defaults.set(qrData.mainlandTravelPermitNoSecondHalf, forKey: "mainlandTravelPermitNoSecondHalf")
+                    defaults.set(qrData.vaxName_1, forKey: "vaxName_1")
+                    defaults.set(qrData.lotNumber_1, forKey: "lotNumber_1")
+                    defaults.set(qrData.vaxDate_1, forKey: "vaxDate_1")
+                    defaults.set(qrData.vaxLocation_1, forKey: "vaxLocation_1")
+                    defaults.set(qrData.vaxName_2, forKey: "vaxName_2")
+                    defaults.set(qrData.lotNumber_2, forKey: "lotNumber_2")
+                    defaults.set(qrData.vaxDate_2, forKey: "vaxDate_2")
+                    defaults.set(qrData.vaxLocation_2, forKey: "vaxLocation_2")
+                    defaults.set(qrData.roothash, forKey: "roothash")
+//                    print(self!.calRoot(qrDataStr: String(decoding: jsonData, as: UTF8.self)))
+//                    print(qrData.roothash!)
+//                    let params = [
+//                        "command": "create",
+//                        "id": qrData.roothash!.sha256,
+//                        "records": "{rootHash:"+qrData.roothash!+"}"
+//                    ]
 //
-////            self.templateOptView.show(on: self.view)
-//            self.templateOptView.show()
-//
-//        }
+//                    Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+//                        debugPrint(response)
+//                    }
+                    // write the data to user defaults
+                    self!.reloadData()
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Demo data is updated", message: nil, preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        self!.present(alert, animated: true, completion: nil)
+                    }
+                    print(self!.calRoot(qrDataStr: String(decoding: jsonData, as: UTF8.self)))
+                    print(qrData.roothash!)
+                    let params = [
+                        "command": "create",
+                        "id": qrData.roothash!.sha256,
+                        "records": "{rootHash:"+qrData.roothash!+"}"
+                    ]
+
+                    Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+                        debugPrint(response)
+                    }
+                }
+                
+            }))
+
+            // 4. Present the alert.
+            self!.present(alert, animated: true, completion: nil)
+            
+
+        }
         
         qrCodeView.didSaveBlock = { [weak self] in
             guard let `self` = self else { return }
@@ -497,7 +531,7 @@ class MainViewController: UIViewController {
 //            self.customButton.isHidden = false
             
             self.cancelButton.isHidden = true
-            self.shareButton.isHidden = true
+            self.shareButton.isHidden = false
 
             self.testResultsCell.isHideShowAllView = false
         }
@@ -586,9 +620,23 @@ class MainViewController: UIViewController {
             print(root.jsonString())
             let jsonData = appendRoot(qrDataStr: root.jsonString()).data(using: .utf8)!
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
-            
-            print(SearchViewController().verifyData(qrData: qrJson))
-            qrCodeView.generateQRCode(value: appendRoot(qrDataStr: root.jsonString()))
+            var output_str = appendRoot(qrDataStr: root.jsonString())
+            if  (qrJson.VR_node != nil || qrJson.VR_node_2 != nil || qrJson.leaf_vaxDate_2 != nil) {
+                ///  Call BulletProofs
+                ///
+                
+                print(root.child(withType: .SVD)?.value)
+//                var dateProofs = BulletProofs()
+                let proofStr = BulletProofs.genDateProof(root.child(withType: .SVD)?.value)
+                print(proofStr)
+                output_str = output_str.replacingOccurrences(of: "}", with: String(", " + proofStr! + " }"))
+                print(output_str)
+                qrCodeView.generateQRCode(value: output_str)
+            } else {
+                qrCodeView.generateQRCode(value: output_str)
+            }
+//            print(SearchViewController().verifyData(qrData: qrJson))
+//            qrCodeView.generateQRCode(value: output_str)
         }
     }
     
@@ -830,9 +878,16 @@ class MainViewController: UIViewController {
             let jsonData = output_str.data(using: .utf8)!
             let qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             print("OUT____________________")
-            print(SearchViewController().verifyData(qrData: qrJson))
+//            print(SearchViewController().verifyData(qrData: qrJson))
             print(output_str)
-            qrCodeView.generateQRCode(value: output_str)
+//            qrCodeView.generateQRCode(value: output_str)
+//        print(qrJson.VR_node)
+        
+           qrCodeView.generateQRCode(value: output_str)
+        
+            
+            
+        
 //            qrCodeView.generateQRCode(value: static_json)
 //        }
     }
@@ -1176,8 +1231,8 @@ class MainViewController: UIViewController {
             rootHash = defaults.string(forKey: "rootHash")!
         }
         
-        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + rootHash + "\" }"))
-        
+//        return qrDataStr.replacingOccurrences(of: "}", with: String(", \"rootSignature\": \"" + rootHash + "\" }"))
+        return qrDataStr
     }
     func calRoot(qrDataStr:String)->String{
         print("_______________________")
@@ -1192,8 +1247,10 @@ class MainViewController: UIViewController {
                 var pi_node_1 =  (((qrData.engFamilyName != nil) ? qrData.engFamilyName!.sha256 : qrData.leaf_engFamilyName) ?? "")
                 pi_node_1 += (((qrData.engGivenName != nil) ? qrData.engGivenName!.sha256 : qrData.leaf_engGivenName) ?? "")
                 pi_node_1 += (((qrData.engGivenNameFirstLetter != nil) ? qrData.engGivenNameFirstLetter!.sha256 : qrData.leaf_engGivenNameFirstLetter) ?? "")
-                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto!.sha256 : qrData.leaf_idPhoto) ?? "")
+                pi_node_1 += (((qrData.idPhoto != nil) ? qrData.idPhoto?.sha256 : qrData.leaf_idPhoto) ?? "")
+                print(qrData.idPhoto)
                 pi_node_1 += (((qrData.idPhotoHash != nil) ? qrData.idPhotoHash! : qrData.leaf_idPhotoHash) ?? "")
+                print(pi_node_1)
                 qrhashPI += pi_node_1.sha256
             } else {
                 qrhashPI += qrData.PI_node_1!
@@ -1212,6 +1269,7 @@ class MainViewController: UIViewController {
             } else {
                 qrhashPI += qrData.PI_node_2 ?? ""
             }
+            print(qrhashPI)
             qrhashPI = qrhashPI.sha256
         } else {
             qrhashPI = qrData.PI_node ?? ""
@@ -1239,12 +1297,16 @@ class MainViewController: UIViewController {
             } else {
                 qrhashVR += qrData.VR_node_2 ?? ""
             }
+            print(qrhashVR)
             qrhashVR = qrhashVR.sha256
+            print(qrhashVR)
         } else {
             qrhashVR = qrData.VR_node ?? ""
         }
         qrhash += qrhashVR
+        print(qrhash)
         print("_______________________")
+        
         return qrhash.sha256
         
     }

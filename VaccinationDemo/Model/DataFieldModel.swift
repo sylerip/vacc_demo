@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CryptoKit
+import Alamofire
 
 class DataFieldModel {
     private(set) var uuid: String
@@ -334,21 +336,43 @@ extension DataFieldModel {
     }
     class func createTestRoot() -> DataFieldModel {
         let root = DataFieldModel(type: .Parent)
-        
+        // check if uer default isset
+        // yes use defaults data
         root.children.append(personalNode())
         root.children.append(recordsNode())
 //        root.children.append(testResultsNode())
 //        root.calcHashValue()
-        let defaults = UserDefaults.standard
-        if UserDefaults.standard.object(forKey: "rootHash") == nil {
-            defaults.set(calInitRoot(root: root),forKey: "rootHash")
-            print("stored")
-            print(calInitRoot(root: root))
-        }
-        print(calInitRoot(root: root))
+//        let defaults = UserDefaults.standard
+//        if UserDefaults.standard.object(forKey: "rootHash") == nil {
+//            defaults.set(calInitRoot(root: root),forKey: "rootHash")
+//            print("stored")
+//        print(calInitRoot(root: root))
+//            // upload root hash with HKDocument ID
+//            uploadRootHash(rootHash: calInitRoot(root: root))
+//        }
+//        print(calInitRoot(root: root))
         
         return root
     }
+    class func uploadRootHash(rootHash: String) {
+        let params = [
+            "command": "create",
+            "id": rootHash.sha256,
+            "records": "{rootHash:"+rootHash+"}"
+        ]
+
+        Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
+            debugPrint(response)
+        }
+    }
+//    @available(iOS 13.0, *)
+//    class func MD5(string: String) -> String {
+//        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
+//
+//        return digest.map {
+//            String(format: "%02hhx", $0)
+//        }.joined()
+//    }
     private class func calInitRoot(root: DataFieldModel)-> String {
         if let efn = root.child(withType: .EFN) {
             efn.needsHashFlags = false
@@ -361,7 +385,7 @@ extension DataFieldModel {
             egnf.needsHashFlags = false
         }
         if let dt = root.child(withType: .DT) {
-            
+
             dt.needsHashFlags = false
         }
         if let dn = root.child(withType: .DN) {
@@ -379,24 +403,24 @@ extension DataFieldModel {
         if let pid = root.child(withType: .PID){
             pid.needsHashFlags = false
         }
-        
+
         if let photoHash = root.child(withType: .PID_hash){
             photoHash.needsHashFlags = false
         }
         if let mtpnl = root.child(withType: .MTPNL) {
-            
+
             mtpnl.needsHashFlags = false
         }
         if let mtpnf = root.child(withType: .MTPNF) {
-            
+
             mtpnf.needsHashFlags = false
         }
         if let pnol = root.child(withType: .PNL) {
-            
+
             pnol.needsHashFlags = false
         }
         if let pnof = root.child(withType: .PNF) {
-            
+
             pnof.needsHashFlags = false
         }
         if let fvn = root.child(withType: .FVN) {
@@ -425,7 +449,82 @@ extension DataFieldModel {
         }
         print("root")
         print(root.jsonString())
-        return MainViewController().calRoot(qrDataStr: root.jsonString())
+        let jsonStr = root.jsonString()
+        if let efn = root.child(withType: .EFN) {
+            efn.needsHashFlags = true
+        }
+        if let egn = root.child(withType: .EGN) {
+//            egn.value = String(egn.value.prefix(1))
+            egn.needsHashFlags = true
+        }
+        if let egnf = root.child(withType: .EGNF){
+            egnf.needsHashFlags = true
+        }
+        if let dt = root.child(withType: .DT) {
+
+            dt.needsHashFlags = true
+        }
+        if let dn = root.child(withType: .DN) {
+//            dn.value = String(dn.value.prefix(4))
+            dn.needsHashFlags = true
+        }
+        if let dnf = root.child(withType: .DNF) {
+//            dn.value = String(dn.value.prefix(4))
+            dnf.needsHashFlags = true
+        }
+        if let dnl = root.child(withType: .DNL) {
+//            dn.value = String(dn.value.prefix(4))
+            dnl.needsHashFlags = true
+        }
+        if let pid = root.child(withType: .PID){
+            pid.needsHashFlags = true
+        }
+
+        if let photoHash = root.child(withType: .PID_hash){
+            photoHash.needsHashFlags = true
+        }
+        if let mtpnl = root.child(withType: .MTPNL) {
+
+            mtpnl.needsHashFlags = true
+        }
+        if let mtpnf = root.child(withType: .MTPNF) {
+
+            mtpnf.needsHashFlags = true
+        }
+        if let pnol = root.child(withType: .PNL) {
+
+            pnol.needsHashFlags = true
+        }
+        if let pnof = root.child(withType: .PNF) {
+
+            pnof.needsHashFlags = true
+        }
+        if let fvn = root.child(withType: .FVN) {
+            fvn.needsHashFlags = true
+        }
+        if let fvln = root.child(withType: .FVLN) {
+            fvln.needsHashFlags = true
+        }
+        if let fvd = root.child(withType: .FVD) {
+            fvd.needsHashFlags = true
+        }
+        if let fvp = root.child(withType: .FVP) {
+            fvp.needsHashFlags = true
+        }
+        if let svn = root.child(withType: .SVN) {
+            svn.needsHashFlags = true
+        }
+        if let svln = root.child(withType: .SVLN) {
+            svln.needsHashFlags = true
+        }
+        if let svd = root.child(withType: .SVD) {
+            svd.needsHashFlags = true
+        }
+        if let svp = root.child(withType: .SVP) {
+            svp.needsHashFlags = true
+        }
+        
+        return MainViewController().calRoot(qrDataStr: jsonStr)
         
     }
     private class func hs_random() -> String {
@@ -478,14 +577,14 @@ extension DataFieldModel {
         let sub1_3 = DataFieldModel(type: .PID)
 //        sub1_3.value = "https://butrace.hkbu.edu.hk/ivas/sample_id_photo.png"
 
-        sub1_3.value = "https://drive.google.com/uc?id=1xDKFeTcbEWNmUMJQWsNfLv63upNZ3sKM"
+        sub1_3.value = defaults.string(forKey: "idPhoto") ?? "https://drive.google.com/uc?id=1xDKFeTcbEWNmUMJQWsNfLv63upNZ3sKM"
         sub1_3.random = hs_random()
         
         let sub1_4 = DataFieldModel(type: .PID_hash)
         let url = URL(string: sub1_3.value)
         let data = try? Data(contentsOf: url!)
         let imgBase64 = data?.base64EncodedString(options: .lineLength64Characters)
-        sub1_4.value = imgBase64?.sha256 ?? UIImage(named: "user.png")?.pngData()?.base64EncodedString(options: .lineLength64Characters).sha256 as! String
+        sub1_4.value = defaults.string(forKey: "idPhotoHash") ?? UIImage(named: "user.png")?.pngData()?.base64EncodedString(options: .lineLength64Characters).sha256 as! String
         sub1_4.random = hs_random()
         
         sub1.children.append(sub1_0)
@@ -496,30 +595,30 @@ extension DataFieldModel {
         
         let sub2 = DataFieldModel(type: .Parent)
         let sub2_0 = DataFieldModel(type: .DT)
-        sub2_0.value = "HKID"
+        sub2_0.value = defaults.string(forKey: "docType") ?? "HKID"
         sub2_0.random = hs_random()
         let sub2_1 = DataFieldModel(type: .DN)
-        sub2_1.value = "M123456(1)"
+        sub2_1.value = defaults.string(forKey: "docNumber") ?? "M123456(1)"
         sub2_1.random = hs_random()
         
         let sub2_2 = DataFieldModel(type: .DNF)
-        sub2_2.value = "M123"
+        sub2_2.value = defaults.string(forKey: "docNumberFirstHalf") ?? "M123"
         sub2_2.random = hs_random()
         let sub2_3 = DataFieldModel(type: .DNL)
-        sub2_3.value = "456(1)"
+        sub2_3.value = defaults.string(forKey: "docNumberSecondHalf") ?? "456(1)"
         sub2_3.random = hs_random()
         
         let sub2_4 = DataFieldModel(type: .PNF)
-        sub2_4.value = "P1234"
+        sub2_4.value = defaults.string(forKey: "passportNumberFirstHalf") ?? "P1234"
         sub2_4.random = hs_random()
         let sub2_5 = DataFieldModel(type: .PNL)
-        sub2_5.value = "12345"
+        sub2_5.value = defaults.string(forKey: "passportNumberSecondHalf") ?? "12345"
         sub2_5.random = hs_random()
         let sub2_6 = DataFieldModel(type: .MTPNF)
-        sub2_6.value = "P5678"
+        sub2_6.value = defaults.string(forKey: "mainlandTravelPermitNoFirstHalf") ?? "P5678"
         sub2_6.random = hs_random()
         let sub2_7 = DataFieldModel(type: .MTPNL)
-        sub2_7.value = "56789"
+        sub2_7.value = defaults.string(forKey: "mainlandTravelPermitNoSecondHalf") ?? "56789"
         sub2_7.random = hs_random()
         
         sub2.children.append(sub2_0)
@@ -539,20 +638,20 @@ extension DataFieldModel {
     }
     private class func recordsNode() -> DataFieldModel {
         let parent = DataFieldModel(type: .Parent)
-        
+        let defaults = UserDefaults.standard
         let sub0 = DataFieldModel(type: .Parent)
         let sub0_0 = DataFieldModel(type: .FVN)
-        sub0_0.value = "CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated"
+        sub0_0.value = defaults.string(forKey: "vaxName_1") ?? "CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated"
         sub0_0.random = hs_random()
         let sub0_1 = DataFieldModel(type: .FVLN)
-        sub0_1.value = "A2021010011"
+        sub0_1.value = defaults.string(forKey: "lotNumber_1") ?? "A2021010011"
         sub0_1.random = hs_random()
         let sub0_2 = DataFieldModel(type: .FVD)
-        sub0_2.value = "26-Mar-2021"
+        sub0_2.value = defaults.string(forKey: "vaxDate_1") ?? "26-Mar-2021"
         sub0_2.date = VaccDateFormatter.date(from: sub0_2.value)
         sub0_2.random = hs_random()
         let sub0_3 = DataFieldModel(type: .FVP)
-        sub0_3.value = "Community Vaccination Centre, Yuen Wo Road Sports Centre"
+        sub0_3.value = defaults.string(forKey: "vaxLocation_1") ?? "Community Vaccination Centre, Yuen Wo Road Sports Centre"
         sub0_3.random = hs_random()
         
         sub0.children.append(sub0_0)
@@ -562,17 +661,17 @@ extension DataFieldModel {
         
         let sub1 = DataFieldModel(type: .Parent)
         let sub1_0 = DataFieldModel(type: .SVN)
-        sub1_0.value = "CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated"
+        sub1_0.value = defaults.string(forKey: "vaxName_2") ?? "CoronaVac COVID-19 Vaccine (Vero Cell), Inactivated"
         sub1_0.random = hs_random()
         let sub1_1 = DataFieldModel(type: .SVLN)
-        sub1_1.value = "A2021010022"
+        sub1_1.value = defaults.string(forKey: "lotNumber_2") ?? "A2021010022"
         sub1_1.random = hs_random()
         let sub1_2 = DataFieldModel(type: .SVD)
-        sub1_2.value = "26-Apr-2021"
+        sub1_2.value = defaults.string(forKey: "vaxDate_2") ?? "26-Apr-2021"
         sub1_2.date = VaccDateFormatter.date(from: sub1_2.value)
         sub1_2.random = hs_random()
         let sub1_3 = DataFieldModel(type: .SVP)
-        sub1_3.value = "Community Vaccination Centre, Yuen Wo Road Sports Centre"
+        sub1_3.value = defaults.string(forKey: "vaxLocation_2") ?? "Community Vaccination Centre, Yuen Wo Road Sports Centre"
         sub1_3.random = hs_random()
         
         sub1.children.append(sub1_0)

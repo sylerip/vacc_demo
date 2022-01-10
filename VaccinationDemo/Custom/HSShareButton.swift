@@ -83,15 +83,16 @@ class HSShareButton: UIView {
         
         let layoutView = UIView()
         layoutView.addSubview(titleLabel)
-        layoutView.addSubview(iconView)
+//        layoutView.addSubview(iconView)
         
-        iconView.snp.makeConstraints { (maker) in
-            maker.left.top.bottom.equalToSuperview()
-            maker.width.equalTo(iconView.snp.height)
-        }
+//        iconView.snp.makeConstraints { (maker) in
+//            maker.left.top.bottom.equalToSuperview()
+//            maker.width.equalTo(iconView.snp.height)
+//        }
         
         titleLabel.snp.makeConstraints { (maker) in
-            maker.left.equalTo(iconView.snp.right)
+            maker.left.top.bottom.equalToSuperview()
+//            maker.left.equalTo(iconView.snp.right)
             maker.centerY.right.equalToSuperview()
         }
         
@@ -111,7 +112,7 @@ class HSShareButton: UIView {
         let lbl = UILabel()
         lbl.font = UIFont.hs_systemFont(size: 22, isBold: true)
         lbl.textColor = .white
-        lbl.text = "SHARE"
+        lbl.text = "Reload Data"
         return lbl
     }()
     

@@ -1,0 +1,8 @@
+framework module "Bulletproofs" {
+	header "ref.h"
+    header "Bulletproofs.objc.h"
+    header "Universe.objc.h"
+    header "Bulletproofs.h"
+
+    export *
+}
