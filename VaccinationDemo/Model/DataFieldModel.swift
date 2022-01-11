@@ -856,7 +856,7 @@ extension DataFieldModel {
         sub1_1.value = qr.lotNumber_2 ?? "*****"
         sub1_1.random = hs_random()
         let sub1_2 = DataFieldModel(type: .SVD)
-        sub1_2.value = qr.vaxDate_2 ?? "*****"
+        sub1_2.value = qr.vaxDate_2 ?? (qr.hiddenDayRanage ?? "*****")
         sub1_2.date = VaccDateFormatter.date(from: sub1_2.value)
         sub1_2.random = hs_random()
         let sub1_3 = DataFieldModel(type: .SVP)
