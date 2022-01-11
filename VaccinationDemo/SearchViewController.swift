@@ -303,6 +303,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
         ]
         print("-------------------------------------")
         print(rootHashCal)
+        print(rootHashCal.sha256)
         Alamofire.request("http://47.107.127.74/netAPI.php", method: .post, parameters: params).responseJSON { response in
             print("Response--------------------------------")
             var ifvalFlag = false
@@ -320,6 +321,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                     }
                     
                 case .failure(let error):
+                    print("Error -------------------")
                     print(error)
                     print(response.response?.statusCode)
                     ifvalFlag = false
@@ -329,8 +331,8 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
             df.timeZone = TimeZone.current
             let now = df.string(from: Date())
             let vflag = ifvalFlag ? "true":"false"
-            print(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\", \"validFlag\":"+vflag+"}")))
-            
+            print(qrStr.replacingOccurrences(of: " }", with: String(", \"ScanTime\": \"" + now + "\", \"validFlag\":"+vflag+"}")))
+            print(qrStr);
             if (self.fakeQR(qrJson: qrData)) {
                 // create the alert
                 print("invalid code")
@@ -345,7 +347,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                     var arr = self.defaults.object(forKey: "qr_record")as? [String] ?? [String]()
 //                            arr.append(result.value)
                     
-                    arr.append(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
+                    arr.append(qrStr.replacingOccurrences(of: " }", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
                     self.defaults.set(arr,forKey: "qr_record")
 
                 }
@@ -353,7 +355,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
                     var arr = [String]()
                     
 //                            arr.append(result.value)
-                    arr.append(qrStr.replacingOccurrences(of: "}", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
+                    arr.append(qrStr.replacingOccurrences(of: " }", with: String(", \"ScanTime\": \"" + now + "\" , \"validFlag\":"+vflag+"}")))
                     self.defaults.set(arr,forKey: "qr_record")
                 }
                 self.tableview.reloadData()

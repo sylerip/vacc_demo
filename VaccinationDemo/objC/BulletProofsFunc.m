@@ -31,6 +31,7 @@
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
     NSDate *currentDate = [dateFormatter dateFromString: dateStr];
@@ -131,15 +132,22 @@
 //    }
 //    mpcrp = BulletproofsArbDealerGenFinProof(veclength, m, Otherstrs, mpcrp);
     // Arb end
-    NSDateComponents *isForteenDays = [gregorianCalendar components:NSCalendarUnitDay
+    NSDateComponents *isFourteenDays = [gregorianCalendar components:NSCalendarUnitDay
                                                         fromDate:currentDate
                                                           toDate:[NSDate date]
                                                          options:0];
-    if ([isForteenDays day]<14) {
+    if ([isFourteenDays day]<14) {
         return @"";
     }
     
-    NSData *mpcrp = BulletproofsStardandRPProve(veclength, m,[NSString stringWithFormat:@"%d",[componentsToday day]]);
+    int proofNum = ([componentsToday day]);
+//    NSLog(@"New num");
+//    NSLog(@"%d",proofNum % (int)(pow(2,veclength)));
+//    NSLog(@"%d",[componentsToday day]);
+//    NSLog(@"%f",pow(2,8));
+    
+    // THe mod is to prevent the message is larger than the veclength
+    NSData *mpcrp = BulletproofsStardandRPProve(veclength, m,[NSString stringWithFormat:@"%d", proofNum % (int)(pow(2,veclength))]);
 //    NSString *test = [NSString stringWithFormat:@"%s", [mpcrp base64EncodedDataWithOptions:0]];
     NSString *proofStr =  [[NSString alloc] initWithData:mpcrp encoding:NSUTF8StringEncoding];
     

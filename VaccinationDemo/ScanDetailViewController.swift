@@ -244,8 +244,8 @@ class ScanDetailViewController: UIViewController {
                 setTag(withLabel: recordsCell.d2SubCell.lnLabel, checkBox: recordsCell.d2SubCell.lnCheckBox, field: svln)
             }
             if let svd = root.child(withType: .SVD) {
-//                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
-                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? (root.child(withType: .HDR)?.value ?? "*****"):svd.value)
+                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
+//                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? (qrJson.hiddenDayRanage ?? "*****"):svd.value)
                 setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
             }
             if let svp = root.child(withType: .SVP) {
