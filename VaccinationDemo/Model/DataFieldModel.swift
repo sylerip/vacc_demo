@@ -647,7 +647,7 @@ extension DataFieldModel {
         sub0_1.value = defaults.string(forKey: "lotNumber_1") ?? "A2021010011"
         sub0_1.random = hs_random()
         let sub0_2 = DataFieldModel(type: .FVD)
-        sub0_2.value = defaults.string(forKey: "vaxDate_1") ?? "26-Mar-2021"
+        sub0_2.value = defaults.string(forKey: "vaxDate_1") ?? "2021-03-26"
         sub0_2.date = VaccDateFormatter.date(from: sub0_2.value)
         sub0_2.random = hs_random()
         let sub0_3 = DataFieldModel(type: .FVP)
@@ -667,7 +667,7 @@ extension DataFieldModel {
         sub1_1.value = defaults.string(forKey: "lotNumber_2") ?? "A2021010022"
         sub1_1.random = hs_random()
         let sub1_2 = DataFieldModel(type: .SVD)
-        sub1_2.value = defaults.string(forKey: "vaxDate_2") ?? "26-Apr-2021"
+        sub1_2.value = defaults.string(forKey: "vaxDate_2") ?? "2021-04-26"
         sub1_2.date = VaccDateFormatter.date(from: sub1_2.value)
         sub1_2.random = hs_random()
         let sub1_3 = DataFieldModel(type: .SVP)
