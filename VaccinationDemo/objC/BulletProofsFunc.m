@@ -32,7 +32,8 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+//    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
     NSDate *currentDate = [dateFormatter dateFromString: dateStr];
     NSLog(@"Current Date = %@", currentDate);
