@@ -7,8 +7,7 @@ As there are some difference between simulator and phyical devices, there are fi
 
 The Steps are as follow:
 
-1. Go into the following file path:
-/zpkBulletproof-objc/Bulletproofs.framework/Versions/A
+1. Go into the following file path: /zpkBulletproof-objc/Bulletproofs.framework/Versions/A
 
 2. Remove the File "Bulletproofs"
 
