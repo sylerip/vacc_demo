@@ -593,12 +593,18 @@ class MainViewController: UIViewController {
                 if pnf.isNeedsHash == false {
                     let pnl = root.child(withType: .PNL)
                     pnl?.needsHashFlags = false
+                } else {
+                    let pnl = root.child(withType: .PNL)
+                    pnl?.needsHashFlags = true
                 }
             }
             if let mtpnf = root.child(withType: .MTPNF) {
                 if mtpnf.isNeedsHash == false {
                     let mtpnl = root.child(withType: .MTPNL)
                     mtpnl?.needsHashFlags = false
+                } else {
+                    let mtpnl = root.child(withType: .MTPNL)
+                    mtpnl?.needsHashFlags = true
                 }
                 
             }
@@ -608,12 +614,12 @@ class MainViewController: UIViewController {
             }
             root.calcHashValue()
             
-            qrCodeButton.isHidden = true
-            
-            customButton.isHidden = true
+//            qrCodeButton.isHidden = true
+//
+//            customButton.isHidden = true
             
 //            qrCodeView.show(on: self.view)
-            qrCodeView.show()
+//            qrCodeView.show()
             // pass different json string to the view
             //
             
@@ -631,10 +637,49 @@ class MainViewController: UIViewController {
                 print(proofStr)
                 output_str = output_str.replacingOccurrences(of: "}", with: String(", " + proofStr! + " }"))
                 print(output_str)
-                qrCodeView.generateQRCode(value: output_str)
+                if (qrCodeView.generateQRCode(value: output_str)){
+                    qrCodeView.show()
+                } else {
+                    let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        switch action.style{
+                            case .default:
+                            print("default")
+                            
+                            case .cancel:
+                            print("cancel")
+                            
+                            case .destructive:
+                            print("destructive")
+                            
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                   
+                }
             } else {
-                qrCodeView.generateQRCode(value: output_str)
+                if (qrCodeView.generateQRCode(value: output_str)){
+                    qrCodeView.show()
+                } else {
+                    let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        switch action.style{
+                            case .default:
+                            print("default")
+                            
+                            case .cancel:
+                            print("cancel")
+                            
+                            case .destructive:
+                            print("destructive")
+                            
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
             }
+            
 //            print(SearchViewController().verifyData(qrData: qrJson))
 //            qrCodeView.generateQRCode(value: output_str)
         }
@@ -823,9 +868,30 @@ class MainViewController: UIViewController {
             
 
         
-        qrCodeView.show()
+//        qrCodeView.show()
         
-        qrCodeView.generateQRCode(value: json)
+        if(qrCodeView.generateQRCode(value: json)){
+            qrCodeView.show()
+        } else {
+            let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                    case .default:
+                    print("default")
+                    
+                    case .cancel:
+                    print("cancel")
+                    
+                    case .destructive:
+                    print("destructive")
+                    
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+            self.changeShareState()
+            self.changeShareState()
+        }
+        
         
     }
 //    private func customMessageTemplate() {
@@ -870,7 +936,7 @@ class MainViewController: UIViewController {
 //
 //            customButton.isHidden = true
             
-            qrCodeView.show()
+//            qrCodeView.show()
             // pass different json string to the view
             //
 //            print(root.jsonString())
@@ -883,8 +949,27 @@ class MainViewController: UIViewController {
 //            qrCodeView.generateQRCode(value: output_str)
 //        print(qrJson.VR_node)
         
-           qrCodeView.generateQRCode(value: output_str)
-        
+        if (qrCodeView.generateQRCode(value: output_str)){
+            qrCodeView.show()
+        } else {
+            let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                    case .default:
+                    print("default")
+                    
+                    case .cancel:
+                    print("cancel")
+                    
+                    case .destructive:
+                    print("destructive")
+                    
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+            self.changeShareState()
+            self.changeShareState()
+        }
             
             
         

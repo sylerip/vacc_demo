@@ -80,21 +80,24 @@ class QRCodeView: UIView {
         }
     }
     
-    func generateQRCode(value: String) {
+    func generateQRCode(value: String) -> Bool{
         if let filter = CIFilter.init(name: "CIQRCodeGenerator") {
             filter.setDefaults()
-            
+            if (value.count > 4200){
+                NSLog("QR Error --------------------------- String too long")
+                return false
+            }
             let data = value.data(using: .utf8)
             filter.setValue(data, forKey: "inputMessage")
             filter.setValue("L", forKey: "inputCorrectionLevel")
             
             if let outputImage = filter.outputImage {
                 imageView.image = createNonInterpolatedUIImageFromCIImage(outputImage, size: 500)
-                if (imageView.image == nil ){
-                    NSLog("QR Error ---------------------------")
-                }
+                return true
+
             }
         }
+        return false
     }
     
     private func createNonInterpolatedUIImageFromCIImage(_ ciImage: CIImage, size: CGFloat) -> UIImage? {
