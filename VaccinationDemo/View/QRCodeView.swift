@@ -86,10 +86,13 @@ class QRCodeView: UIView {
             
             let data = value.data(using: .utf8)
             filter.setValue(data, forKey: "inputMessage")
-            //filter.setValue("M", forKey: "inputCorrectionLevel")
+            filter.setValue("L", forKey: "inputCorrectionLevel")
             
             if let outputImage = filter.outputImage {
                 imageView.image = createNonInterpolatedUIImageFromCIImage(outputImage, size: 500)
+                if (imageView.image == nil ){
+                    NSLog("QR Error ---------------------------")
+                }
             }
         }
     }
