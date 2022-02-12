@@ -222,6 +222,7 @@ class ScanDetailViewController: UIViewController {
                 
                 setTag(withLabel: recordsCell.vaccinatedLabel, checkBox: recordsCell.vaccinatedCheckBox, field: fvn)
             }
+            // if dose 2 ex, dont need to show d1
             if let fvln = root.child(withType: .FVLN) {
                 recordsCell.d1SubCell.lnLabel.text = ((fvln.value.count == 64) ? "*****":fvln.value)
                 

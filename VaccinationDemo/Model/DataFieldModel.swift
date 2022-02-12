@@ -68,8 +68,13 @@ class DataFieldModel {
     ///hash标志
     var needsHashFlags: Bool = true
     
+    
     ///hash值
     var hashValue: String = ""
+    
+    var needZPK: Bool = false
+    
+    var zpkValue: String = ""
     
     ///子节点
     lazy var children: [DataFieldModel] = [DataFieldModel]()

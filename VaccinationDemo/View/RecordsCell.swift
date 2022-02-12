@@ -185,10 +185,16 @@ class RecordsSubCell: UIView {
         return l
     }()
     private(set) lazy var vaccinatedDateCheckBox: HSCheckBox = {
+
         guard let cb = dataSource?.createCheckBox(isChecked: false, isHidden: true) else {
             return HSCheckBox()
         }
         return cb
+//    private(set) lazy var vaccinatedDateCheckBox: HSLabel = {
+//        guard let lbl = dataSource?.createLabel(fontSize: 16, textColor: UIColor(hex: 0xfca427), isBold: false, numberOfLines: 1) else {
+//            return HSLabel()
+//        }
+//        return lbl
     }()
 }
 

@@ -369,32 +369,101 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func ifTwoWeek(dateStr:String) -> Bool{
+        print(dateStr)
+        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "dd-MMM-yyyy"
+        dateFormatterGet.dateFormat = "yyyy-mm-dd"
+        dateFormatterGet.timeZone = TimeZone(identifier: "Asia/Taipei")
+        guard let date = dateFormatterGet.date(from: dateStr)?.addingTimeInterval(1209600) else { return false}
+        if (Date() > date){
+                    return true
+                }
+        return false
+    }
+    
     private func setupEvents() {
         let checkBoxBlock = { [weak self] (sender: HSCheckBox) in
             guard let `self` = self else { return }
             guard let `root` = self.root else { return }
             guard let field = root.findFieldWithUUID(sender.specialTag) else { return }
-            field.needsHashFlags = !sender.isChecked
             
-            if field.fieldType == .FVN {
-                if let svn = root.child(withType: .SVN) {
-                    svn.needsHashFlags = field.needsHashFlags
+//            if field.fieldType == .SVD || field.fieldType == .FVD {
+            if field.fieldType == .SVD {
+                print("Vass Date click")
+                let alert = UIAlertController(title: "Date Show/Hide", message: "Do you wish to show your vaccination date?", preferredStyle: .alert)
+                let showAction = UIAlertAction(title: "Show", style: UIAlertAction.Style.default, handler: {
+                    (_)in
+                    //SAVE DEMO DATA HERE
+                    field.needsHashFlags = false
+                    sender.isChecked = true
+                    field.needZPK = false
+//                    field.value = root.child(withType: .SVD)!.value
+                    self.recordsCell.d2SubCell.dateLabel.text = field.value
+                    self.recordsCell.d2SubCell.dateLabel.isSecureText = false
+//                    print(field.value)
+                })
+                let verifiableAction = UIAlertAction(title: "Verifiable", style: UIAlertAction.Style.default, handler: {
+                    (_)in
+                    //do something
+                    sender.isChecked = false
+                    field.needsHashFlags = true
+                    field.needZPK = true
+//                    field.zpkValue = ""
+                    if self.ifTwoWeek(dateStr: field.value){
+                        self.recordsCell.d2SubCell.dateLabel.text = "Vaccinated over 14 days"
+                    } else {
+                        self.recordsCell.d2SubCell.dateLabel.text = "Vaccinated in 14 days"
+                    }
+                    self.recordsCell.d2SubCell.dateLabel.isSecureText = false
+                    
+                })
+                let hideAction = UIAlertAction(title: "Hide", style: UIAlertAction.Style.default, handler: {
+                    (_)in
+                    //do another thing
+                    
+                    field.needsHashFlags = true
+//                    field.value = "*****"
+                    sender.isChecked = false
+                    field.needZPK = false
+                    self.recordsCell.d2SubCell.dateLabel.text = field.value
+                    self.recordsCell.d2SubCell.dateLabel.isSecureText = true
+                })
+                alert.addAction(showAction)
+                alert.addAction(verifiableAction)
+                alert.addAction(hideAction)
+                self.present(alert, animated: true, completion: nil)
+                return 
+            } else {
+                field.needsHashFlags = !sender.isChecked
+                if field.fieldType == .FVN {
+                    if let svn = root.child(withType: .SVN) {
+                        svn.needsHashFlags = field.needsHashFlags
+                    }
                 }
+                
             }
+            
         }
         
         let dateSettingsBlock = { [weak self] (sender: HSTriangleView, cell: BaseContentCell) in
             guard let `self` = self else { return }
-            self.setDateStyle(sender, cell: cell)
+//            self.setDateStyle(sender, cell: cell)
+            print("HIHIHI")
+            
         }
         
         personalCell.checkBoxDidClickBlock = checkBoxBlock
         
         recordsCell.checkBoxDidClickBlock = checkBoxBlock
-        recordsCell.dateSettingsDidClickBlock = dateSettingsBlock
         
-        testResultsCell.checkBoxDidClickBlock = checkBoxBlock
-        testResultsCell.dateSettingsDidClickBlock = dateSettingsBlock
+        // may need to change
+        recordsCell.dateSettingsDidClickBlock = dateSettingsBlock
+        // may need to change
+        
+        
+//        testResultsCell.checkBoxDidClickBlock = checkBoxBlock
+//        testResultsCell.dateSettingsDidClickBlock = dateSettingsBlock
         
         shareButton.didClickBlock = { [weak self] in
             print("share btn click 282")
@@ -627,7 +696,8 @@ class MainViewController: UIViewController {
             let jsonData = appendRoot(qrDataStr: root.jsonString()).data(using: .utf8)!
             var qrJson: QRJson = try! JSONDecoder().decode(QRJson.self, from: jsonData)
             var output_str = appendRoot(qrDataStr: root.jsonString())
-            if  (qrJson.VR_node != nil || qrJson.VR_node_2 != nil || qrJson.leaf_vaxDate_2 != nil) {
+            if  (((root.child(withType: .SVD)?.needZPK) == true)) {
+//                if  (qrJson.VR_node != nil || qrJson.VR_node_2 != nil || qrJson.leaf_vaxDate_2 != nil||((root.child(withType: .SVD)?.needZPK) == true)) {
                 ///  Call BulletProofs
                 ///
                 
@@ -658,7 +728,7 @@ class MainViewController: UIViewController {
                    
                 }
             } else {
-                if (qrCodeView.generateQRCode(value: output_str)){
+                if (qrCodeView.generateQRCode(value: output_str.replacingOccurrences(of: "}", with: " }"))){
                     qrCodeView.show()
                 } else {
                     let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)
@@ -734,7 +804,7 @@ class MainViewController: UIViewController {
     private func setDateStyle(_ sender: HSTriangleView, cell: BaseContentCell) {
         guard let `root` = self.root else { return }
         guard let field = root.findFieldWithUUID(sender.specialTag) else { return }
-        
+        print("774")
         showDateSettingsDialog { [weak field] (style) in
             guard let `field` = field else { return }
             
@@ -949,7 +1019,7 @@ class MainViewController: UIViewController {
 //            qrCodeView.generateQRCode(value: output_str)
 //        print(qrJson.VR_node)
         
-        if (qrCodeView.generateQRCode(value: output_str)){
+        if (qrCodeView.generateQRCode(value: output_str.replacingOccurrences(of: "}", with: " }"))){
             qrCodeView.show()
         } else {
             let alert = UIAlertController(title: "QR Code Error", message: "The Selected data is too long for QR code Generation", preferredStyle: .alert)

@@ -413,6 +413,7 @@ class SearchViewController: UITableViewController, QRCodeReaderViewControllerDel
 //            cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             print(qrJson.ScanTime)
             cell.textLabel?.text = qrJson.ScanTime ?? "***"
+//            cell.textLabel?.text = qrJson.vaxDate_2 ?? qrJson.hiddenDayRanage
             if qrJson.engFamilyName ?? "" == "" {
                 cell.textLabel?.text! += "\n*****"
             } else {

@@ -22,9 +22,12 @@
 // this function return the json with the day ranage
 
 + (NSString *)genDateProof:(NSString *)dateStr {
-    NSString *dateRange = @"\"hiddenDayRanage\":\"";
+    NSLog(@"Date Str = %@", dateStr);
+    
+    NSString *dateRange = @"\"hiddenDayRanage\":\"Vaccinated in ";
 //    NSString *proofStrJson = @"\"proof\":\"";
-    NSString *proofStrJson = @"\"proof\":\"";
+    NSString *proofStrJson = @",\"proof\":\"";
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM"];
     
@@ -33,7 +36,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
 //    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
     NSDate *currentDate = [dateFormatter dateFromString: dateStr];
     NSLog(@"Current Date = %@", currentDate);
@@ -74,7 +77,7 @@
     NSDate *tDateMonthMax = [calendarMax dateFromComponents:compsMac];
     NSLog(@"End range %@", tDateMonthMax);
     dateRange = [dateRange stringByAppendingString:[formatter stringFromDate:tDateMonthMax]];
-    dateRange = [dateRange stringByAppendingString:@"\","];
+    dateRange = [dateRange stringByAppendingString:@"\""];
     NSLog(dateRange);
     // translate the date to to number of dates between 2 dates
     
@@ -138,7 +141,10 @@
                                                           toDate:[NSDate date]
                                                          options:0];
     if ([isFourteenDays day]<14) {
-        return @"";
+//        return @"";
+        dateRange = @"\"hiddenDayRanage\":\"Vaccinated in 14 days\"";
+    } else {
+        dateRange = @"\"hiddenDayRanage\":\"Vaccinated over 14 days\"";
     }
     
     int proofNum = ([componentsToday day]);

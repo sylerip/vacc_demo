@@ -151,9 +151,9 @@ class BaseContentCell: UIView {
     
     ///checkBox点击事件
     func checkBoxDidClick(_ sender: HSCheckBox) {
-        setLabelSecureText(value: !sender.isChecked, tag: sender.specialTag)
-        
+//        setLabelSecureText(value: !sender.isChecked, tag: sender.specialTag)
         checkBoxDidClickBlock?(sender)
+        setLabelSecureText(value: !sender.isChecked, tag: sender.specialTag)
     }
     
     ///triangleView点击事件
