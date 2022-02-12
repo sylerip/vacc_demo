@@ -50,6 +50,10 @@ class MainViewController: UIViewController {
     }
     
     @objc private func cancelButtonTouchUp() {
+        print("HIHI Trst")
+        // reset ZPK data
+        self.recordsCell.d2SubCell.dateLabel.text = root!.child(withType: .SVD)!.value
+        
         if qrCodeView.superview == nil {
             self.changeShareState()
         } else {
@@ -400,6 +404,7 @@ class MainViewController: UIViewController {
                     field.needZPK = false
 //                    field.value = root.child(withType: .SVD)!.value
                     self.recordsCell.d2SubCell.dateLabel.text = field.value
+                    
                     self.recordsCell.d2SubCell.dateLabel.isSecureText = false
 //                    print(field.value)
                 })
@@ -758,6 +763,7 @@ class MainViewController: UIViewController {
     @objc private func customButtonTouchUp() {
 //        showCustomMessageDialog()
 //        templateOptView.show(on: self.view)
+        
         if !self.isShareState {
             self.changeShareState()
         }
