@@ -222,38 +222,66 @@ class ScanDetailViewController: UIViewController {
                 
                 setTag(withLabel: recordsCell.vaccinatedLabel, checkBox: recordsCell.vaccinatedCheckBox, field: fvn)
             }
-            // if dose 2 ex, dont need to show d1
-            if let fvln = root.child(withType: .FVLN) {
-                recordsCell.d1SubCell.lnLabel.text = ((fvln.value.count == 64) ? "*****":fvln.value)
-                
-                setTag(withLabel: recordsCell.d1SubCell.lnLabel, checkBox: recordsCell.d1SubCell.lnCheckBox, field: fvln)
-            }
-            if let fvd = root.child(withType: .FVD) {
-                recordsCell.d1SubCell.dateLabel.text =  ((fvd.value.count == 64) ? "*****":fvd.value)
-                
-                setTag(withLabel: recordsCell.d1SubCell.dateLabel, dsView: recordsCell.d1SubCell.dateSettingsView, field: fvd)
-            }
-            if let fvp = root.child(withType: .FVP) {
-                recordsCell.d1SubCell.vpLabel.text = ((fvp.value.count == 64) ? "*****":fvp.value)
-                
-                setTag(withLabel: recordsCell.d1SubCell.vpLabel, checkBox: recordsCell.d1SubCell.vpCheckBox, field: fvp)
-            }
             
             if let svln = root.child(withType: .SVLN) {
-                recordsCell.d2SubCell.lnLabel.text = ((svln.value.count == 64) ? "*****":svln.value)
+                recordsCell.d1SubCell.doseLabel.text = "Dose: D2"
+//                recordsCell.d2SubCell.isHidden = true
+                recordsCell.d2SubCell.lnLabel.removeFromSuperview()
+                if let svln = root.child(withType: .SVLN) {
+                    recordsCell.d1SubCell.lnLabel.text = ((svln.value.count == 64) ? "*****":svln.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.lnLabel, checkBox: recordsCell.d1SubCell.lnCheckBox, field: svln)
+                }
+                if let svd = root.child(withType: .SVD) {
+                    recordsCell.d1SubCell.dateLabel.text =  ((svd.value.count == 64) ? "*****":svd.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.dateLabel, dsView: recordsCell.d1SubCell.dateSettingsView, field: svd)
+                }
+                if let svp = root.child(withType: .SVP) {
+                    recordsCell.d1SubCell.vpLabel.text = ((svp.value.count == 64) ? "*****":svp.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.vpLabel, checkBox: recordsCell.d1SubCell.vpCheckBox, field: svp)
+                }
+//                if let svln = root.child(withType: .SVLN) {
+//                    recordsCell.d2SubCell.lnLabel.text = ((svln.value.count == 64) ? "*****":svln.value)
+//
+//                    setTag(withLabel: recordsCell.d2SubCell.lnLabel, checkBox: recordsCell.d2SubCell.lnCheckBox, field: svln)
+//                }
+//                if let svd = root.child(withType: .SVD) {
+//                    recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
+//    //                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? (qrJson.hiddenDayRanage ?? "*****"):svd.value)
+//                    setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
+//                }
+//                if let svp = root.child(withType: .SVP) {
+//                    recordsCell.d2SubCell.vpLabel.text = ((svp.value.count == 64) ? "*****":svp.value)
+//
+//                    setTag(withLabel: recordsCell.d2SubCell.vpLabel, checkBox: recordsCell.d2SubCell.vpCheckBox, field: svp)
+//                }
+            } else {
+                // if dose 2 ex, dont need to show d1
+                if let fvln = root.child(withType: .FVLN) {
+                    recordsCell.d1SubCell.lnLabel.text = ((fvln.value.count == 64) ? "*****":fvln.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.lnLabel, checkBox: recordsCell.d1SubCell.lnCheckBox, field: fvln)
+                }
+                if let fvd = root.child(withType: .FVD) {
+                    recordsCell.d1SubCell.dateLabel.text =  ((fvd.value.count == 64) ? "*****":fvd.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.dateLabel, dsView: recordsCell.d1SubCell.dateSettingsView, field: fvd)
+                }
+                if let fvp = root.child(withType: .FVP) {
+                    recordsCell.d1SubCell.vpLabel.text = ((fvp.value.count == 64) ? "*****":fvp.value)
+                    
+                    setTag(withLabel: recordsCell.d1SubCell.vpLabel, checkBox: recordsCell.d1SubCell.vpCheckBox, field: fvp)
+                }
                 
-                setTag(withLabel: recordsCell.d2SubCell.lnLabel, checkBox: recordsCell.d2SubCell.lnCheckBox, field: svln)
             }
-            if let svd = root.child(withType: .SVD) {
-                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? "*****":svd.value)
-//                recordsCell.d2SubCell.dateLabel.text = ((svd.value.count == 64) ? (qrJson.hiddenDayRanage ?? "*****"):svd.value)
-                setTag(withLabel: recordsCell.d2SubCell.dateLabel, dsView: recordsCell.d2SubCell.dateSettingsView, field: svd)
-            }
-            if let svp = root.child(withType: .SVP) {
-                recordsCell.d2SubCell.vpLabel.text = ((svp.value.count == 64) ? "*****":svp.value)
-                
-                setTag(withLabel: recordsCell.d2SubCell.vpLabel, checkBox: recordsCell.d2SubCell.vpCheckBox, field: svp)
-            }
+            
+            
+            
+            
+            
+            
         
             reloadTestResults()
             
@@ -443,6 +471,9 @@ class ScanDetailViewController: UIViewController {
             self.qrCodeButton.isHidden = false
             self.customButton.isHidden = false
         }
+        
+//        recordsCell.d1SubCell.isHidden = true
+    
     }
     private func changeShareState() {
         self.isShareState = !self.isShareState
@@ -733,184 +764,8 @@ class ScanDetailViewController: UIViewController {
 //            self.selectAllCheckBox(cb, value: true, onCell: self.recordsCell)
 //        }
 //    }
-    func templateQR(type:String){
-        
-//        customMessageTemplate()
-        switch type {
-        case "restaurant":
-            reloadDataTemplateRes()
-        case "airplane":
-            reloadDataTemplateAir()
-        case "custom":
-            reloadDataTemplateCustom()
-        default:
-            self.changeShareState()
-        }
-        
-        print(root?.jsonString())
-        guard let `root` = root else { return }
-        
-//        if qrCodeView.superview == nil {
-            root.calcHashValue()
-            
-//            qrCodeButton.isHidden = true
-//
-//            customButton.isHidden = true
-            
-            qrCodeView.show()
-            // pass different json string to the view
-            //
-            print(root.jsonString())
-            qrCodeView.generateQRCode(value: root.jsonString())
-//        }
-    }
+ 
     
-    @objc func templateTappedRes(gesture: UIGestureRecognizer) {
-        print("Restaurant click")
-
-        templateQR(type: "restaurant")
-        
-    }
-    @objc func templateTappedAir(gesture: UIGestureRecognizer) {
-        print("Airline click")
-        templateQR(type: "airplane")
-        
-    }
-    @objc func templateTappedCustom(gesture: UIGestureRecognizer) {
-        print("Custom click")
-        templateQR(type: "custom")
-    }
-    @objc func templateTappedCustomize(gesture: UIGestureRecognizer) {
-        print("Customize click")
-        templateQR(type: "customize")
-    }
-    private func reloadDataTemplateRes() {
-        root = DataFieldModel.createTestRoot()
-        guard let `root` = root else { return }
-        
-        if let efn = root.child(withType: .EFN) {
-            efn.needsHashFlags = false
-        }
-        if let egn = root.child(withType: .EGN) {
-            egn.value = String(egn.value.prefix(1))
-            egn.needsHashFlags = false
-        }
-        if let dt = root.child(withType: .DT) {
-            dt.needsHashFlags = true
-        }
-        if let dn = root.child(withType: .DN) {
-            dn.needsHashFlags = true
-        }
-        
-        if let fvn = root.child(withType: .FVN) {
-            fvn.needsHashFlags = true
-        }
-        if let fvln = root.child(withType: .FVLN) {
-            fvln.needsHashFlags = true
-        }
-        if let fvd = root.child(withType: .FVD) {
-            fvd.needsHashFlags = false
-        }
-        if let fvp = root.child(withType: .FVP) {
-            fvp.needsHashFlags = true
-        }
-        
-        if let svln = root.child(withType: .SVLN) {
-            svln.needsHashFlags = true
-        }
-        if let svd = root.child(withType: .SVD) {
-            svd.needsHashFlags = false
-        }
-        if let svp = root.child(withType: .SVP) {
-            svp.needsHashFlags = true
-        }
-    }
-    private func reloadDataTemplateAir() {
-        root = DataFieldModel.createTestRoot()
-        guard let `root` = root else { return }
-        
-        if let efn = root.child(withType: .EFN) {
-            efn.needsHashFlags = false
-        }
-        if let egn = root.child(withType: .EGN) {
-//            egn.value = String(egn.value.prefix(1))
-            egn.needsHashFlags = false
-        }
-        if let dt = root.child(withType: .DT) {
-            
-            dt.needsHashFlags = false
-        }
-        if let dn = root.child(withType: .DN) {
-            dn.value = String(dn.value.prefix(4))
-            dn.needsHashFlags = false
-        }
-        
-        if let fvn = root.child(withType: .FVN) {
-            fvn.needsHashFlags = true
-        }
-        if let fvln = root.child(withType: .FVLN) {
-            fvln.needsHashFlags = true
-        }
-        if let fvd = root.child(withType: .FVD) {
-            fvd.needsHashFlags = false
-        }
-        if let fvp = root.child(withType: .FVP) {
-            fvp.needsHashFlags = true
-        }
-        
-        if let svln = root.child(withType: .SVLN) {
-            svln.needsHashFlags = true
-        }
-        if let svd = root.child(withType: .SVD) {
-            svd.needsHashFlags = false
-        }
-        if let svp = root.child(withType: .SVP) {
-            svp.needsHashFlags = true
-        }
-    }
-    private func reloadDataTemplateCustom() {
-        root = DataFieldModel.createTestRoot()
-        guard let `root` = root else { return }
-        
-        if let efn = root.child(withType: .EFN) {
-            efn.needsHashFlags = false
-        }
-        if let egn = root.child(withType: .EGN) {
-//            egn.value = String(egn.value.prefix(1))
-            egn.needsHashFlags = false
-        }
-        if let dt = root.child(withType: .DT) {
-            
-            dt.needsHashFlags = false
-        }
-        if let dn = root.child(withType: .DN) {
-//            dn.value = String(dn.value.prefix(4))
-            dn.needsHashFlags = false
-        }
-        
-        if let fvn = root.child(withType: .FVN) {
-            fvn.needsHashFlags = false
-        }
-        if let fvln = root.child(withType: .FVLN) {
-            fvln.needsHashFlags = false
-        }
-        if let fvd = root.child(withType: .FVD) {
-            fvd.needsHashFlags = false
-        }
-        if let fvp = root.child(withType: .FVP) {
-            fvp.needsHashFlags = false
-        }
-        
-        if let svln = root.child(withType: .SVLN) {
-            svln.needsHashFlags = false
-        }
-        if let svd = root.child(withType: .SVD) {
-            svd.needsHashFlags = false
-        }
-        if let svp = root.child(withType: .SVP) {
-            svp.needsHashFlags = false
-        }
-    }
 }
 
 @IBDesignable class PaddingLabel: UILabel {

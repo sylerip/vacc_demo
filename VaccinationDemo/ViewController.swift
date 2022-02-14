@@ -395,6 +395,7 @@ class MainViewController: UIViewController {
 //            if field.fieldType == .SVD || field.fieldType == .FVD {
             if field.fieldType == .SVD {
                 print("Vass Date click")
+//                self.scrollToBottom()
                 let alert = UIAlertController(title: "Date Show/Hide", message: "Do you wish to show your vaccination date?", preferredStyle: .alert)
                 let showAction = UIAlertAction(title: "Show", style: UIAlertAction.Style.default, handler: {
                     (_)in
@@ -411,7 +412,7 @@ class MainViewController: UIViewController {
                 let verifiableAction = UIAlertAction(title: "Verifiable", style: UIAlertAction.Style.default, handler: {
                     (_)in
                     //do something
-                    sender.isChecked = false
+                    sender.isChecked = true
                     field.needsHashFlags = true
                     field.needZPK = true
 //                    field.zpkValue = ""
@@ -606,7 +607,7 @@ class MainViewController: UIViewController {
             
             self.cancelButton.isHidden = true
             self.shareButton.isHidden = false
-
+//            self.recordsCell.isHideShowAllView = false
             self.testResultsCell.isHideShowAllView = false
         }
 
