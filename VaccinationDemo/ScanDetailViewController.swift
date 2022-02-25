@@ -226,7 +226,12 @@ class ScanDetailViewController: UIViewController {
             if let svln = root.child(withType: .SVLN) {
                 recordsCell.d1SubCell.doseLabel.text = "Dose: D2"
 //                recordsCell.d2SubCell.isHidden = true
-                recordsCell.d2SubCell.lnLabel.removeFromSuperview()
+                recordsCell.d2SubCell.vpLabel.removeFromSuperview()
+//                recordsCell.d2SubCell.lnLabel.removeFromSuperview()
+                
+                
+                
+                
                 if let svln = root.child(withType: .SVLN) {
                     recordsCell.d1SubCell.lnLabel.text = ((svln.value.count == 64) ? "*****":svln.value)
                     
